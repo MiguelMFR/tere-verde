@@ -1,0 +1,70 @@
+/* Estilos compartilhados por todas as páginas */
+.pagina-tematica {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px; /* Ajuste para a navbar */
+}
+
+.filter-section {
+  margin: 20px auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.destaque-section {
+  padding: 3rem 0;
+}
+
+.destaque-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.info-section {
+  padding: 2rem;
+  margin: 3rem 0;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-section h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.info-section ul {
+  line-height: 1.6;
+}
+
+/* Ajuste para o footer */
+.pagina-tematica > footer {
+  margin-top: auto;
+}
+
+/* Adicione ou atualize estas regras */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Para telas menores */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-section {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}
