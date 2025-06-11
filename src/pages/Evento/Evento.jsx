@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Filter from '../../components/Filter/Filter';
 import Footer from '../../components/Footer/Footer';
 import Api from '../../services/Api';
+import NoContentCard from "../../components/NoContentCard/"
 
 const Eventos = () => {
   const eventFilters = [
