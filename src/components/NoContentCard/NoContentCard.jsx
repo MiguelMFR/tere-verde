@@ -1,6 +1,6 @@
-import "./NullCard.css";
+import "./NoContentCard.css";
 
-const NullCard = ({ title }) => {
+const NoContentCard = ({ title }) => {
   return (
     <>
       <div className="card-content">
@@ -12,4 +12,4 @@ const NullCard = ({ title }) => {
     </>
   );
 };
-export default NullCard;
+export default NoContentCard;

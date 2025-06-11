@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import Filter from "../../components/Filter/Filter";
-import "./Cachoeira.css";
-import "../../pages/PaginasTematicas.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
-import Api from "../../services/Api";
+import { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
-import NullCard from "../../components/NullCard/NullCard.jsx";
+import Filter from "../../components/Filter/Filter";
+import Footer from "../../components/Footer/Footer";
 import Map from "../../components/Map/Map";
+import Navbar from "../../components/Navbar/Navbar";
+import NoContentCard from "../../components/NoContentCard/";
+import "../../pages/PaginasTematicas.css";
+import Api from "../../services/Api";
+import "./Cachoeira.css";
 
 const Cachoeiras = () => {
   const waterfallFilters = [
@@ -49,6 +49,7 @@ const Cachoeiras = () => {
       ? cachoeiras
       : cachoeiras.filter((item) => item.dificuldadeAcesso === activeFilter);
 
+  //TODO: add card dedicado
   if (loading) {
     return <div>Carregando...</div>;
   }
@@ -59,7 +60,7 @@ const Cachoeiras = () => {
 
       <div className="main-content">
         {error != null ? ( //linda com o erro de carregamento de itens do db
-          <NullCard title="cachoeiras" />
+          <NoContentCard title="cachoeiras" />
         ) : (
           <>
             <div className="filter-section">
