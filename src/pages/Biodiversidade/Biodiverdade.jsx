@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import './Biodiversidade.css';
 import '../../pages/PaginasTematicas.css'
 import Api from '../../services/Api';
+import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
 
 const Biodiversidade = () => {
   const bioFilters = [

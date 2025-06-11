@@ -4,7 +4,7 @@ import Filter from "../../components/Filter/Filter";
 import Footer from "../../components/Footer/Footer";
 import Map from "../../components/Map/Map";
 import Navbar from "../../components/Navbar/Navbar";
-import NoContentCard from "../../components/NoContentCard/";
+import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx";
 import "../../pages/PaginasTematicas.css";
 import Api from "../../services/Api";
 import "./Cachoeira.css";

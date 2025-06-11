@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import '../../pages/PaginasTematicas.css';
 import Api from '../../services/Api';
 import './Trilha.css';
+import NoContentCard from '../../components/NoContentCard/NoContentCard.jsx';
 
 const Trilhas = () => {
   const trailFilters = [
