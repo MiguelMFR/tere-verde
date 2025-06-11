@@ -8,6 +8,7 @@ import Map from "../../components/Map/Map";
 import Navbar from "../../components/Navbar/Navbar";
 import Api from "../../services/Api";
 import './Home.css';
+import NoContentCard from "../../components/NoContentCard/NoContentCard";
 
 const Home = () => {
   const [trilhas, setTrilhas] = useState([]);
@@ -59,42 +60,46 @@ const Home = () => {
   if (loading) {
     return <div>Carregando...</div>
   };
-  //TODO:Adicionar NoContentCard para as areas que necessitam de requisicoes
   return (
     <div className="home-page">
       <Navbar />
-
       <HeroBanner
         title="Descubra as Belezas Naturais de Teresópolis"
         subtitle="Explore o Circuito Terê Verde e viva experiências inesquecíveis"
         backgroundImage="https://i.pinimg.com/736x/a1/07/eb/a107ebb02304e5a34ddee93f1362c622.jpg"
       />
+      {err != null ? (
+        <NoContentCard title="atrações" />
+      ) : (
+        <>
 
-      <main>
-        <section className="attractions-section container">
-          <h2>Principais Atrações</h2>
-          <div className="attractions-grid">
-            {attractions.map((attraction, index) => (
-              <Card key={index} {...attraction} />
-            ))}
-          </div>
-        </section>
+          <main>
+            <section className="attractions-section container">
+              <h2>Principais Atrações</h2>
+              <div className="attractions-grid">
+                {attractions.map((attraction, index) => (
+                  <Card key={index} {...attraction} />
+                ))}
+              </div>
+            </section>
 
-        <FeatureSection
-          title="Biodiversidade Única"
-          description="Teresópolis abriga uma rica diversidade de flora e fauna em suas unidades de conservação."
-          image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
-          reverse={false}
-        />
+            {/*TODO:Fazer com que as requisicoes sejam feitas da API */}
+            <FeatureSection
+              title="Biodiversidade Única"
+              description="Teresópolis abriga uma rica diversidade de flora e fauna em suas unidades de conservação."
+              image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
+              reverse={false}
+            />
 
-        <FeatureSection
-          title="Eventos de Ecoturismo"
-          description="Participe de nossos eventos que promovem o contato consciente com a natureza."
-          image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
-          reverse={true}
-        />
-      </main>
-
+            <FeatureSection
+              title="Eventos de Ecoturismo"
+              description="Participe de nossos eventos que promovem o contato consciente com a natureza."
+              image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
+              reverse={true}
+            />
+          </main>
+        </>
+      )}
       <Map />
 
       <Footer />
