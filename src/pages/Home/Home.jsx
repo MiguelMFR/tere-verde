@@ -12,6 +12,8 @@ import './Home.css';
 const Home = () => {
   const [trilhas, setTrilhas] = useState([]);
   const [cachoeiras, setCachoeiras] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState(null);
 
   const fetchTrilhas = async () => {
     try {
@@ -19,6 +21,9 @@ const Home = () => {
       if (response.data) setTrilhas(response.data);
     } catch (error) {
       console.error("Erro ao carregar trilhas:", error);
+      setErr("Erro ao carregar a pagina. Tente novamente mais tarde.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -51,16 +56,20 @@ const Home = () => {
     }
   ];
 
+  if (loading) {
+    return <div>Carregando...</div>
+  };
+  //TODO:Adicionar NoContentCard para as areas que necessitam de requisicoes
   return (
     <div className="home-page">
       <Navbar />
-      
-      <HeroBanner 
-        title="Descubra as Belezas Naturais de Teresópolis" 
-        subtitle="Explore o Circuito Terê Verde e viva experiências inesquecíveis" 
+
+      <HeroBanner
+        title="Descubra as Belezas Naturais de Teresópolis"
+        subtitle="Explore o Circuito Terê Verde e viva experiências inesquecíveis"
         backgroundImage="https://i.pinimg.com/736x/a1/07/eb/a107ebb02304e5a34ddee93f1362c622.jpg"
       />
-      
+
       <main>
         <section className="attractions-section container">
           <h2>Principais Atrações</h2>
@@ -70,15 +79,15 @@ const Home = () => {
             ))}
           </div>
         </section>
-        
-        <FeatureSection 
+
+        <FeatureSection
           title="Biodiversidade Única"
           description="Teresópolis abriga uma rica diversidade de flora e fauna em suas unidades de conservação."
           image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
           reverse={false}
         />
-        
-        <FeatureSection 
+
+        <FeatureSection
           title="Eventos de Ecoturismo"
           description="Participe de nossos eventos que promovem o contato consciente com a natureza."
           image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
@@ -87,7 +96,7 @@ const Home = () => {
       </main>
 
       <Map />
-      
+
       <Footer />
     </div>
   );
