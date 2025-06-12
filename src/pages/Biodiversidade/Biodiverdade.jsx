@@ -51,8 +51,6 @@ const Biodiversidade = () => {
 
   return (
     <div className="pagina-tematica biodiversidade-page">
-      <Navbar />
-
       <div className="main-content">
         {err != null ? (
           <NoContentCard title="biodiversidade" />
@@ -90,9 +88,8 @@ const Biodiversidade = () => {
             <li>Denuncie caça ou extração ilegal</li>
           </ul>
         </section>
+        {/*TODO:Adicionar Mapa*/}
       </div>
-
-      <Footer />
     </div>
   );
 };

@@ -56,8 +56,6 @@ const Cachoeiras = () => {
 
   return (
     <div className="pagina-tematica cachoeiras-page">
-      <Navbar />
-
       <div className="main-content">
         {error != null ? ( //linda com o erro de carregamento de itens do db
           <NoContentCard title="cachoeiras" />
@@ -99,8 +97,6 @@ const Cachoeiras = () => {
       </div>
 
       <Map location={cachoeiras[0]} />
-
-      <Footer />
     </div>
   );
 };

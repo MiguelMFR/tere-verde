@@ -6,7 +6,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  // Verifica se a rota atual corresponde ao link
   const isActive = (path) => {
     return location.pathname === path;
   };
@@ -17,40 +16,40 @@ const Navbar = () => {
         <Link to="/" className="navbar-logo">
           <img src="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp" alt="Circuito Terê Verde" />
         </Link>
-        
+
         <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={`nav-item ${isActive('/') ? 'active' : ''}`}
           >
             Início
           </Link>
-          <Link 
-            to="/trilhas" 
+          <Link
+            to="/trilhas"
             className={`nav-item ${isActive('/trilhas') ? 'active' : ''}`}
           >
             Trilhas
           </Link>
-          <Link 
-            to="/cachoeiras" 
+          <Link
+            to="/cachoeiras"
             className={`nav-item ${isActive('/cachoeiras') ? 'active' : ''}`}
           >
             Cachoeiras
           </Link>
-          <Link 
-            to="/biodiversidade" 
+          <Link
+            to="/biodiversidade"
             className={`nav-item ${isActive('/biodiversidade') ? 'active' : ''}`}
           >
             Biodiversidade
           </Link>
-          <Link 
-            to="/eventos" 
+          <Link
+            to="/eventos"
             className={`nav-item ${isActive('/eventos') ? 'active' : ''}`}
           >
             Eventos
           </Link>
         </div>
-        
+
         <div className="mobile-menu" onClick={() => setIsOpen(!isOpen)}>
           <span className={`bar ${isOpen ? 'open' : ''}`}></span>
           <span className={`bar ${isOpen ? 'open' : ''}`}></span>
@@ -62,3 +61,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

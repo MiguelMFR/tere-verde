@@ -53,8 +53,6 @@ const Trilhas = () => {
 
   return (
     <div className="pagina-tematica trilhas-page">
-      <Navbar />
-
       <div className="main-content">
         {err != null ? (
           <NoContentCard title="trilhas" />
@@ -92,10 +90,8 @@ const Trilhas = () => {
             <li>Respeite as trilhas sinalizadas</li>
           </ul>
         </section>
-
+        {/*TODO:Adicionar Mapa*/}
       </div>
-
-      <Footer />
     </div>
   );
 };

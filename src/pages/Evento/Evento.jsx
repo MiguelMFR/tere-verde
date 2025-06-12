@@ -51,8 +51,6 @@ const Eventos = () => {
 
   return (
     <div className="pagina-tematica eventos-page">
-      <Navbar />
-
       <div className="main-content">
         {err != null ? (
           <NoContentCard title="eventos" />
@@ -92,8 +90,6 @@ const Eventos = () => {
         </section>
 
       </div>
-
-      <Footer />
     </div>
   );
 };
