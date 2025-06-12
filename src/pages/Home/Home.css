@@ -5,7 +5,7 @@
   min-height: 100vh;
 }
 
-.home-page main {
+.home-page .main-content {
   flex: 1;
 }
 
@@ -33,7 +33,7 @@
   .attractions-section {
     padding: 3rem 1rem;
   }
-  
+
   .attractions-section h2 {
     font-size: 1.8rem;
     margin-bottom: 2rem;

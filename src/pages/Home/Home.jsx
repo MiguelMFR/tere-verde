@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import Card from "../../components/Card/Card";
 import FeatureSection from "../../components/FeatureSection/FeatureSection";
-import Footer from "../../components/Footer/Footer";
 import Gallery from "../../components/Gallery/Gallery";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import Map from "../../components/Map/Map";
-import Navbar from "../../components/Navbar/Navbar";
 import Api from "../../services/Api";
 import './Home.css';
 import NoContentCard from "../../components/NoContentCard/NoContentCard";
@@ -62,7 +60,6 @@ const Home = () => {
   };
   return (
     <div className="home-page">
-      <Navbar />
       <HeroBanner
         title="Descubra as Belezas Naturais de Teresópolis"
         subtitle="Explore o Circuito Terê Verde e viva experiências inesquecíveis"
@@ -72,8 +69,7 @@ const Home = () => {
         <NoContentCard title="atrações" />
       ) : (
         <>
-
-          <main>
+          <div className="main-content">
             <section className="attractions-section container">
               <h2>Principais Atrações</h2>
               <div className="attractions-grid">
@@ -97,12 +93,11 @@ const Home = () => {
               image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
               reverse={true}
             />
-          </main>
+          </div>
         </>
       )}
       <Map />
 
-      <Footer />
     </div>
   );
 };

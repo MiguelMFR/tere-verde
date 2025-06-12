@@ -1,9 +1,12 @@
-import './App.css';
 import RoutesConfig from './routes/Routes';
 
 function App() {
   return (
-      <RoutesConfig />
+    <>
+      <main className='content' id="main-content">
+        <RoutesConfig />
+      </main>
+    </>
   );
 }
 
