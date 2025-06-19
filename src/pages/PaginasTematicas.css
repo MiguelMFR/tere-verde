@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 80px; /* Ajuste para a navbar */
+  padding-top: 80px;
+  /* Ajuste para a navbar */
 }
 
 .filter-section {
@@ -42,7 +43,7 @@
 }
 
 /* Ajuste para o footer */
-.pagina-tematica > footer {
+.pagina-tematica>footer {
   margin-top: auto;
 }
 
@@ -62,7 +63,7 @@
   .card-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .info-section {
     margin: 2rem 1rem;
     padding: 1.5rem;

@@ -7,6 +7,7 @@ import '../../pages/PaginasTematicas.css';
 import Api from '../../services/Api';
 import './Trilha.css';
 import NoContentCard from '../../components/NoContentCard/NoContentCard.jsx';
+import Map from '../../components/Map/Map';
 
 const Trilhas = () => {
   const trailFilters = [
@@ -90,7 +91,7 @@ const Trilhas = () => {
             <li>Respeite as trilhas sinalizadas</li>
           </ul>
         </section>
-        {/*TODO:Adicionar Mapa*/}
+        <Map />
       </div>
     </div>
   );
