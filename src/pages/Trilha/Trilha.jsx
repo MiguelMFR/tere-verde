@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import Filter from '../../components/Filter/Filter';
-import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
-import './Trilha.css';
+import Navbar from '../../components/Navbar/Navbar';
 import '../../pages/PaginasTematicas.css';
 import Api from '../../services/Api';
+import './Trilha.css';
+import NoContentCard from '../../components/NoContentCard/NoContentCard.jsx';
 
 const Trilhas = () => {
   const trailFilters = [
@@ -16,7 +17,8 @@ const Trilhas = () => {
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
-
+  const [loading, setLoading] = useState("true");
+  const [err, setErr] = useState(null);
   const [trilhas, setTrilhas] = useState([]);
 
   const fetchTrilhas = async () => {
@@ -25,6 +27,9 @@ const Trilhas = () => {
       if (response.data) setTrilhas(response.data);
     } catch (error) {
       console.error("Erro ao carregar trilhas:", error);
+      setErr("Erro ao carregar as trilhas. Tente novamente mais tarde.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -37,51 +42,56 @@ const Trilhas = () => {
     setActiveFilter(filterValue);
   };
 
-  const filteredItems = activeFilter === 'all' 
-    ? trilhas 
+  const filteredItems = activeFilter === 'all'
+    ? trilhas
     : trilhas.filter(item => item.difficulty === activeFilter);
+
+  //TODO: fazer card dedicado para o carregamento
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <div className="pagina-tematica trilhas-page">
-      <Navbar />
-
       <div className="main-content">
-
-      <div className="filter-section">
-        <Filter
-          filters={trailFilters}
-          onFilterChange={handleFilterChange}
-        />
-      </div>
-
-      <section className="container destaque-section">
-        <h2>Principais Trilhas</h2>
-        <div className="card-grid">
-            {filteredItems.map((trilha) => (
-              <Card 
-                key={trilha.id}
-                image={trilha.imagem}
-                title={trilha.nome}
-                description={trilha.descricao}
-                link={`/trilhas/${trilha.id}`}
+        {err != null ? (
+          <NoContentCard title="trilhas" />
+        ) : (
+          <>
+            <div className="filter-section">
+              <Filter
+                filters={trailFilters}
+                onFilterChange={handleFilterChange}
               />
-            ))}
-        </div>
-      </section>
+            </div>
 
-      <section className="info-section">
-        <h3>Dicas para Trilheiros</h3>
-        <ul>
-          <li>Leve água e snacks energéticos</li>
-          <li>Use calçados adequados</li>
-          <li>Verifique a previsão do tempo</li>
-          <li>Respeite as trilhas sinalizadas</li>
-        </ul>
-      </section>
-
+            <section className="container destaque-section">
+              <h2>Principais Trilhas</h2>
+              <div className="card-grid">
+                {filteredItems.map((trilha) => (
+                  <Card
+                    key={trilha.id}
+                    image={trilha.imagem}
+                    title={trilha.nome}
+                    description={trilha.descricao}
+                    link={`/trilhas/${trilha.id}`}
+                  />
+                ))}
+              </div>
+            </section>
+          </>
+        )}
+        <section className="info-section">
+          <h3>Dicas para Trilheiros</h3>
+          <ul>
+            <li>Leve água e snacks energéticos</li>
+            <li>Use calçados adequados</li>
+            <li>Verifique a previsão do tempo</li>
+            <li>Respeite as trilhas sinalizadas</li>
+          </ul>
+        </section>
+        {/*TODO:Adicionar Mapa*/}
       </div>
-
-      <Footer />
     </div>
   );
 };

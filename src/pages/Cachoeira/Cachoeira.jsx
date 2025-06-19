@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import Filter from '../../components/Filter/Filter';
-import './Cachoeira.css';
-import '../../pages/PaginasTematicas.css';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
-import Api from '../../services/Api';
-import Card from '../../components/Card/Card';
-import Map from '../../components/Map/Map';
+import { useEffect, useState } from "react";
+import Card from "../../components/Card/Card";
+import Filter from "../../components/Filter/Filter";
+import Footer from "../../components/Footer/Footer";
+import Map from "../../components/Map/Map";
+import Navbar from "../../components/Navbar/Navbar";
+import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx";
+import "../../pages/PaginasTematicas.css";
+import Api from "../../services/Api";
+import "./Cachoeira.css";
 
 const Cachoeiras = () => {
   const waterfallFilters = [
-    { value: 'all', label: 'Todas' },
-    { value: 'fácil', label: 'Acesso Fácil' },
-    { value: 'médio', label: 'Caminhada Média' },
-    { value: 'difícil', label: 'Aventureiras' }
+    { value: "all", label: "Todas" },
+    { value: "fácil", label: "Acesso Fácil" },
+    { value: "médio", label: "Caminhada Média" },
+    { value: "difícil", label: "Aventureiras" },
   ];
 
   const [cachoeiras, setCachoeiras] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const fetchCachoeiras = async () => {
     try {
@@ -43,44 +44,46 @@ const Cachoeiras = () => {
     setActiveFilter(filterValue);
   };
 
-  const filteredItems = activeFilter === 'all' 
-    ? cachoeiras 
-    : cachoeiras.filter(item => item.dificuldadeAcesso === activeFilter);
+  const filteredItems =
+    activeFilter === "all"
+      ? cachoeiras
+      : cachoeiras.filter((item) => item.dificuldadeAcesso === activeFilter);
 
+  //TODO: add card dedicado
   if (loading) {
     return <div>Carregando...</div>;
   }
 
-  if (error) {
-    return <div>{error}</div>;
-  }
-
   return (
     <div className="pagina-tematica cachoeiras-page">
-      <Navbar/>
-
       <div className="main-content">
-        <div className="filter-section">
-          <Filter 
-            filters={waterfallFilters} 
-            onFilterChange={handleFilterChange}
-          />
-        </div>
-
-        <section className="container destaque-section">
-          <h2>Melhores Cachoeiras</h2>
-          <div className="card-grid">
-            {filteredItems.map((cachoeira) => (
-              <Card 
-                key={cachoeira.id}
-                image={cachoeira.imagem}
-                title={cachoeira.nome}
-                description={cachoeira.descricao}
-                link={`/cachoeiras/${cachoeira.id}`}
+        {error != null ? ( //linda com o erro de carregamento de itens do db
+          <NoContentCard title="cachoeiras" />
+        ) : (
+          <>
+            <div className="filter-section">
+              <Filter
+                filters={waterfallFilters}
+                onFilterChange={handleFilterChange}
               />
-            ))}
-          </div>
-        </section>
+            </div>
+
+            <section className="container destaque-section">
+              <h2>Melhores Cachoeiras</h2>
+              <div className="card-grid">
+                {filteredItems.map((cachoeira) => (
+                  <Card
+                    key={cachoeira.id}
+                    image={cachoeira.imagem}
+                    title={cachoeira.nome}
+                    description={cachoeira.descricao}
+                    link={`/cachoeiras/${cachoeira.id}`}
+                  />
+                ))}
+              </div>
+            </section>
+          </>
+        )}
 
         <section className="info-section">
           <h3>Segurança em Cachoeiras</h3>
@@ -94,8 +97,6 @@ const Cachoeiras = () => {
       </div>
 
       <Map location={cachoeiras[0]} />
-
-      <Footer/>
     </div>
   );
 };
