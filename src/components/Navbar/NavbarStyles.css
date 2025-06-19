@@ -1,4 +1,3 @@
-/* Navbar.css */
 .navbar {
   position: fixed;
   top: 0;
@@ -48,19 +47,16 @@
   font-size: 1.05rem;
   text-decoration: none;
   transition: color 0.3s ease;
-  padding: 0.5rem 0;
 }
 
 .nav-item.active {
-  color: #4CAF50; /* Cor verde para o item ativo - ajuste conforme seu tema */
+  color: #4CAF50;
   font-weight: bold;
 }
 
-/* Opcional: adicionar um indicador visual */
 .nav-item.active::after {
   content: '';
   position: absolute;
-  bottom: -5px;
   left: 0;
   width: 100%;
   height: 2px;
@@ -69,8 +65,13 @@
 }
 
 @keyframes underline {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 .nav-item:hover {
@@ -92,7 +93,6 @@
   width: 100%;
 }
 
-/* Menu Mobile */
 .mobile-menu {
   display: none;
   cursor: pointer;
