@@ -7,6 +7,7 @@ import Filter from '../../components/Filter/Filter';
 import Footer from '../../components/Footer/Footer';
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
+import Modal from '../../components/Modal/Modal';
 
 const Eventos = () => {
   const eventFilters = [
@@ -20,6 +21,7 @@ const Eventos = () => {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   const [eventos, setEventos] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   const fetchEventos = async () => {
     try {
@@ -72,7 +74,7 @@ const Eventos = () => {
                     image={evento.imagem}
                     title={evento.nome}
                     description={evento.descricao}
-                    link={`/eventos/${evento.id}`}
+                    onClick={() => setSelectedEvent(evento)}
                   />
                 ))}
               </div>
@@ -90,6 +92,24 @@ const Eventos = () => {
         </section>
 
       </div>
+      
+      <Modal isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
+        {selectedEvent && (
+          <div>
+            <h2>{selectedEvent.nome}</h2>
+            <img
+              src={selectedEvent.imagem}
+              alt={selectedEvent.nome}
+              style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
+            />
+            <p><strong>Descrição:</strong> {selectedEvent.descricao}</p>
+            <p><strong>Tipo:</strong> {selectedEvent.tipo}</p>
+            <p><strong>Data:</strong> {selectedEvent.data}</p>
+            <p><strong>Local:</strong> {selectedEvent.local}</p>
+          </div>
+        )}
+      </Modal>
+
     </div>
   );
 };

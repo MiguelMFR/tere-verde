@@ -7,6 +7,7 @@ import './Biodiversidade.css';
 import '../../pages/PaginasTematicas.css'
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
+import Modal from '../../components/Modal/Modal.jsx';
 
 const Biodiversidade = () => {
   const bioFilters = [
@@ -20,6 +21,7 @@ const Biodiversidade = () => {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   const [biodiversidade, setBiodiversidade] = useState([]);
+  const [selectedBiodiversidade, setSelectedBiodiversidade] = useState(null);
 
   const fetchBiodiversidades = async () => {
     try {
@@ -72,7 +74,7 @@ const Biodiversidade = () => {
                     image={biodiversidade.imagem}
                     title={biodiversidade.nome}
                     description={biodiversidade.descricao}
-                    link={`/biodiversidades/${biodiversidade.id}`}
+                    onClick={() => setSelectedBiodiversidade(biodiversidade)}
                   />
                 ))}
               </div>
@@ -90,6 +92,23 @@ const Biodiversidade = () => {
         </section>
         {/*TODO:Adicionar Mapa*/}
       </div>
+
+      <Modal isOpen={selectedBiodiversidade !== null} onClose={() => setSelectedBiodiversidade(null)}>
+        {selectedBiodiversidade && (
+          <div>
+            <h2>{selectedBiodiversidade.nome}</h2>
+            <img
+              src={selectedBiodiversidade.imagem}
+              alt={selectedBiodiversidade.nome}
+              style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
+            />
+            <p><strong>Descrição:</strong> {selectedBiodiversidade.descricao}</p>
+            <p><strong>Tipo:</strong> {selectedBiodiversidade.tipo}</p>
+            <p><strong>Habitat:</strong> {selectedBiodiversidade.habitat}</p>
+          </div>
+        )}
+      </Modal>
+
     </div>
   );
 };

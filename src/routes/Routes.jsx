@@ -6,7 +6,7 @@ import Cachoeiras from "../pages/Cachoeira/Cachoeira";
 import Eventos from "../pages/Evento/Evento";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import Adm from "../pages/Adm";
+// import Adm from "../pages/Adm";
 import Login from "../pages/Login/Login";
 
 const RoutesConfig = () => {
@@ -20,7 +20,7 @@ const RoutesConfig = () => {
         <Route path="/cachoeiras" element={<Cachoeiras />} />
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/adm" element={<Adm />} />
+        {/* <Route path="/adm" element={<Adm />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

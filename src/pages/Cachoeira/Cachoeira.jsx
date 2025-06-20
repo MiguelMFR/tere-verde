@@ -8,6 +8,7 @@ import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx";
 import "../../pages/PaginasTematicas.css";
 import Api from "../../services/Api";
 import "./Cachoeira.css";
+import Modal from "../../components/Modal/Modal.jsx";
 
 const Cachoeiras = () => {
   const waterfallFilters = [
@@ -21,6 +22,7 @@ const Cachoeiras = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
+  const [selectedCachoeira, setSelectedCachoeira] = useState(null);
 
   const fetchCachoeiras = async () => {
     try {
@@ -77,7 +79,7 @@ const Cachoeiras = () => {
                     image={cachoeira.imagem}
                     title={cachoeira.nome}
                     description={cachoeira.descricao}
-                    link={`/cachoeiras/${cachoeira.id}`}
+                    onClick={() => setSelectedCachoeira(cachoeira)}
                   />
                 ))}
               </div>
@@ -96,7 +98,21 @@ const Cachoeiras = () => {
         </section>
       </div>
 
-      <Map location={cachoeiras[0]} />
+      <Modal isOpen={selectedCachoeira !== null} onClose={() => setSelectedCachoeira(null)}>
+        {selectedCachoeira && (
+          <div>
+            <h2>{selectedCachoeira.nome}</h2>
+            <img
+              src={selectedCachoeira.imagem}
+              alt={selectedCachoeira.nome}
+              style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
+            />
+            <p><strong>Descrição:</strong> {selectedCachoeira.descricao}</p>
+            <p><strong>Dificuldade de acesso:</strong> {selectedCachoeira.dificuldadeAcesso}</p>
+            <p><strong>Segurança:</strong> {selectedCachoeira.seguranca.join(', ')}</p>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };
