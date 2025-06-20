@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Site Terê Verde
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?logo=react&logoColor=white)
+![Json-Server](https://img.shields.io/badge/JSON--Server-0.17.4-FF4040?logo=json&logoColor=white)
 
-## Available Scripts
+O site **Terê Verde** tem como objetivo promover as atrações naturais de Teresópolis, destacando sua rica biodiversidade e as opções de ecoturismo disponíveis na região.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📌 Como Usar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Esta seção fornece instruções detalhadas para configurar e executar a aplicação.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Executando a Aplicação
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 💻 Configurando o JSON Server (API)
 
-### `npm run build`
+1. Crie uma pasta chamada `api` onde desejar no seu computador.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Abra o terminal na pasta `api` e execute o comando:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```cmd
+json-server --watch db.json --port 3001
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Crie um arquivo chamado `db.json` dentro da pasta `api` e adicione a seguinte estrutura (exemplo):
 
-### `npm run eject`
+[db.json](db.json)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🖥️ Executando o site
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Instale as dependências:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```cmd
+npm install
+```
 
-## Learn More
+2. Inicie o site:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```cmd
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🗺️ Estrutura do Banco de Dados (`db.json`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Trilhas:** Nome, dificuldade, duração, distância, altitude, descrição, imagem, entre outros.
 
-### Analyzing the Bundle Size
+- **Cachoeiras:** Nome, dificuldade de acesso, altura, possui piscina, descrição, imagem, etc.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Biodiversidade:** Espécies da fauna e flora local, incluindo nome, tipo (ave, mamífero, planta, etc.), descrição, imagem, entre outros.
 
-### Making a Progressive Web App
+- **Eventos:** Nome do evento, data inicial, data final, local, tipo, preço, descrição, etc.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 💡 Funcionalidades
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Visualização de trilhas ecológicas com informações como dificuldade, distância e altitude.
 
-### Deployment
+- Listagem de cachoeiras da região, com dados úteis para visitantes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Catálogo de animais e plantas da biodiversidade local.
 
-### `npm run build` fails to minify
+- Página responsiva, com informações dinâmicas obtidas da API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Página de administração, onde usuários autorizados podem **cadastrar, editar e deletar** informações.
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT.
