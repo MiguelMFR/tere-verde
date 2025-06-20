@@ -12,7 +12,7 @@ const Trilhas = () => {
     { value: 'all', label: 'Todas' },
     { value: 'easy', label: 'Iniciantes' },
     { value: 'medium', label: 'Intermediárias' },
-    { value: 'hard', label: 'Avançadas' }
+    { value: 'high', label: 'Avançadas' }
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
@@ -26,7 +26,7 @@ const Trilhas = () => {
       if (response.data) setTrilhas(response.data);
     } catch (error) {
       console.error("Erro ao carregar trilhas:", error);
-      setErr("Erro ao carregar as trilhas. Tente novamente mais tarde.");
+      setErr(true);
     } finally {
       setLoading(false);
     }
@@ -43,7 +43,7 @@ const Trilhas = () => {
 
   const filteredItems = activeFilter === 'all'
     ? trilhas
-    : trilhas.filter(item => item.difficulty === activeFilter);
+    : trilhas.filter(item => item.dificuldade === activeFilter);
 
   //TODO: fazer card dedicado para o carregamento
   if (loading) {
@@ -53,7 +53,7 @@ const Trilhas = () => {
   return (
     <div className="pagina-tematica trilhas-page">
       <div className="main-content">
-        {err != null ? (
+        {err ? (
           <NoContentCard title="trilhas" />
         ) : (
           <>
