@@ -21,7 +21,6 @@
 
 .info-section {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-left: 4px solid var(--cor-primaria);
   padding: 2rem;
   margin: 3rem;
   border-radius: 8px;
@@ -69,7 +68,6 @@
 }
 
 .card {
-  border-top: 3px solid var(--cor-destaque);
   transition: transform 0.3s;
 }
 

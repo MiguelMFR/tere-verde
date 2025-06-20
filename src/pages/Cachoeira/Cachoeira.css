@@ -1,5 +1,6 @@
 .cachoeiras-page .info-section {
   background: linear-gradient(to right, var(--background-light), #b3e5fc);
+  border-left: 4px solid #b3e5fc;
 }
 
 .cachoeiras-page .info-section li::before {

@@ -31,19 +31,19 @@
 
 .feature-section h2 {
   font-size: 2.2rem;
-  color: #2c3e50;
+  color: var(--dark-text);
   margin-bottom: 1.5rem;
 }
 
 .feature-section p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #555;
+  color: var(--light-text);
   margin-bottom: 2rem;
 }
 
 .feature-button {
-  background-color: #27ae60;
+  background-color: var(--button-background);
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -54,23 +54,23 @@
 }
 
 .feature-button:hover {
-  background-color: #2ecc71;
+  background-color: var(--button-hover);
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
 }
 
-/* Layout reverso */
 .reverse {
   flex-direction: row-reverse;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
-  .feature-section, .reverse {
+
+  .feature-section,
+  .reverse {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .feature-section h2 {
     font-size: 1.8rem;
   }

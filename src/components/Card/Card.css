@@ -38,11 +38,11 @@
 .card-content h3 {
   font-size: 1.4rem;
   margin-bottom: 0.8rem;
-  color: #2c3e50;
+  color: var(--dark-text);
 }
 
 .card-content p {
-  color: #7f8c8d;
+  color: var(--light-text);
   margin-bottom: 1.5rem;
   line-height: 1.5;
   flex-grow: 1;
@@ -51,7 +51,7 @@
 .card-button {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background-color: #27ae60;
+  background-color: var(--button-background);
   color: white;
   border-radius: 50px;
   font-weight: 600;
@@ -62,7 +62,7 @@
 }
 
 .card-button:hover {
-  background-color: #2ecc71;
+  background-color: var(--button-hover);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
 }
