@@ -4,8 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
+  background-color: white;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -42,7 +41,7 @@
 
 .nav-item {
   position: relative;
-  color: #2c3e50;
+  color: var(--dark-text);
   font-weight: 600;
   font-size: 1.05rem;
   text-decoration: none;
@@ -50,7 +49,7 @@
 }
 
 .nav-item.active {
-  color: #4CAF50;
+  color: var(--primary-hover);
   font-weight: bold;
 }
 
@@ -60,7 +59,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #4CAF50;
+  background-color: var(--primary-hover);
   animation: underline 0.3s ease;
 }
 
@@ -75,7 +74,7 @@
 }
 
 .nav-item:hover {
-  color: #27ae60;
+  color: var(--primary-color);
 }
 
 .nav-item::after {
@@ -85,7 +84,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #27ae60;
+  background-color: var(--primary-color);
   transition: width 0.3s ease;
 }
 

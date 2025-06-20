@@ -1,46 +1,7 @@
-/* Biodiversidade.css - Estilo específico para a página de biodiversidade */
-
-.biodiversidade-page {
-  --cor-primaria: #689f38; /* Verde vida */
-  --cor-secundaria: #8bc34a;
-  --cor-destaque: #9ccc65;
-}
-
-.biodiversidade-page .hero-banner {
-  background-blend-mode: overlay;
-  background-color: rgba(104, 159, 56, 0.15);
-}
-
 .biodiversidade-page .info-section {
-  background: linear-gradient(to right, #f1f8e9, #dcedc8);
-  border-left: 4px solid var(--cor-primaria);
-}
-
-.biodiversidade-page .card {
-  border-top: 3px solid var(--cor-destaque);
-  transition: transform 0.3s;
-}
-
-.biodiversidade-page .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(140, 195, 74, 0.2);
-}
-
-.biodiversidade-page .gallery-title {
-  color: var(--cor-primaria);
-}
-
-.biodiversidade-page .map-legend .icon.park {
-  background-color: var(--cor-primaria);
-}
-
-/* Estilo para lista de conservação */
-.biodiversidade-page .info-section ul {
-  list-style-type: none;
-  padding-left: 0;
+  background: linear-gradient(to right, var(--background-light), #dcedc8);
 }
 
 .biodiversidade-page .info-section li::before {
   content: "🌱";
-  margin-right: 8px;
 }

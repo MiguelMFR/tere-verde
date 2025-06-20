@@ -54,15 +54,15 @@ const Biodiversidade = () => {
           <NoContentCard title="biodiversidade" />
         ) : (
           <>
-            <div className="filter-section">
-              <Filter
-                filters={bioFilters}
-                onFilterChange={handleFilterChange}
-              />
-            </div>
 
             <section className="container destaque-section">
               <h2>Espécies Destaque</h2>
+              <div className="filter-section">
+                <Filter
+                  filters={bioFilters}
+                  onFilterChange={handleFilterChange}
+                />
+              </div>
               <div className="card-grid">
                 {filteredItems.map((biodiversidade) => (
                   <Card

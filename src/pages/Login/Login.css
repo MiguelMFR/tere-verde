@@ -5,15 +5,27 @@
   margin: calc(50vh - 200px) auto;
   padding: 20px;
   width: 43vh;
-  background-color: #2c3e50;
+  background-color: var(--background-color);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   color: white;
   font-weight: bold;
 }
 
+.logo {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5vh;
+}
+
+.login-wrapper img {
+  height: 80px;
+}
+
 .login-wrapper h2 {
   font-size: 5vh;
+  align-content: center;
+  text-transform: uppercase;
   padding: 2vh;
   margin: 0;
 }
@@ -21,7 +33,7 @@
 .login-wrapper .input {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--light-text);
   border-radius: 5px;
   box-sizing: border-box;
   text-transform: none;
@@ -34,11 +46,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: 0;
 }
 
 .login-wrapper p:hover {
-  color: blue;
+  color: var(--light-text);
 }
 
 .login-form {
@@ -50,7 +61,7 @@
 }
 
 .error-message {
-  color: #e74c3c;
+  color: var(--error-color);
   font-size: 0.8rem;
   margin-top: -0.5vh;
   margin-bottom: 0.5vh;
@@ -59,7 +70,7 @@
 }
 
 .submit-button {
-  background-color: #27ae60;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   padding: 1vh 2vh;
@@ -72,11 +83,11 @@
 }
 
 .submit-button:hover {
-  background-color: #229954;
+  background-color: var(--primary-hover);
 }
 
 .submit-button:disabled {
-  background-color: #95a5a6;
+  background-color: var(--light-text);
   cursor: not-allowed;
 }
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { InputCPF, InputSenha } from "../../components/Input/Input";
 import { cpf as cpfValidator } from "cpf-cnpj-validator";
 import "./Login.css"
+import logo from "../../assets/images/dedo-de-deus.png"
 
 const Login = () => {
   const [cpf, setCpf] = useState("");
@@ -42,7 +43,10 @@ const Login = () => {
     <>
       {/*TODO:Adicionar logo da tereverde*/}
       <div className="login-wrapper">
-        <h2>Login</h2>
+        <div className="logo">
+          <img src={logo} alt="Circuito Terê Verde" />
+          <h2>Login</h2>
+        </div>
         <form className="login-form" onSubmit={handleSubmit}>
           <InputCPF
             className="input"

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './NavbarStyles.css';
+import logo from "../../assets/images/logo-tere-verde.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <img src="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp" alt="Circuito Terê Verde" />
+          <img src={logo} alt="Circuito Terê Verde" />
         </Link>
 
         <div className={`nav-menu ${isOpen ? 'active' : ''}`}>

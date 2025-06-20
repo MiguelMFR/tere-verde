@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import './Evento.css';
 import '../../pages/PaginasTematicas.css'
-import Navbar from '../../components/Navbar/Navbar';
 import Filter from '../../components/Filter/Filter';
-import Footer from '../../components/Footer/Footer';
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
 
@@ -56,15 +54,14 @@ const Eventos = () => {
           <NoContentCard title="eventos" />
         ) : (
           <>
-            <div className="filter-section">
-              <Filter
-                filters={eventFilters}
-                onFilterChange={handleFilterChange}
-              />
-            </div>
-
             <section className="container destaque-section">
               <h2>Próximos Eventos</h2>
+              <div className="filter-section">
+                <Filter
+                  filters={eventFilters}
+                  onFilterChange={handleFilterChange}
+                />
+              </div>
               <div className="card-grid">
                 {filteredItems.map((evento) => (
                   <Card
@@ -83,9 +80,9 @@ const Eventos = () => {
           <h3>Como Participar</h3>
           <ul>
             <li>Eventos gratuitos: apenas chegar</li>
-            <li>Eventos pagos: inscrição no site</li>
+            <li>Eventos pagos: inscrições no site</li>
             <li>Leve documentos para credenciamento</li>
-            <li>Chegue com 30min de antecedência</li>
+            <li>Chegue com pelo menos 30 minutos de antecedência</li>
           </ul>
         </section>
 

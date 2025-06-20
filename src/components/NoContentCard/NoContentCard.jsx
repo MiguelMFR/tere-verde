@@ -3,7 +3,7 @@ import "./NoContentCard.css";
 const NoContentCard = ({ title }) => {
   return (
     <>
-      <div className="card-content">
+      <div className="no-content-card-content">
         <h2>Não há nenhum registro de {title} existente no momento.</h2>
         <p>
           Caso tenha ocorrido algum erro, recarregue a página e tente novamente.

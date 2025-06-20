@@ -59,15 +59,14 @@ const Trilhas = () => {
           <NoContentCard title="trilhas" />
         ) : (
           <>
-            <div className="filter-section">
-              <Filter
-                filters={trailFilters}
-                onFilterChange={handleFilterChange}
-              />
-            </div>
-
             <section className="container destaque-section">
               <h2>Principais Trilhas</h2>
+              <div className="filter-section">
+                <Filter
+                  filters={trailFilters}
+                  onFilterChange={handleFilterChange}
+                />
+              </div>
               <div className="card-grid">
                 {filteredItems.map((trilha) => (
                   <Card
