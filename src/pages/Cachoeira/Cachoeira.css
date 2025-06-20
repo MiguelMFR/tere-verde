@@ -1,40 +1,8 @@
-/* Cachoeiras.css - Estilo específico para a página de cachoeiras */
-
-.cachoeiras-page {
-  --cor-primaria: #0288d1;
-  --cor-secundaria: #039be5;
-  --cor-destaque: #03a9f4;
-  padding-top: 80px;
-}
-
-.cachoeiras-page .hero-banner {
-  background-blend-mode: soft-light;
-  background-color: rgba(2, 136, 209, 0.2);
-}
-
 .cachoeiras-page .info-section {
-  background: linear-gradient(to right, #e1f5fe, #b3e5fc);
-  border-left: 4px solid var(--cor-primaria);
+  background: linear-gradient(to right, var(--background-light), #b3e5fc);
+  border-left: 4px solid #b3e5fc;
 }
 
-.cachoeiras-page .card {
-  border-top: 3px solid var(--cor-destaque);
-}
-
-.cachoeiras-page .card:hover {
-  box-shadow: 0 4px 8px rgba(3, 169, 244, 0.3);
-}
-
-.cachoeiras-page .gallery-title::before {
+.cachoeiras-page .info-section li::before {
   content: "💧";
-  margin-right: 10px;
-}
-
-.cachoeiras-page .map-legend .icon.waterfall {
-  background-color: var(--cor-primaria);
-}
-
-/* Estilo para lista de segurança */
-.cachoeiras-page .info-section ul {
-  list-style-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230288d1"><path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>');
 }

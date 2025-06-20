@@ -1,35 +1,8 @@
-.trilhas-page .hero-banner {
-  background-blend-mode: multiply;
-  background-color: rgba(46, 125, 50, 0.3);
-}
-
 .trilhas-page .info-section {
-  background: linear-gradient(to right, #f1f8e9, #dcedc8);
-  border-left: 4px solid var(--cor-primaria);
+  background: linear-gradient(to right, var(--background-light), #dcedc8);
+  border-left: 4px solid #dcedc8;
 }
 
-.trilhas-page .card {
-  border-top: 3px solid var(--cor-destaque);
-}
-
-.trilhas-page .card:hover {
-  box-shadow: 0 4px 8px rgba(124, 179, 66, 0.3);
-}
-
-.trilhas-page .gallery-title::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: var(--cor-primaria);
-  margin: 10px auto;
-}
-
-.trilhas-page .map-legend .icon.trail {
-  background-color: var(--cor-primaria);
-}
-
-/* Estilo para lista de dicas */
-.trilhas-page .info-section ul {
-  list-style-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232e7d32"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg>');
+.trilhas-page .info-section li::before {
+  content: "⛰️";
 }

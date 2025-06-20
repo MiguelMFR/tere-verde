@@ -1,5 +1,5 @@
 import React from 'react';
-import './FooterStyles.css';
+import './Footer.css';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
           <h3>Sobre o Terê Verde</h3>
           <p>Promovendo o ecoturismo consciente em Teresópolis.</p>
         </div>
-        
+
         <div className="footer-section links">
           <h3>Links Rápidos</h3>
           <ul>
@@ -19,14 +19,14 @@ const Footer = () => {
             <li><a href="/biodiversidade">Biodiversidade</a></li>
           </ul>
         </div>
-        
+
         <div className="footer-section contact">
           <h3>Contato</h3>
           <p>contato@tereverde.com</p>
           <p>(21) 99999-9999</p>
         </div>
       </div>
-      
+
       <div className="footer-bottom">
         &copy; {new Date().getFullYear()} Circuito Terê Verde | Todos os direitos reservados
       </div>

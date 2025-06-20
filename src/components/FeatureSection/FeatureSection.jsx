@@ -6,7 +6,7 @@ const FeatureSection = ({ title, description, image, reverse }) => {
       <div className="feature-content">
         <h2>{title}</h2>
         <p>{description}</p>
-        <button className="feature-button">Saiba Mais</button>
+        <button className="btn">Saiba Mais</button>
       </div>
       <div className="feature-image">
         <img src={image} alt={title} />

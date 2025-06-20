@@ -13,9 +13,9 @@
 
 .feature-image {
   flex: 1;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .feature-image img {
@@ -26,51 +26,34 @@
 }
 
 .feature-image:hover img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .feature-section h2 {
   font-size: 2.2rem;
-  color: #2c3e50;
+  color: var(--dark-text);
   margin-bottom: 1.5rem;
 }
 
 .feature-section p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #555;
+  color: var(--light-text);
   margin-bottom: 2rem;
 }
 
-.feature-button {
-  background-color: #27ae60;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.feature-button:hover {
-  background-color: #2ecc71;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
-}
-
-/* Layout reverso */
 .reverse {
   flex-direction: row-reverse;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
-  .feature-section, .reverse {
-    flex-direction: column;
+
+  .feature-section,
+  .reverse {
+    flex-direction: column-reverse;
     text-align: center;
   }
-  
+
   .feature-section h2 {
     font-size: 1.8rem;
   }

@@ -1,16 +1,12 @@
-/* Estilos compartilhados por todas as páginas */
 .pagina-tematica {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 80px; /* Ajuste para a navbar */
+  padding-top: 80px;
 }
 
 .filter-section {
-  margin: 20px auto;
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 15px;
+  margin-bottom: 2rem;
 }
 
 .destaque-section {
@@ -19,13 +15,14 @@
 
 .destaque-section h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 3rem 0rem 1.5rem 0rem;
   font-size: 2rem;
 }
 
 .info-section {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   padding: 2rem;
-  margin: 3rem 0;
+  margin: 3rem;
   border-radius: 8px;
   max-width: 1200px;
   margin-left: auto;
@@ -39,30 +36,46 @@
 
 .info-section ul {
   line-height: 1.6;
+  list-style-type: none;
+  padding-left: 0;
 }
 
-/* Ajuste para o footer */
-.pagina-tematica > footer {
-  margin-top: auto;
+.info-section li {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: default;
 }
 
-/* Adicione ou atualize estas regras */
+.info-section li::before {
+  margin-right: 8px;
+}
+
+.info-section li:hover {
+  transform: translateX(2.5vh);
+}
+
+.info-section ul:hover li:not(:hover) {
+  opacity: 0.6;
+}
+
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2em;
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
   box-sizing: border-box;
 }
 
-/* Para telas menores */
+.card {
+  transition: transform 0.3s;
+}
+
 @media (max-width: 768px) {
   .card-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .info-section {
     margin: 2rem 1rem;
     padding: 1.5rem;

@@ -1,4 +1,3 @@
-/* HeroBanner.css */
 .hero-banner {
   position: relative;
   height: 92vh;
@@ -10,9 +9,10 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: white;
+  backdrop-filter: blur(20px);
+  color: var(--text-color);
   overflow: hidden;
-  margin-top: 80px; /* Para compensar a navbar fixa */
+  margin-top: 80px;
 }
 
 .hero-banner::before {
@@ -50,40 +50,18 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background-color: #27ae60;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cta-button:hover {
-  background-color: #2ecc71;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Animação */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.5rem;

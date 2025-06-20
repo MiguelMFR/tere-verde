@@ -57,19 +57,18 @@ const Cachoeiras = () => {
   return (
     <div className="pagina-tematica cachoeiras-page">
       <div className="main-content">
-        {error != null ? ( //linda com o erro de carregamento de itens do db
+        {error != null ? (
           <NoContentCard title="cachoeiras" />
         ) : (
           <>
-            <div className="filter-section">
-              <Filter
-                filters={waterfallFilters}
-                onFilterChange={handleFilterChange}
-              />
-            </div>
-
             <section className="container destaque-section">
               <h2>Melhores Cachoeiras</h2>
+              <div className="filter-section">
+                <Filter
+                  filters={waterfallFilters}
+                  onFilterChange={handleFilterChange}
+                />
+              </div>
               <div className="card-grid">
                 {filteredItems.map((cachoeira) => (
                   <Card
@@ -96,7 +95,7 @@ const Cachoeiras = () => {
         </section>
       </div>
 
-      <Map location={cachoeiras[0]} />
+      <Map title="Explore Nossas Cachoeiras" location={cachoeiras[0]} cachoeiras />
     </div>
   );
 };
