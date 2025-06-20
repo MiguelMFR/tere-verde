@@ -1,6 +1,6 @@
 .eventos-page .info-section {
   background: linear-gradient(to right, var(--background-light), #ffcdd2);
-  border-left: 4px solid var(--primary-color);
+  border-left: 4px solid #ffcdd2;
 }
 
 .eventos-page .info-section li::before {

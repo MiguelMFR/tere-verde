@@ -43,10 +43,10 @@ const Home = () => {
 
   const attractions = [
     {
-      image: trilhas[0]?.imagem,
-      title: trilhas[0]?.nome,
-      description: trilhas[0]?.descricao,
-      link: `/trilhas/${trilhas[0]?.id}`
+      image: trilhas[1]?.imagem,
+      title: trilhas[1]?.nome,
+      description: trilhas[1]?.descricao,
+      link: `/trilhas/${trilhas[1]?.id}`
     },
     {
       image: cachoeiras[0]?.imagem,

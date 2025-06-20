@@ -59,8 +59,8 @@
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2em;
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -69,11 +69,6 @@
 
 .card {
   transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(140, 195, 74, 0.2);
 }
 
 @media (max-width: 768px) {

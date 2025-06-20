@@ -82,7 +82,7 @@ const Eventos = () => {
             <li>Eventos gratuitos: apenas chegar</li>
             <li>Eventos pagos: inscrições no site</li>
             <li>Leve documentos para credenciamento</li>
-            <li>Chegue com pelo menos 30 minutos de antecedência</li>
+            <li>Chegue com pelo menos 30min de antecedência</li>
           </ul>
         </section>
 

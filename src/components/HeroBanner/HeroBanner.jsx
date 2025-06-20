@@ -9,7 +9,7 @@ const HeroBanner = ({ title, subtitle, backgroundImage, onClick }) => {
       <div className="hero-content">
         <h1>{title}</h1>
         <p>{subtitle}</p>
-        <button className="cta-button" onClick={onClick}>Explore Agora</button>
+        <button className="btn" onClick={onClick}>Explore Agora</button>
       </div>
     </div>
   );

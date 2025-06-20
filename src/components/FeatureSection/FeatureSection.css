@@ -13,9 +13,9 @@
 
 .feature-image {
   flex: 1;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .feature-image img {
@@ -26,7 +26,7 @@
 }
 
 .feature-image:hover img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .feature-section h2 {
@@ -42,23 +42,6 @@
   margin-bottom: 2rem;
 }
 
-.feature-button {
-  background-color: var(--button-background);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.feature-button:hover {
-  background-color: var(--button-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
-}
-
 .reverse {
   flex-direction: row-reverse;
 }
@@ -67,7 +50,7 @@
 
   .feature-section,
   .reverse {
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
   }
 
