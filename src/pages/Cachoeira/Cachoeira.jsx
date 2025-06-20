@@ -98,15 +98,9 @@ const Cachoeiras = () => {
         </section>
       </div>
 
-      <Modal isOpen={selectedCachoeira !== null} onClose={() => setSelectedCachoeira(null)}>
+      <Modal type={selectedCachoeira} isOpen={selectedCachoeira !== null} onClose={() => setSelectedCachoeira(null)}>
         {selectedCachoeira && (
           <div>
-            <h2>{selectedCachoeira.nome}</h2>
-            <img
-              src={selectedCachoeira.imagem}
-              alt={selectedCachoeira.nome}
-              style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
-            />
             <p><strong>Descrição:</strong> {selectedCachoeira.descricao}</p>
             <p><strong>Dificuldade de acesso:</strong> {selectedCachoeira.dificuldadeAcesso}</p>
             <p><strong>Segurança:</strong> {selectedCachoeira.seguranca.join(', ')}</p>

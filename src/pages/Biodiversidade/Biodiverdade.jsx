@@ -93,15 +93,9 @@ const Biodiversidade = () => {
         {/*TODO:Adicionar Mapa*/}
       </div>
 
-      <Modal isOpen={selectedBiodiversidade !== null} onClose={() => setSelectedBiodiversidade(null)}>
+      <Modal type={selectedBiodiversidade} isOpen={selectedBiodiversidade !== null} onClose={() => setSelectedBiodiversidade(null)}>
         {selectedBiodiversidade && (
           <div>
-            <h2>{selectedBiodiversidade.nome}</h2>
-            <img
-              src={selectedBiodiversidade.imagem}
-              alt={selectedBiodiversidade.nome}
-              style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
-            />
             <p><strong>Descrição:</strong> {selectedBiodiversidade.descricao}</p>
             <p><strong>Tipo:</strong> {selectedBiodiversidade.tipo}</p>
             <p><strong>Habitat:</strong> {selectedBiodiversidade.habitat}</p>

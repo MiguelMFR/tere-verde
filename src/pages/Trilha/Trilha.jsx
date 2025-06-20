@@ -93,15 +93,9 @@ const Trilhas = () => {
         {/*TODO:Adicionar Mapa*/}
       </div>
 
-      <Modal isOpen={selectedTrilha !== null} onClose={() => setSelectedTrilha(null)}>
+      <Modal type={selectedTrilha} isOpen={selectedTrilha !== null} onClose={() => setSelectedTrilha(null)}>
         {selectedTrilha && (
           <div>
-            <h2>{selectedTrilha.nome}</h2>
-            <img
-              src={selectedTrilha.imagem}
-              alt={selectedTrilha.nome}
-              style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
-            />
             <p><strong>Descrição:</strong> {selectedTrilha.descricao}</p>
             <p><strong>Dificuldade:</strong> {selectedTrilha.dificuldade}</p>
             <p><strong>Duração:</strong> {selectedTrilha.duracao}</p>

@@ -93,15 +93,9 @@ const Eventos = () => {
 
       </div>
       
-      <Modal isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
+      <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
         {selectedEvent && (
           <div>
-            <h2>{selectedEvent.nome}</h2>
-            <img
-              src={selectedEvent.imagem}
-              alt={selectedEvent.nome}
-              style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
-            />
             <p><strong>Descrição:</strong> {selectedEvent.descricao}</p>
             <p><strong>Tipo:</strong> {selectedEvent.tipo}</p>
             <p><strong>Data:</strong> {selectedEvent.data}</p>
