@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import Filter from '../../components/Filter/Filter';
-import Footer from '../../components/Footer/Footer';
-import Navbar from '../../components/Navbar/Navbar';
 import '../../pages/PaginasTematicas.css';
 import Api from '../../services/Api';
 import './Trilha.css';
@@ -90,7 +88,10 @@ const Trilhas = () => {
             <li>Respeite as trilhas sinalizadas</li>
           </ul>
         </section>
-        <Map />
+        <Map
+          title="Explore Nossas Trilhas"
+          trilhas
+        />
       </div>
     </div>
   );

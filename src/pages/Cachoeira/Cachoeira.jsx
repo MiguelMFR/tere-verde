@@ -95,7 +95,7 @@ const Cachoeiras = () => {
         </section>
       </div>
 
-      <Map location={cachoeiras[0]} />
+      <Map title="Explore Nossas Cachoeiras" location={cachoeiras[0]} cachoeiras />
     </div>
   );
 };
