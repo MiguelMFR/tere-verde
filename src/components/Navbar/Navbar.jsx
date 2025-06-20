@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './NavbarStyles.css';
+import './Navbar.css';
 import logo from "../../assets/images/logo-tere-verde.png"
 
 const Navbar = () => {
