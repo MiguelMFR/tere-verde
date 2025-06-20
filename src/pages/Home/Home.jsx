@@ -100,6 +100,7 @@ const Home = () => {
       <Map
         title="Explore Nossas Atrações"
         cachoeiras trilhas parques
+
       />
 
     </div>
