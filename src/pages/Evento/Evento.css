@@ -1,60 +1,8 @@
-.eventos-page {
-  --cor-primaria: #d32f2f; /* Vermelho evento */
-  --cor-secundaria: #f44336;
-  --cor-destaque: #ef5350;
-}
-
-.eventos-page .hero-banner {
-  background-blend-mode: luminosity;
-  background-color: rgba(211, 47, 47, 0.15);
-}
-
 .eventos-page .info-section {
-  background: linear-gradient(to right, #ffebee, #ffcdd2);
-  border-left: 4px solid var(--cor-primaria);
+  background: linear-gradient(to right, var(--background-light), #ffcdd2);
+  border-left: 4px solid #ffcdd2;
 }
 
-.eventos-page .card {
-  border-top: 3px solid var(--cor-destaque);
-  position: relative;
-}
-
-.eventos-page .card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, var(--cor-primaria), var(--cor-destaque));
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.eventos-page .card:hover::after {
-  opacity: 1;
-}
-
-.eventos-page .gallery-title {
-  background: linear-gradient(to right, var(--cor-primaria), var(--cor-destaque));
-  color: white;
-  padding: 10px;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-/* Estilo para lista de participação */
-.eventos-page .info-section ul {
-  list-style-type: none;
-  padding-left: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-}
-
-.eventos-page .info-section li {
-  background: white;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.eventos-page .info-section li::before {
+  content: "🎊";
 }

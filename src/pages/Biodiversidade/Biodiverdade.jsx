@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import Filter from '../../components/Filter/Filter';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
 import './Biodiversidade.css';
 import '../../pages/PaginasTematicas.css'
 import Api from '../../services/Api';
@@ -58,15 +56,15 @@ const Biodiversidade = () => {
           <NoContentCard title="biodiversidade" />
         ) : (
           <>
-            <div className="filter-section">
-              <Filter
-                filters={bioFilters}
-                onFilterChange={handleFilterChange}
-              />
-            </div>
 
             <section className="container destaque-section">
               <h2>Espécies Destaque</h2>
+              <div className="filter-section">
+                <Filter
+                  filters={bioFilters}
+                  onFilterChange={handleFilterChange}
+                />
+              </div>
               <div className="card-grid">
                 {filteredItems.map((biodiversidade) => (
                   <Card
@@ -90,7 +88,6 @@ const Biodiversidade = () => {
             <li>Denuncie caça ou extração ilegal</li>
           </ul>
         </section>
-        {/*TODO:Adicionar Mapa*/}
       </div>
 
       <Modal type={selectedBiodiversidade} isOpen={selectedBiodiversidade !== null} onClose={() => setSelectedBiodiversidade(null)}>

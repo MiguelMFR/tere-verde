@@ -6,13 +6,15 @@ import Api from '../../services/Api';
 import './Trilha.css';
 import NoContentCard from '../../components/NoContentCard/NoContentCard.jsx';
 import Modal from '../../components/Modal/Modal.jsx';
+import Map from '../../components/Map/Map';
+
 
 const Trilhas = () => {
   const trailFilters = [
     { value: 'all', label: 'Todas' },
     { value: 'easy', label: 'Iniciantes' },
     { value: 'medium', label: 'Intermediárias' },
-    { value: 'hard', label: 'Avançadas' }
+    { value: 'high', label: 'Avançadas' }
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
@@ -27,7 +29,7 @@ const Trilhas = () => {
       if (response.data) setTrilhas(response.data);
     } catch (error) {
       console.error("Erro ao carregar trilhas:", error);
-      setErr("Erro ao carregar as trilhas. Tente novamente mais tarde.");
+      setErr(true);
     } finally {
       setLoading(false);
     }
@@ -44,7 +46,7 @@ const Trilhas = () => {
 
   const filteredItems = activeFilter === 'all'
     ? trilhas
-    : trilhas.filter(item => item.difficulty === activeFilter);
+    : trilhas.filter(item => item.dificuldade === activeFilter);
 
   //TODO: fazer card dedicado para o carregamento
   if (loading) {
@@ -54,19 +56,18 @@ const Trilhas = () => {
   return (
     <div className="pagina-tematica trilhas-page">
       <div className="main-content">
-        {err != null ? (
+        {err ? (
           <NoContentCard title="trilhas" />
         ) : (
           <>
-            <div className="filter-section">
-              <Filter
-                filters={trailFilters}
-                onFilterChange={handleFilterChange}
-              />
-            </div>
-
             <section className="container destaque-section">
               <h2>Principais Trilhas</h2>
+              <div className="filter-section">
+                <Filter
+                  filters={trailFilters}
+                  onFilterChange={handleFilterChange}
+                />
+              </div>
               <div className="card-grid">
                 {filteredItems.map((trilha) => (
                   <Card
@@ -90,7 +91,10 @@ const Trilhas = () => {
             <li>Respeite as trilhas sinalizadas</li>
           </ul>
         </section>
-        {/*TODO:Adicionar Mapa*/}
+        <Map
+          title="Explore Nossas Trilhas"
+          trilhas
+        />
       </div>
 
       <Modal type={selectedTrilha} isOpen={selectedTrilha !== null} onClose={() => setSelectedTrilha(null)}>

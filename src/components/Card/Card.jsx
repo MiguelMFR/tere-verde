@@ -1,4 +1,3 @@
-import React from 'react';
 import './Card.css';
 
 const Card = ({ image, title, description, onClick }) => {
@@ -10,9 +9,7 @@ const Card = ({ image, title, description, onClick }) => {
       <div className="card-content">
         <h3>{title}</h3>
         <p>{description}</p>
-        <button className="card-button" onClick={onClick}>
-          Saiba Mais
-        </button>
+        <a href={link} className="btn">Saiba Mais</a>
       </div>
     </div>
   );

@@ -1,5 +1,116 @@
-.body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #27ae60;
+
+  --background-color: #0c2e0d;
+  --background-color-dark: #082a09;
+
+  --background-light: #f9f9f9;
+
+  --button-background: #27a360;
+  --button-hover: #2ecc71;
+  --button-border: #ddd;
+
+  --dark-text: #2c3e50;
+  --light-text: #7f8c8d;
+
+  --text-color: #fff;
+  --text-hover: #2ecc71;
+
+  --error-color: #e74c3c;
+
+  --box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--dark-text);
+  background-color: var(--background-light);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  color: var(--dark-text);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-color);
+  margin: 1rem auto 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  background-color: var(--button-background);
+  color: white;
+  font-size: 2vh;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  align-self: center;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
 }

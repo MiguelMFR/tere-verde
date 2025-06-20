@@ -1,18 +1,20 @@
 .attraction-card {
   position: relative;
-  background: white;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--box-shadow);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .attraction-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow);
 }
 
 .card-image {
@@ -28,10 +30,6 @@
   transition: transform 0.5s ease;
 }
 
-.attraction-card:hover .card-image img {
-  transform: scale(1.1);
-}
-
 .card-content {
   padding: 1.5rem;
   flex-grow: 1;
@@ -42,38 +40,16 @@
 .card-content h3 {
   font-size: 1.4rem;
   margin-bottom: 0.8rem;
-  color: #2c3e50;
+  color: var(--dark-text);
 }
 
 .card-content p {
-  color: #7f8c8d;
+  color: var(--light-text);
   margin-bottom: 1.5rem;
   line-height: 1.5;
   flex-grow: 1;
 }
 
-.card-button {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background-color: #27ae60;
-  color: white;
-  text-align: center;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  align-self: flex-start;
-  border: none;
-  cursor: pointer;
-}
-
-.card-button:hover {
-  background-color: #2ecc71;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
-}
-
-/* Badge para destaque */
 .card-badge {
   position: absolute;
   top: 15px;
@@ -87,7 +63,6 @@
   z-index: 1;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .card-image {
     height: 200px;

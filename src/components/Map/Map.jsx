@@ -1,14 +1,13 @@
-import React from 'react';
 import './Map.css';
 
-const Map = ({ location }) => {
+const Map = ({ location, title, trilhas, cachoeiras, parques }) => {
   // Se location não for fornecido, mostra o mapa padrão de Teresópolis
   const defaultCoords = { latitude: -22.4483875, longitude: -42.9832701 };
-  const coords = location?.coordenadas || defaultCoords; // singular e correto!
+  const coords = location?.coordenadas || defaultCoords;
 
   return (
     <div className="map-container">
-      <h2>Explore Nossas Atrações</h2>
+      <h2>{title}</h2>
       <div className="map-placeholder">
         <iframe
           title={`Mapa de ${location?.nome || 'Teresópolis'}`}
@@ -19,20 +18,26 @@ const Map = ({ location }) => {
           allowFullScreen=""
           loading="lazy"
         ></iframe>
-        
+
         <div className="map-legend">
-          <div className="legend-item">
-            <span className="icon trail"></span>
-            <span>Trilhas</span>
-          </div>
-          <div className="legend-item">
-            <span className="icon waterfall"></span>
-            <span>Cachoeiras</span>
-          </div>
-          <div className="legend-item">
-            <span className="icon park"></span>
-            <span>Parques</span>
-          </div>
+          {trilhas === true ? (
+            <div className="legend-item">
+              <span className="icon trail"></span>
+              <span>Trilhas</span>
+            </div>
+          ) : (null)}
+          {cachoeiras === true ? (
+            <div className="legend-item">
+              <span className="icon waterfall"></span>
+              <span>Cachoeiras</span>
+            </div>
+          ) : (null)}
+          {parques === true ? (
+            <div className="legend-item">
+              <span className="icon park"></span>
+              <span>Parques</span>
+            </div>
+          ) : (null)}
         </div>
       </div>
     </div>

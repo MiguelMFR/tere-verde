@@ -13,6 +13,7 @@ const Home = () => {
   const [cachoeiras, setCachoeiras] = useState([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
+  const background = "https://img.oastatic.com/img2/54940395/834x417r/variant.jpg"
 
   const fetchTrilhas = async () => {
     try {
@@ -42,10 +43,10 @@ const Home = () => {
 
   const attractions = [
     {
-      image: trilhas[0]?.imagem,
-      title: trilhas[0]?.nome,
-      description: trilhas[0]?.descricao,
-      link: `/trilhas/${trilhas[0]?.id}`
+      image: trilhas[1]?.imagem,
+      title: trilhas[1]?.nome,
+      description: trilhas[1]?.descricao,
+      link: `/trilhas/${trilhas[1]?.id}`
     },
     {
       image: cachoeiras[0]?.imagem,
@@ -63,7 +64,7 @@ const Home = () => {
       <HeroBanner
         title="Descubra as Belezas Naturais de Teresópolis"
         subtitle="Explore o Circuito Terê Verde e viva experiências inesquecíveis"
-        backgroundImage="https://i.pinimg.com/736x/a1/07/eb/a107ebb02304e5a34ddee93f1362c622.jpg"
+        backgroundImage={background}
       />
       {err != null ? (
         <NoContentCard title="atrações" />
@@ -96,7 +97,11 @@ const Home = () => {
           </div>
         </>
       )}
-      <Map />
+      <Map
+        title="Explore Nossas Atrações"
+        cachoeiras trilhas parques
+
+      />
 
     </div>
   );
