@@ -19,6 +19,8 @@ const Eventos = () => {
   const [err, setErr] = useState(null);
   const [eventos, setEventos] = useState([]);
 
+  const activeFilterName = eventFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
+
   const fetchEventos = async () => {
     try {
       const response = await Api.get("/eventos");
@@ -63,6 +65,9 @@ const Eventos = () => {
                 />
               </div>
               <div className="card-grid">
+                {filteredItems.length === 0 && (
+                  <NoContentCard className="no-filtered-content" title={`eventos ${activeFilterName}`} />
+                )}
                 {filteredItems.map((evento) => (
                   <Card
                     key={evento.id}

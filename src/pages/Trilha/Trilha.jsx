@@ -20,6 +20,8 @@ const Trilhas = () => {
   const [err, setErr] = useState(null);
   const [trilhas, setTrilhas] = useState([]);
 
+  const activeFilterName = trailFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
+
   const fetchTrilhas = async () => {
     try {
       const response = await Api.get("/trilhas");
@@ -54,7 +56,7 @@ const Trilhas = () => {
     <div className="pagina-tematica trilhas-page">
       <div className="main-content">
         {err ? (
-          <NoContentCard title="trilhas" />
+          <NoContentCard title="trilhas" subtext />
         ) : (
           <>
             <section className="container destaque-section">
@@ -66,6 +68,9 @@ const Trilhas = () => {
                 />
               </div>
               <div className="card-grid">
+                {filteredItems.length === 0 && (
+                  <NoContentCard className="no-filtered-content" title={`trilhas ${activeFilterName}`} />
+                )}
                 {filteredItems.map((trilha) => (
                   <Card
                     key={trilha.id}

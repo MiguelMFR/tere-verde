@@ -19,6 +19,8 @@ const Biodiversidade = () => {
   const [err, setErr] = useState(null);
   const [biodiversidade, setBiodiversidade] = useState([]);
 
+  const activeFilterName = bioFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
+
   const fetchBiodiversidades = async () => {
     try {
       const response = await Api.get("/biodiversidade");
@@ -64,6 +66,9 @@ const Biodiversidade = () => {
                 />
               </div>
               <div className="card-grid">
+                {filteredItems.length === 0 && (
+                  <NoContentCard className="no-filtered-content" title={activeFilterName} />
+                )}
                 {filteredItems.map((biodiversidade) => (
                   <Card
                     key={biodiversidade.id}

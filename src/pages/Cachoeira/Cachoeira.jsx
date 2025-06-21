@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import Filter from "../../components/Filter/Filter";
-import Footer from "../../components/Footer/Footer";
 import Map from "../../components/Map/Map";
-import Navbar from "../../components/Navbar/Navbar";
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx";
 import "../../pages/PaginasTematicas.css";
 import Api from "../../services/Api";
@@ -21,6 +19,8 @@ const Cachoeiras = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
+
+  const activeFilterName = waterfallFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
 
   const fetchCachoeiras = async () => {
     try {
@@ -70,6 +70,9 @@ const Cachoeiras = () => {
                 />
               </div>
               <div className="card-grid">
+                {filteredItems.length === 0 && (
+                  <NoContentCard className="no-filtered-content" title={`cachoeiras ${activeFilterName}`} />
+                )}
                 {filteredItems.map((cachoeira) => (
                   <Card
                     key={cachoeira.id}
