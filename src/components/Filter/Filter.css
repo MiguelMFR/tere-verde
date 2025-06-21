@@ -9,21 +9,21 @@
 .filter-button {
   padding: 0.6rem 1.5rem;
   border: 2px solid var(--button-border);
-  background-color: white;
+  background-color: var(--background);
   border-radius: 50px;
   cursor: pointer;
   font-weight: 600;
-  color: var(--dark-text);
+  color: var(--text);
   transition: all 0.3s;
 }
 
 .filter-button:hover {
-  border-color: var(--button-hover);
-  color: var(--button-hover);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .filter-button.active {
   background-color: var(--button-background);
   border-color: var(--button-background);
-  color: var(--text-color);
+  color: var(--text-light);
 }

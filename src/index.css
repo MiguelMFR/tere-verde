@@ -5,40 +5,77 @@
   }
 
   :root {
-
     /*==LIGHT THEME==*/
     --primary-color: #27ae60;
-    --background-color: #0c2e0d;
-    --background-color-dark: #082a09;
     --background-light: #f9f9f9;
+
+    --footer-background-light: #36D278;
+    --footer-bottom-background-light: #27AE60;
+
     --button-background: #27a360;
     --button-hover: #2ecc71;
-    --button-border: #ddd;
-    --dark-text: #2c3e50;
-    --light-text: #7f8c8d;
+    --button-border-light: #ddd;
+
+    --text-dark: #2c3e50;
     --text-hover: #2ecc71;
 
+    --card-border-light: #ffffff33;
+    --card-text-light: #667273;
+
+    --bio-info-section-light: #dcedc8;
+
     /*==DARK THEME*/
-    --text-color: #fff;
-    --background-dark: #000;
+    --text-light: #fff;
+    --background-dark: #1d1d1d;
+
+    --footer-background-dark: #0c2e0d;
+    --footer-bottom-background-dark: #082a09;
+
+    --button-border-dark: #abab;
+
+    --card-text-dark: #919C9D;
+
+    --bio-info-section-dark: #121A09;
+
 
 
     --error-color: #e74c3c;
+    /*TODO:Light & Dark theme of box shadow*/
     --box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15);
   }
 
   [data-bs-theme="light"] {
     --background: var(--background-light);
-    --text: var(--dark-text);
+    --text: var(--text-dark);
+
     --button: var(--button-background);
-    --button-hover: var(--button-hover);
+    --button-border: var(--button-border-light);
+
+    --footer-background: var(--footer-background-light);
+    --footer-bottom-background: var(--footer-bottom-background-light);
+
+
+    --card-border: var(--card-border-light);
+    --card-text: var(--card-text-light);
+
+    --bio-info-section: var(--bio-info-section-light);
   }
 
   [data-bs-theme="dark"] {
     --background: var(--background-dark);
-    --text: var(--text-color);
+    --text: var(--text-light);
+
     --button: var(--button-hover);
-    --buton: hover: var(--button-background);
+    --button-border: var(--button-border-dark);
+
+    --footer-background: var(--footer-background-dark);
+    --footer-bottom-background: var(--footer-bottom-background-dark);
+
+
+    --card-border: var(--background-dark);
+    --card-text: var(--card-text-dark);
+
+    --bio-info-section: var(--bio-info-section-dark);
   }
 
   body {
@@ -78,7 +115,7 @@
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.2rem;
-    color: var(--dark-text);
+    color: var(--text-dark);
     position: relative;
   }
 

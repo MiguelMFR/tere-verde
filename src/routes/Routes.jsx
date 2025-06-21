@@ -9,7 +9,7 @@ import Footer from "../components/Footer/Footer";
 import Adm from "../pages/Adm";
 import Login from "../pages/Login/Login";
 
-import ScrollToTop from "../utils/scrollToTop/ScrollToTop";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 const RoutesConfig = () => {
   return (

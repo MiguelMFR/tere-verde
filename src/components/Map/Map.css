@@ -1,12 +1,12 @@
 .map-container {
   padding: 4rem 2rem;
-  background-color: #f5f9f7;
+  background-color: var(--background);
 }
 
 .map-container h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--dark-text);
+  color: var(--text);
   font-size: 2.2rem;
 }
 
@@ -19,11 +19,17 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.map-placeholder iframe {
+  background-color: var(--background);
+  border: 0;
+  color: var(--text);
+}
+
 .map-legend {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--background);
   padding: 1rem;
   border-radius: 8px;
   display: flex;
@@ -36,7 +42,7 @@
   align-items: center;
   gap: 0.5rem;
   font-weight: 500;
-  color: var(--dark-text);
+  color: var(--text);
 }
 
 .icon {

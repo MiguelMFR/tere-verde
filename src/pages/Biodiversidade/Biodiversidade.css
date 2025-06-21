@@ -1,6 +1,6 @@
 .biodiversidade-page .info-section {
-  background: linear-gradient(to right, var(--background-light), #dcedc8);
-  border-left: 4px solid #dcedc8;
+  background: linear-gradient(to right, var(--background), var(--bio-info-section));
+  border-left: 4px solid var(--bio-info-section);
 }
 
 .biodiversidade-page .info-section li::before {

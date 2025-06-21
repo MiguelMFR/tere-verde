@@ -1,12 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from "../../assets/images/logo-tere-verde.png";
 import { toogleTheme } from "../../utils/theme/toogleTheme.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState("light");
   const location = useLocation();
+
+  const getCurrentTheme = () => {
+    return document.documentElement.getAttribute("data-bs-theme") || "light";
+  }
+
+  useEffect(() => {
+    const updateTheme = () => {
+      setCurrentTheme(getCurrentTheme());
+    };
+
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-bs-theme']
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const isActive = (path) => {
     return location.pathname === path;
@@ -51,10 +73,14 @@ const Navbar = () => {
             Eventos
           </Link>
           <button
+            className='theme-button'
             onClick={toogleTheme}
             aria-label="Alterar tema"
           >
-            🌙/☀️
+            <FontAwesomeIcon
+              className='switch-theme'
+              icon={currentTheme === "dark" ? faSun : faMoon}
+            />
           </button>
         </div>
 
