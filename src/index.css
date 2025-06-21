@@ -23,6 +23,9 @@
     --card-text-light: #667273;
 
     --bio-info-section-light: #dcedc8;
+    --cachoeira-info-section-light: #b3e5fc;
+    --evento-info-section-light: #ffcdd2;
+
 
     /*==DARK THEME*/
     --text-light: #fff;
@@ -35,8 +38,9 @@
 
     --card-text-dark: #919C9D;
 
+    --cachoeira-info-section-dark: #033951;
     --bio-info-section-dark: #121A09;
-
+    --evento-info-section-dark: #72000B;
 
 
     --error-color: #e74c3c;
@@ -59,6 +63,8 @@
     --card-text: var(--card-text-light);
 
     --bio-info-section: var(--bio-info-section-light);
+    --cachoeira-info-section: var(--cachoeira-info-section-light);
+    --evento-info-section: var(--evento-info-section-light);
   }
 
   [data-bs-theme="dark"] {
@@ -76,6 +82,8 @@
     --card-text: var(--card-text-dark);
 
     --bio-info-section: var(--bio-info-section-dark);
+    --cachoeira-info-section: var(--cachoeira-info-section-dark);
+    --evento-info-section: var(--evento-info-section-dark);
   }
 
   body {
