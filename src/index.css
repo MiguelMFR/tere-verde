@@ -5,34 +5,48 @@
   }
 
   :root {
-    --primary-color: #27ae60;
 
+    /*==LIGHT THEME==*/
+    --primary-color: #27ae60;
     --background-color: #0c2e0d;
     --background-color-dark: #082a09;
-
     --background-light: #f9f9f9;
-
     --button-background: #27a360;
     --button-hover: #2ecc71;
     --button-border: #ddd;
-
     --dark-text: #2c3e50;
     --light-text: #7f8c8d;
-
-    --text-color: #fff;
     --text-hover: #2ecc71;
 
-    --error-color: #e74c3c;
+    /*==DARK THEME*/
+    --text-color: #fff;
+    --background-dark: #000;
 
+
+    --error-color: #e74c3c;
     --box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15);
+  }
+
+  [data-bs-theme="light"] {
+    --background: var(--background-light);
+    --text: var(--dark-text);
+    --button: var(--button-background);
+    --button-hover: var(--button-hover);
+  }
+
+  [data-bs-theme="dark"] {
+    --background: var(--background-dark);
+    --text: var(--text-color);
+    --button: var(--button-hover);
+    --buton: hover: var(--button-background);
   }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.2;
     letter-spacing: -0.01em;
-    color: var(--dark-text);
-    background-color: var(--background-light);
+    color: var(--text);
+    background-color: var(--background);
     overflow-x: hidden;
   }
 

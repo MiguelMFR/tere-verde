@@ -9,10 +9,13 @@ import Footer from "../components/Footer/Footer";
 import Adm from "../pages/Adm";
 import Login from "../pages/Login/Login";
 
+import ScrollToTop from "../utils/scrollToTop/ScrollToTop";
+
 const RoutesConfig = () => {
   return (
     <BrowserRouter>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trilhas" element={<Trilhas />} />

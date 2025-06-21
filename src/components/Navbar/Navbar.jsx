@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logo from "../../assets/images/logo-tere-verde.png"
+import logo from "../../assets/images/logo-tere-verde.png";
+import { toogleTheme } from "../../utils/theme/toogleTheme.js";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +50,12 @@ const Navbar = () => {
           >
             Eventos
           </Link>
+          <button
+            onClick={toogleTheme}
+            aria-label="Alterar tema"
+          >
+            🌙/☀️
+          </button>
         </div>
 
         <div className="mobile-menu" onClick={() => setIsOpen(!isOpen)}>
