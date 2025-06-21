@@ -84,14 +84,14 @@ const Home = () => {
             <FeatureSection
               title="Biodiversidade Única"
               description="Teresópolis abriga uma rica diversidade de flora e fauna em suas unidades de conservação."
-              image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
+              image="https://oabrj.org.br/sites/default/files/regulamentacao_uso_imagem_animais_silvestres.jpeg"
               reverse={false}
             />
 
             <FeatureSection
               title="Eventos de Ecoturismo"
               description="Participe de nossos eventos que promovem o contato consciente com a natureza."
-              image="https://guiadostrilheiros.com.br/wp-content/webp-express/webp-images/uploads/2024/05/CACHOEIRA-DO-TIO-FRANCA-2.jpg.webp"
+              image="https://odia.ig.com.br/_midias/jpg/2021/07/05/1200x750/1_2-22337765.jpeg"
               reverse={true}
             />
           </div>
