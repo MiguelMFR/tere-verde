@@ -73,7 +73,7 @@ const Navbar = () => {
             Eventos
           </Link>
           <button
-            className='theme-button'
+            className='theme-button desktop-theme'
             onClick={toogleTheme}
             aria-label="Alterar tema"
           >
@@ -84,10 +84,23 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="mobile-menu" onClick={() => setIsOpen(!isOpen)}>
-          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
-          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
-          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+        <div className="mobile-controls">
+          <button
+            className='theme-button mobile-theme'
+            onClick={toogleTheme}
+            aria-label="Alterar tema"
+          >
+            <FontAwesomeIcon
+              className='switch-theme'
+              icon={currentTheme === "dark" ? faSun : faMoon}
+            />
+          </button>
+          
+          <div className="mobile-menu" onClick={() => setIsOpen(!isOpen)}>
+            <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+            <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+            <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+          </div>
         </div>
       </div>
     </nav>
