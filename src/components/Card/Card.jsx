@@ -1,6 +1,6 @@
 import './Card.css';
 
-const Card = ({ image, title, description, link }) => {
+const Card = ({ image, title, description, onClick }) => {
   return (
     <div className="attraction-card">
       <div className="card-image">

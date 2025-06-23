@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import Filter from '../../components/Filter/Filter';
 import '../../pages/PaginasTematicas.css';
 import Api from '../../services/Api';
 import './Trilha.css';
 import NoContentCard from '../../components/NoContentCard/NoContentCard.jsx';
+import Modal from '../../components/Modal/Modal.jsx';
 import Map from '../../components/Map/Map';
+
 
 const Trilhas = () => {
   const trailFilters = [
@@ -19,6 +21,7 @@ const Trilhas = () => {
   const [loading, setLoading] = useState("true");
   const [err, setErr] = useState(null);
   const [trilhas, setTrilhas] = useState([]);
+  const [selectedTrilha, setSelectedTrilha] = useState(null);
 
   const activeFilterName = trailFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
 
@@ -77,7 +80,7 @@ const Trilhas = () => {
                     image={trilha.imagem}
                     title={trilha.nome}
                     description={trilha.descricao}
-                    link={`/trilhas/${trilha.id}`}
+                    onClick={() => setSelectedTrilha(trilha)}
                   />
                 ))}
               </div>
@@ -98,6 +101,17 @@ const Trilhas = () => {
           trilhas
         />
       </div>
+
+      <Modal type={selectedTrilha} isOpen={selectedTrilha !== null} onClose={() => setSelectedTrilha(null)}>
+        {selectedTrilha && (
+          <div>
+            <p><strong>Descrição:</strong> {selectedTrilha.descricao}</p>
+            <p><strong>Dificuldade:</strong> {selectedTrilha.dificuldade}</p>
+            <p><strong>Duração:</strong> {selectedTrilha.duracao}</p>
+            <p><strong>Distância:</strong> {selectedTrilha.distancia}</p>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };

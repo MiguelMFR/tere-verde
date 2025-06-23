@@ -5,6 +5,7 @@ import './Biodiversidade.css';
 import '../../pages/PaginasTematicas.css'
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
+import Modal from '../../components/Modal/Modal.jsx';
 
 const Biodiversidade = () => {
   const bioFilters = [
@@ -18,6 +19,7 @@ const Biodiversidade = () => {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   const [biodiversidade, setBiodiversidade] = useState([]);
+  const [selectedBiodiversidade, setSelectedBiodiversidade] = useState(null);
 
   const activeFilterName = bioFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
 
@@ -75,7 +77,7 @@ const Biodiversidade = () => {
                     image={biodiversidade.imagem}
                     title={biodiversidade.nome}
                     description={biodiversidade.descricao}
-                    link={`/biodiversidades/${biodiversidade.id}`}
+                    onClick={() => setSelectedBiodiversidade(biodiversidade)}
                   />
                 ))}
               </div>
@@ -92,6 +94,17 @@ const Biodiversidade = () => {
           </ul>
         </section>
       </div>
+
+      <Modal type={selectedBiodiversidade} isOpen={selectedBiodiversidade !== null} onClose={() => setSelectedBiodiversidade(null)}>
+        {selectedBiodiversidade && (
+          <div>
+            <p><strong>Descrição:</strong> {selectedBiodiversidade.descricao}</p>
+            <p><strong>Tipo:</strong> {selectedBiodiversidade.tipo}</p>
+            <p><strong>Habitat:</strong> {selectedBiodiversidade.habitat}</p>
+          </div>
+        )}
+      </Modal>
+
     </div>
   );
 };

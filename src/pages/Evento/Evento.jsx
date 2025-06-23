@@ -5,6 +5,7 @@ import '../../pages/PaginasTematicas.css'
 import Filter from '../../components/Filter/Filter';
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
+import Modal from '../../components/Modal/Modal';
 
 const Eventos = () => {
   const eventFilters = [
@@ -18,6 +19,7 @@ const Eventos = () => {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   const [eventos, setEventos] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   const activeFilterName = eventFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
 
@@ -74,7 +76,7 @@ const Eventos = () => {
                     image={evento.imagem}
                     title={evento.nome}
                     description={evento.descricao}
-                    link={`/eventos/${evento.id}`}
+                    onClick={() => setSelectedEvent(evento)}
                   />
                 ))}
               </div>
@@ -92,6 +94,18 @@ const Eventos = () => {
         </section>
 
       </div>
+      
+      <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
+        {selectedEvent && (
+          <div>
+            <p><strong>Descrição:</strong> {selectedEvent.descricao}</p>
+            <p><strong>Tipo:</strong> {selectedEvent.tipo}</p>
+            <p><strong>Data:</strong> {selectedEvent.data}</p>
+            <p><strong>Local:</strong> {selectedEvent.local}</p>
+          </div>
+        )}
+      </Modal>
+
     </div>
   );
 };
