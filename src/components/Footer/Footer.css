@@ -1,6 +1,6 @@
 .footer {
-  background-color: var(--footer-background);
-  color: var(--text-light);
+  background: var(--footer-background);
+  color: var(--text);
   padding: 4rem 0 0;
   font-size: 1rem;
   margin-bottom: -50px;
@@ -20,7 +20,7 @@
 }
 
 .footer-section h3 {
-  color: var(--text-light);
+  color: var(--text);
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
   position: relative;
@@ -53,9 +53,9 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: var(--text-light);
+  background-color: var(--text);
   border-radius: 50%;
-  color: var(--text-light);
+  color: var(--text);
   transition: all 0.3s ease;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .footer-section.links a {
-  color: var(--text-light);
+  color: var(--text);
   text-decoration: none;
   transition: color 0.3s ease;
   display: block;

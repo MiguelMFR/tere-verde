@@ -6,20 +6,19 @@
 
   :root {
     --error-color: #e74c3c;
+    --primary-color: #27ae60;
+    --text-hover: #2ecc71;
 
     /*==LIGHT THEME==*/
-    --primary-color: #27ae60;
+    --text-dark: #2c3e50;
     --background-light: #f9f9f9;
 
-    --footer-background-light: #36D278;
-    --footer-bottom-background-light: #27AE60;
+    --footer-background-light: linear-gradient(to bottom, #f9f9f9 0%, #fdfdfb 10%, #ecf5ec 20%, #b2d8b2 80%);
+    --footer-bottom-background-light: #b2d8b2;
 
     --button-background: #27a360;
     --button-hover: #2ecc71;
     --button-border-light: #ddd;
-
-    --text-dark: #2c3e50;
-    --text-hover: #2ecc71;
 
     --card-border-light: #ffffff33;
     --card-text-light: #667273;
@@ -34,15 +33,15 @@
     --text-light: #fff;
     --background-dark: #1d1d1d;
 
-    --footer-background-dark: #0c2e0d;
-    --footer-bottom-background-dark: #082a09;
+    --footer-background-dark: linear-gradient(to bottom, #1d1d1d 5%, #101a13 20%, #232823 40%, #232823 50%, #233c2b 80%);
+    --footer-bottom-background-dark: #233c2b;
 
     --button-border-dark: #abab;
 
     --card-text-dark: #919C9D;
 
     --cachoeira-info-section-dark: #033951;
-    --bio-info-section-dark: #121A09;
+    --bio-info-section-dark: #233c2b;
     --evento-info-section-dark: #72000B;
 
     --box-shadow-dark: 0 4px 16px rgba(0, 0, 0, 0.32),
