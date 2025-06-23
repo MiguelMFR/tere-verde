@@ -1,4 +1,4 @@
-import {useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import Filter from '../../components/Filter/Filter';
 import '../../pages/PaginasTematicas.css';
@@ -104,6 +104,7 @@ const Trilhas = () => {
 
       <Modal type={selectedTrilha} isOpen={selectedTrilha !== null} onClose={() => setSelectedTrilha(null)}>
         {selectedTrilha && (
+          //TODO: Passar props para CADA tipo de entrada
           <div>
             <p><strong>Descrição:</strong> {selectedTrilha.descricao}</p>
             <p><strong>Dificuldade:</strong> {selectedTrilha.dificuldade}</p>

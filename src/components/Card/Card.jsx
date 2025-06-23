@@ -9,7 +9,7 @@ const Card = ({ image, title, description, onClick }) => {
       <div className="card-content">
         <h3>{title}</h3>
         <p>{description}</p>
-        <a href={link} className="btn">Saiba Mais</a>
+        <button onClick={onClick} className="btn">Saiba Mais</button>
       </div>
     </div>
   );

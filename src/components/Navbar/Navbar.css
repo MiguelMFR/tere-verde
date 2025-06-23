@@ -5,7 +5,7 @@
   width: 100%;
   z-index: 1000;
   background-color: var(--background);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   transition: all 0.3s ease;
 }
 
@@ -156,6 +156,7 @@
 }
 
 @media (max-width: 992px) {
+
   /* Hide desktop theme button on mobile */
   .desktop-theme {
     display: none;
