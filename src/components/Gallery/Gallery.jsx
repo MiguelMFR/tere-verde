@@ -26,7 +26,6 @@ const Gallery = ({ images }) => {
 
   return (
     <div className="gallery-container">
-      <h2 className="gallery-title">Nossa Galeria</h2>
       
       <div className="carousel-container">
         <button className="carousel-button prev" onClick={prevSlide}>&#10094;</button>
@@ -34,7 +33,7 @@ const Gallery = ({ images }) => {
         <div className="carousel-slide">
           <div className={`slide-content ${transitionDirection}`}>
             <img 
-              src={images[currentIndex].src} 
+              src={images[currentIndex]} 
               alt={images[currentIndex].alt} 
               className="active-slide"
             />
