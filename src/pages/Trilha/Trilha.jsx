@@ -37,6 +37,19 @@ const Trilhas = () => {
     }
   };
 
+  function getCategoryLabel(type) {
+    switch (type) {
+      case "easy":
+        return "Fácil";
+      case "medium":
+        return "Médio"
+      case "hard":
+        return "Dificil";
+      default:
+        return type;
+    }
+  }
+
   useEffect(() => {
     fetchTrilhas();
   }, []);
@@ -79,6 +92,9 @@ const Trilhas = () => {
                     key={trilha.id}
                     image={trilha.imagem}
                     title={trilha.nome}
+                    categories={[
+                      { label: getCategoryLabel(trilha.dificuldade), type: trilha.dificuldade }
+                    ]}
                     description={trilha.descricao}
                     onClick={() => setSelectedTrilha(trilha)}
                   />
@@ -103,15 +119,12 @@ const Trilhas = () => {
       </div>
 
       <Modal type={selectedTrilha} isOpen={selectedTrilha !== null} onClose={() => setSelectedTrilha(null)}>
-        {selectedTrilha && (
-          //TODO: Passar props para CADA tipo de entrada
-          <div>
-            <p><strong>Descrição:</strong> {selectedTrilha.descricao}</p>
-            <p><strong>Dificuldade:</strong> {selectedTrilha.dificuldade}</p>
-            <p><strong>Duração:</strong> {selectedTrilha.duracao}</p>
-            <p><strong>Distância:</strong> {selectedTrilha.distancia}</p>
-          </div>
-        )}
+        {selectedTrilha && [
+          `Dificuldade: ${selectedTrilha.dificuldade}`,
+          `Duração: ${selectedTrilha.duracao}`,
+          `Distância: ${selectedTrilha.distancia}`,
+          `Altitude: ${selectedTrilha.altitude}`
+        ]}
       </Modal>
     </div>
   );
