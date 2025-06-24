@@ -54,8 +54,19 @@
 
 .modal-text-content .children {
   text-align: left;
+  text-indent: 0cm;
   align-items: center;
   margin-top: 2rem;
+}
+
+.modal-info-key {
+  font-weight: bold;
+  color: var(--text);
+  margin-right: 0.5rem;
+}
+
+.modal-info-value {
+  color: var(--card-text-dark);
 }
 
 .modal-close {

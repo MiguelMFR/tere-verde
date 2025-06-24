@@ -24,7 +24,15 @@ const Modal = ({ isOpen, onClose, type, children }) => {
           <div className="modal-text-content">
             <h2>{type.nome}</h2>
             <div className='children'>
-              {children}
+              {children.map((chave, val) => {
+                const [key, ...rest] = chave.split(":");
+                return (
+                  <div className='modal-info-row' key={val}>
+                    <span className="modal-info-key">{key}:</span>
+                    <span className="modal-info-value">{rest.join(":").trim()}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -40,6 +48,8 @@ const Modal = ({ isOpen, onClose, type, children }) => {
           <button className='modal-zoom-close' onClick={() => setZoomed(false)}>&times;</button>
         </div>
       )}
+      {/*TODO:Adicionar opcão de ver localizacao no maps*/}
+      {/*TODO:Adicionar animacao de abertura de modal*/}
     </div>
   );
 };

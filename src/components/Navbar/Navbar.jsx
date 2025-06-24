@@ -95,11 +95,11 @@ const Navbar = () => {
               icon={currentTheme === "dark" ? faSun : faMoon}
             />
           </button>
-          
-          <div className="mobile-menu" onClick={() => setIsOpen(!isOpen)}>
-            <span className={`bar ${isOpen ? 'open' : ''}`}></span>
-            <span className={`bar ${isOpen ? 'open' : ''}`}></span>
-            <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+
+        <div className="mobile-menu" onClick={() => setIsOpen(!isOpen)}>
+          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
           </div>
         </div>
       </div>
