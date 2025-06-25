@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Gallery from '../Gallery/Gallery';
 import './Modal.css'
 
 const Modal = ({ isOpen, onClose, type, children }) => {
@@ -14,12 +15,15 @@ const Modal = ({ isOpen, onClose, type, children }) => {
         </button>
         <div className='modal-body'>
           <div className='modal-img'>
-            <img
+            <Gallery
+              images={type.imagem}
+            />
+            {/* <img
               src={type.imagem}
               alt={type.nome}
               onClick={() => setZoomed(true)}
               style={{ cursor: "zoom-in" }}
-            />
+            /> */}
           </div>
           <div className="modal-text-content">
             <h2>{type.nome}</h2>

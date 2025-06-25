@@ -60,7 +60,7 @@ const Cachoeiras = () => {
     <div className="pagina-tematica cachoeiras-page">
       <div className="main-content">
         {error != null ? (
-          <NoContentCard title="cachoeiras" />
+          <NoContentCard title="cachoeiras" subtext />
         ) : (
           <>
             <section className="container destaque-section">
@@ -98,6 +98,10 @@ const Cachoeiras = () => {
             <li>Evite dias de chuva forte</li>
           </ul>
         </section>
+        <Map
+          title="Explore Nossas Cachoeiras"
+          cachoeiras
+        />
       </div>
 
       <Modal type={selectedCachoeira} isOpen={selectedCachoeira !== null} onClose={() => setSelectedCachoeira(null)}>

@@ -6,3 +6,7 @@
   text-align: center;
   margin-top: 5rem;
 }
+
+.no-content-card-content p {
+  color: var(--card-text-dark);
+}

@@ -55,7 +55,7 @@ const Biodiversidade = () => {
     <div className="pagina-tematica biodiversidade-page">
       <div className="main-content">
         {err != null ? (
-          <NoContentCard title="biodiversidade" />
+          <NoContentCard title="biodiversidade" subtext />
         ) : (
           <>
 

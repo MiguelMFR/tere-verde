@@ -55,7 +55,7 @@ const Eventos = () => {
     <div className="pagina-tematica eventos-page">
       <div className="main-content">
         {err != null ? (
-          <NoContentCard title="eventos" />
+          <NoContentCard title="eventos" subtext />
         ) : (
           <>
             <section className="container destaque-section">
@@ -94,7 +94,7 @@ const Eventos = () => {
         </section>
 
       </div>
-      
+
       <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
         {selectedEvent && (
           <div>

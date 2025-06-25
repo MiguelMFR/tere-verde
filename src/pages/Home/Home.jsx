@@ -67,7 +67,7 @@ const Home = () => {
         backgroundImage={background}
       />
       {err != null ? (
-        <NoContentCard title="atrações" />
+        <NoContentCard title="atrações" subtext />
       ) : (
         <>
           <div className="main-content">

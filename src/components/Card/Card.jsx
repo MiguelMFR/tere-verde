@@ -2,6 +2,7 @@ import './Card.css';
 
 const Card = ({ image, title, categories, description, onClick }) => {
 
+  //TODO: Provavelmente mudar para uma funcao JS unica no utils para uso no MODAL
   const getCategoryColor = (categories) => {
     switch (categories.type.toLowerCase()) {
       case "easy":

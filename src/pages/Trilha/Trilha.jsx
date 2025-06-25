@@ -14,7 +14,7 @@ const Trilhas = () => {
     { value: 'all', label: 'Todas' },
     { value: 'easy', label: 'Iniciantes' },
     { value: 'medium', label: 'Intermediárias' },
-    { value: 'high', label: 'Avançadas' }
+    { value: 'hard', label: 'Avançadas' }
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
@@ -44,7 +44,7 @@ const Trilhas = () => {
       case "medium":
         return "Médio"
       case "hard":
-        return "Dificil";
+        return "Difícil";
       default:
         return type;
     }
@@ -90,7 +90,7 @@ const Trilhas = () => {
                 {filteredItems.map((trilha) => (
                   <Card
                     key={trilha.id}
-                    image={trilha.imagem}
+                    image={trilha.imagem[0]}
                     title={trilha.nome}
                     categories={[
                       { label: getCategoryLabel(trilha.dificuldade), type: trilha.dificuldade }
