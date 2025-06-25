@@ -10,9 +10,9 @@ import Modal from '../../components/Modal/Modal.jsx';
 const Biodiversidade = () => {
   const bioFilters = [
     { value: 'all', label: 'Todas' },
-    { value: 'ave', label: 'Aves' },
-    { value: 'flora', label: 'Flora' },
-    { value: 'mamiferos', label: 'Mamíferos' }
+    { value: 'Ave', label: 'Aves' },
+    { value: 'Flora', label: 'Flora' },
+    { value: 'Mamífero', label: 'Mamíferos' }
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
@@ -20,6 +20,8 @@ const Biodiversidade = () => {
   const [err, setErr] = useState(null);
   const [biodiversidade, setBiodiversidade] = useState([]);
   const [selectedBiodiversidade, setSelectedBiodiversidade] = useState(null);
+
+  const activeFilterName = bioFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
 
   const fetchBiodiversidades = async () => {
     try {
@@ -53,7 +55,7 @@ const Biodiversidade = () => {
     <div className="pagina-tematica biodiversidade-page">
       <div className="main-content">
         {err != null ? (
-          <NoContentCard title="biodiversidade" />
+          <NoContentCard title="biodiversidade" subtext />
         ) : (
           <>
 
@@ -66,11 +68,18 @@ const Biodiversidade = () => {
                 />
               </div>
               <div className="card-grid">
+                {filteredItems.length === 0 && (
+                  <NoContentCard className="no-filtered-content" title={activeFilterName} />
+                )}
                 {filteredItems.map((biodiversidade) => (
                   <Card
                     key={biodiversidade.id}
-                    image={biodiversidade.imagem}
+                    page="bio"
+                    image={biodiversidade.imagem[0]}
                     title={biodiversidade.nome}
+                    categories={[
+                      { label: biodiversidade.tipo, type: biodiversidade.tipo }
+                    ]}
                     description={biodiversidade.descricao}
                     onClick={() => setSelectedBiodiversidade(biodiversidade)}
                   />
@@ -91,13 +100,10 @@ const Biodiversidade = () => {
       </div>
 
       <Modal type={selectedBiodiversidade} isOpen={selectedBiodiversidade !== null} onClose={() => setSelectedBiodiversidade(null)}>
-        {selectedBiodiversidade && (
-          <div>
-            <p><strong>Descrição:</strong> {selectedBiodiversidade.descricao}</p>
-            <p><strong>Tipo:</strong> {selectedBiodiversidade.tipo}</p>
-            <p><strong>Habitat:</strong> {selectedBiodiversidade.habitat}</p>
-          </div>
-        )}
+        {selectedBiodiversidade && [
+          `Tipo: ${selectedBiodiversidade.tipo}`,
+          `Habitat: ${selectedBiodiversidade.habitat}`
+        ]}
       </Modal>
 
     </div>

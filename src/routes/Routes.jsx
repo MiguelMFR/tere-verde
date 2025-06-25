@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Adm from "../pages/Adm/Adm";
 import Login from "../pages/Login/Login";
-
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -17,6 +17,7 @@ const AppRoutes = () => {
   return (
     <>
       {!hideNavbarAndFooter && <Navbar />}
+    <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trilhas" element={<Trilhas />} />

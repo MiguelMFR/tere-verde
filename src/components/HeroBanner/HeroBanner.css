@@ -10,7 +10,7 @@
   background-position: center;
   background-repeat: no-repeat;
   backdrop-filter: blur(20px);
-  color: var(--text-color);
+  color: var(--text-light);
   overflow: hidden;
   margin-top: 80px;
 }

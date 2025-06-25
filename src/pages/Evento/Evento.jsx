@@ -21,6 +21,8 @@ const Eventos = () => {
   const [eventos, setEventos] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
+  const activeFilterName = eventFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
+
   const fetchEventos = async () => {
     try {
       const response = await Api.get("/eventos");
@@ -53,7 +55,7 @@ const Eventos = () => {
     <div className="pagina-tematica eventos-page">
       <div className="main-content">
         {err != null ? (
-          <NoContentCard title="eventos" />
+          <NoContentCard title="eventos" subtext />
         ) : (
           <>
             <section className="container destaque-section">
@@ -65,12 +67,21 @@ const Eventos = () => {
                 />
               </div>
               <div className="card-grid">
+                {filteredItems.length === 0 && (
+                  <NoContentCard className="no-filtered-content" title={`eventos ${activeFilterName}`} />
+                )}
                 {filteredItems.map((evento) => (
                   <Card
                     key={evento.id}
-                    image={evento.imagem}
+                    page="eventos"
+                    image={evento.imagem[0]}
                     title={evento.nome}
                     description={evento.descricao}
+                    categories={[
+                      { label: evento.tipo, type: evento.tipo },
+                      { label: evento.data, type: evento.data }
+
+                    ]}
                     onClick={() => setSelectedEvent(evento)}
                   />
                 ))}
@@ -89,16 +100,14 @@ const Eventos = () => {
         </section>
 
       </div>
-      
+
       <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
-        {selectedEvent && (
-          <div>
-            <p><strong>Descrição:</strong> {selectedEvent.descricao}</p>
-            <p><strong>Tipo:</strong> {selectedEvent.tipo}</p>
-            <p><strong>Data:</strong> {selectedEvent.data}</p>
-            <p><strong>Local:</strong> {selectedEvent.local}</p>
-          </div>
-        )}
+        {selectedEvent && [
+          `Descrição: ${selectedEvent.descricao}`,
+          `Tipo: ${selectedEvent.tipo}`,
+          `Data: ${selectedEvent.data}`,
+          `Local: ${selectedEvent.local}`,
+        ]}
       </Modal>
 
     </div>

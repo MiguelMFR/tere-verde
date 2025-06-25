@@ -1,0 +1,28 @@
+.scroll-top {
+  position: fixed;
+  z-index: 99;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--button-background);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top:hover {
+  background: var(--button-hover);
+}
+
+.scroll-top.hidden {
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+}

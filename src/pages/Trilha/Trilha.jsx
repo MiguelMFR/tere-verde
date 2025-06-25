@@ -1,4 +1,4 @@
-import {useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import Filter from '../../components/Filter/Filter';
 import '../../pages/PaginasTematicas.css';
@@ -7,6 +7,7 @@ import './Trilha.css';
 import NoContentCard from '../../components/NoContentCard/NoContentCard.jsx';
 import Modal from '../../components/Modal/Modal.jsx';
 import Map from '../../components/Map/Map';
+import { getCategoryLabel } from '../../utils/functions/getCategoryLabel';
 
 
 const Trilhas = () => {
@@ -14,7 +15,7 @@ const Trilhas = () => {
     { value: 'all', label: 'Todas' },
     { value: 'easy', label: 'Iniciantes' },
     { value: 'medium', label: 'Intermediárias' },
-    { value: 'high', label: 'Avançadas' }
+    { value: 'hard', label: 'Avançadas' }
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
@@ -22,6 +23,8 @@ const Trilhas = () => {
   const [err, setErr] = useState(null);
   const [trilhas, setTrilhas] = useState([]);
   const [selectedTrilha, setSelectedTrilha] = useState(null);
+
+  const activeFilterName = trailFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
 
   const fetchTrilhas = async () => {
     try {
@@ -48,6 +51,11 @@ const Trilhas = () => {
     ? trilhas
     : trilhas.filter(item => item.dificuldade === activeFilter);
 
+  const handleDificuldadeLabel = () => {
+    var dificuldade = getCategoryLabel("trilha", selectedTrilha.dificuldade);
+    return dificuldade.toLocaleLowerCase();
+  }
+
   //TODO: fazer card dedicado para o carregamento
   if (loading) {
     return <div>Carregando...</div>;
@@ -57,7 +65,7 @@ const Trilhas = () => {
     <div className="pagina-tematica trilhas-page">
       <div className="main-content">
         {err ? (
-          <NoContentCard title="trilhas" />
+          <NoContentCard title="trilhas" subtext />
         ) : (
           <>
             <section className="container destaque-section">
@@ -69,11 +77,19 @@ const Trilhas = () => {
                 />
               </div>
               <div className="card-grid">
+                {filteredItems.length === 0 && (
+                  <NoContentCard className="no-filtered-content" title={`trilhas ${activeFilterName}`} />
+                )}
                 {filteredItems.map((trilha) => (
                   <Card
                     key={trilha.id}
-                    image={trilha.imagem}
+                    page="trilha-cachoeira"
+                    image={trilha.imagem[0]}
                     title={trilha.nome}
+                    categories={[
+                      { label: getCategoryLabel("trilha", trilha.dificuldade), type: trilha.dificuldade },
+                      { label: trilha.duracao, type: trilha.duracao }
+                    ]}
                     description={trilha.descricao}
                     onClick={() => setSelectedTrilha(trilha)}
                   />
@@ -98,14 +114,12 @@ const Trilhas = () => {
       </div>
 
       <Modal type={selectedTrilha} isOpen={selectedTrilha !== null} onClose={() => setSelectedTrilha(null)}>
-        {selectedTrilha && (
-          <div>
-            <p><strong>Descrição:</strong> {selectedTrilha.descricao}</p>
-            <p><strong>Dificuldade:</strong> {selectedTrilha.dificuldade}</p>
-            <p><strong>Duração:</strong> {selectedTrilha.duracao}</p>
-            <p><strong>Distância:</strong> {selectedTrilha.distancia}</p>
-          </div>
-        )}
+        {selectedTrilha && [
+          `Dificuldade: ${handleDificuldadeLabel()}`,
+          `Duração: ${selectedTrilha.duracao}`,
+          `Distância: ${selectedTrilha.distancia}`,
+          `Altitude: ${selectedTrilha.altitude}`
+        ]}
       </Modal>
     </div>
   );
