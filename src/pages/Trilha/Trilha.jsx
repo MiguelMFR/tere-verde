@@ -7,6 +7,7 @@ import './Trilha.css';
 import NoContentCard from '../../components/NoContentCard/NoContentCard.jsx';
 import Modal from '../../components/Modal/Modal.jsx';
 import Map from '../../components/Map/Map';
+import { getCategoryLabel } from '../../utils/functions/getCategoryLabel';
 
 
 const Trilhas = () => {
@@ -37,19 +38,6 @@ const Trilhas = () => {
     }
   };
 
-  function getCategoryLabel(type) {
-    switch (type) {
-      case "easy":
-        return "Fácil";
-      case "medium":
-        return "Médio"
-      case "hard":
-        return "Difícil";
-      default:
-        return type;
-    }
-  }
-
   useEffect(() => {
     fetchTrilhas();
   }, []);
@@ -62,6 +50,11 @@ const Trilhas = () => {
   const filteredItems = activeFilter === 'all'
     ? trilhas
     : trilhas.filter(item => item.dificuldade === activeFilter);
+
+  const handleDificuldadeLabel = () => {
+    var dificuldade = getCategoryLabel("trilha", selectedTrilha.dificuldade);
+    return dificuldade.toLocaleLowerCase();
+  }
 
   //TODO: fazer card dedicado para o carregamento
   if (loading) {
@@ -90,10 +83,12 @@ const Trilhas = () => {
                 {filteredItems.map((trilha) => (
                   <Card
                     key={trilha.id}
+                    page="trilha-cachoeira"
                     image={trilha.imagem[0]}
                     title={trilha.nome}
                     categories={[
-                      { label: getCategoryLabel(trilha.dificuldade), type: trilha.dificuldade }
+                      { label: getCategoryLabel("trilha", trilha.dificuldade), type: trilha.dificuldade },
+                      { label: trilha.duracao, type: trilha.duracao }
                     ]}
                     description={trilha.descricao}
                     onClick={() => setSelectedTrilha(trilha)}
@@ -120,7 +115,7 @@ const Trilhas = () => {
 
       <Modal type={selectedTrilha} isOpen={selectedTrilha !== null} onClose={() => setSelectedTrilha(null)}>
         {selectedTrilha && [
-          `Dificuldade: ${selectedTrilha.dificuldade}`,
+          `Dificuldade: ${handleDificuldadeLabel()}`,
           `Duração: ${selectedTrilha.duracao}`,
           `Distância: ${selectedTrilha.distancia}`,
           `Altitude: ${selectedTrilha.altitude}`
