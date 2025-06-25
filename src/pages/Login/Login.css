@@ -6,8 +6,8 @@
   padding: 20px;
   height: 100%;
   width: 43vh;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
   color: var(--dark-text);
   font-weight: bold;
 }
@@ -23,13 +23,13 @@
 }
 
 .login-wrapper .input {
-  color: var(--dark-text);
-  background: linear-gradient(to right, var(--background-light), var(--button-border));
+  color: var(--text);
   width: 100%;
   padding: 8px;
   border: 1px;
   border-radius: 5px;
   box-sizing: border-box;
+  font-weight: 600;
   text-transform: none;
   outline: none;
 }
@@ -39,12 +39,12 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-self: flex-end;
   margin-bottom: 2vh;
 }
 
 .login-wrapper p:hover {
-  color: var(--light-text);
+  color: var(--primary-color);
 }
 
 .login-form {
@@ -63,18 +63,8 @@
   text-align: left;
 }
 
-.submit-button {
-  display: inline-block;
-  padding: 0.8rem 7rem;
-  background-color: var(--button-background);
-  color: white;
-  border-radius: 50px;
-  border: none;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  align-self: center;
-  cursor: pointer;
+.btn-submit {
+  align-self: auto !important;
 }
 
 .submit-button:hover {

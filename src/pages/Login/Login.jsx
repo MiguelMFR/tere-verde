@@ -65,7 +65,7 @@ const Login = () => {
           {formErrors.senha && <span className="error-message">{formErrors.senha}</span>}
 
           <p>Problemas ao logar?</p>
-          <button type="submit" className="submit-button">
+          <button type="submit" className="btn btn-submit">
             Entrar
           </button>
         </form>

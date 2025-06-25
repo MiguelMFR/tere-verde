@@ -1,3 +1,5 @@
+import "./Input.css"
+
 export function InputText({ label, className, placeholder, value, onChange }) {
   return (
     <div className="container-input">

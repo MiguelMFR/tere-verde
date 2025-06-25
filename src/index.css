@@ -27,6 +27,8 @@
     --cachoeira-info-section-light: #b3e5fc;
     --evento-info-section-light: #ffcdd2;
 
+    --input-bg-light: #eeeeee;
+
     --box-shadow-light: 0 16px 64px rgba(0, 0, 0, 0.15);
 
     /*==DARK THEME*/
@@ -43,6 +45,8 @@
     --cachoeira-info-section-dark: #033951;
     --bio-info-section-dark: #233c2b;
     --evento-info-section-dark: #72000B;
+
+    --input-bg-dark: #373737;
 
     --box-shadow-dark: 0 4px 16px rgba(0, 0, 0, 0.32),
       0 0 1.5px 0.5px rgba(255, 255, 255, 0.04);
@@ -67,6 +71,8 @@
     --cachoeira-info-section: var(--cachoeira-info-section-light);
     --evento-info-section: var(--evento-info-section-light);
 
+    --input-bg: var(--input-bg-light);
+
     --box-shadow: var(--box-shadow-light);
   }
 
@@ -87,6 +93,8 @@
     --bio-info-section: var(--bio-info-section-dark);
     --cachoeira-info-section: var(--cachoeira-info-section-dark);
     --evento-info-section: var(--evento-info-section-dark);
+
+    --input-bg: var(--input-bg-dark);
 
     --box-shadow: var(--box-shadow-dark);
   }
