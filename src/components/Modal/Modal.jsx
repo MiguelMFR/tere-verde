@@ -18,12 +18,6 @@ const Modal = ({ isOpen, onClose, type, children }) => {
             <Gallery
               images={type.imagem}
             />
-            {/* <img
-              src={type.imagem}
-              alt={type.nome}
-              onClick={() => setZoomed(true)}
-              style={{ cursor: "zoom-in" }}
-            /> */}
           </div>
           <div className="modal-text-content">
             <h2>{type.nome}</h2>
