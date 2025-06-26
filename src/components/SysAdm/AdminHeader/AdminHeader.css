@@ -2,9 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  width: 100%;
   margin-bottom: 30px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: var(--background);
+  box-shadow: var(--box-shadow);
+}
+
+.admin-header img {
+  height: 50px;
+  transition: transform 0.3s ease;
 }
 
 .admin-title {
@@ -12,28 +20,13 @@
   margin: 0;
 }
 
-.btn {
-  background-color: #2e7d32;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #1b5e20;
-}
-
 @media (max-width: 768px) {
   .admin-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .admin-header .btn {
     margin-top: 15px;
   }
-} 
+}

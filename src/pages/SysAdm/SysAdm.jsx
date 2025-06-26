@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import AdminHeader from '../../components/SysAdm/AdminHeader';
+import { useState, useEffect, useCallback } from 'react';
+import AdminHeader from '../../components/SysAdm/AdminHeader/AdminHeader';
 import AdminTabs from '../../components/SysAdm/AdminTabs/AdminTabs';
-import AdminDialog from '../../components/SysAdm/AdminDialog';
-import AdminFormFields from '../../components/SysAdm/AdminFormFields';
+import AdminDialog from '../../components/SysAdm/AdminDialog/AdminDialog';
+import AdminFormFields from '../../components/SysAdm/AdminFormFields/AdminFormFields';
 import AdminService from '../../components/SysAdm/AdminService';
 import '../../pages/Adm/Adm.css';
 import Card from '../../components/Card/Card';
+import { prepareFormData } from '../../components/SysAdm/PrepareFormData';
 
 const categories = [
   { name: 'trilhas', label: 'Trilhas' },
@@ -24,10 +25,9 @@ const initialFormData = {
   data: '',
   local: '',
   especie: '',
-  tipo: 'endêmica',
+  tipo: 'ave',
   statusConservacao: 'pouco preocupante',
   dataFim: '',
-  preco: 0,
   distancia: '',
   altitude: '',
   destaque: false
@@ -57,10 +57,12 @@ const SysAdm = () => {
 
   const handleSubmit = async () => {
     const currentCategory = categories[activeTab].name;
+    const dataToSend = prepareFormData(currentCategory, formData);
+
     if (editingId) {
-      await AdminService.updateItem(currentCategory, editingId, formData);
+      await AdminService.updateItem(currentCategory, editingId, dataToSend);
     } else {
-      await AdminService.createItem(currentCategory, formData);
+      await AdminService.createItem(currentCategory, dataToSend);
     }
     resetForm();
     fetchAllData();
@@ -98,7 +100,7 @@ const SysAdm = () => {
         onClose={() => setOpenDialog(false)}
         footer={
           <>
-            <button className="btn" onClick={() => setOpenDialog(false)}>Cancelar</button>
+            <button className="btn btn-edit" onClick={() => setOpenDialog(false)}>Cancelar</button>
             <button className="btn" onClick={handleSubmit}>{editingId ? 'Atualizar' : 'Salvar'}</button>
           </>
         }
@@ -115,14 +117,14 @@ const SysAdm = () => {
         onClose={() => setOpenDeleteDialog(false)}
         footer={
           <>
-            <button className="btn" onClick={() => setOpenDeleteDialog(false)}>Cancelar</button>
+            <button className="btn btn-edit" onClick={() => setOpenDeleteDialog(false)}>Cancelar</button>
             <button className="btn" onClick={handleDelete}>Confirmar</button>
           </>
         }
       >
         <p>Tem certeza que deseja excluir este item?</p>
       </AdminDialog>
-      <div className="cards-container">
+      <div className="cards-grid">
         {data[categories[activeTab].name]?.map(item => (
           <Card
             key={item.id}

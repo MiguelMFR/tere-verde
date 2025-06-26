@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import api from "../../services/Api";
-import "./Adm.css";
 
 const AdminPage = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -67,9 +66,9 @@ const AdminPage = () => {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({ 
-      ...prev, 
-      [name]: type === 'checkbox' ? checked : value 
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
@@ -138,7 +137,7 @@ const AdminPage = () => {
 
   const handleEdit = (item) => {
     const currentCategory = categories[activeTab].name;
-    
+
     const baseFields = {
       nome: item.nome || item.especie,
       descricao: item.descricao,
@@ -226,7 +225,7 @@ const AdminPage = () => {
 
   const renderFormFields = () => {
     const currentCategory = categories[activeTab].name;
-    
+
     const nameLabel = currentCategory === 'biodiversidade' ? "Espécie" : "Nome";
     const nameField = currentCategory === 'biodiversidade' ? "especie" : "nome";
 
@@ -551,7 +550,7 @@ const AdminPage = () => {
     <div className="admin-container">
       <div className="admin-header">
         <h1 className="admin-title">Painel de Administração</h1>
-        <button 
+        <button
           className="btn"
           onClick={() => {
             resetForm();
@@ -564,7 +563,7 @@ const AdminPage = () => {
 
       <div className="tabs">
         {categories.map((category, index) => (
-          <div 
+          <div
             key={category.name}
             className={`tab ${activeTab === index ? 'active' : ''}`}
             onClick={() => handleTabChange(index)}
@@ -581,7 +580,7 @@ const AdminPage = () => {
               <h2>
                 {editingId ? `Editar ${categories[activeTab].label}` : `Adicionar ${categories[activeTab].label}`}
               </h2>
-              <button 
+              <button
                 className="close-btn"
                 onClick={() => setOpenDialog(false)}
               >
@@ -592,13 +591,13 @@ const AdminPage = () => {
               {renderFormFields()}
             </div>
             <div className="dialog-footer">
-              <button 
+              <button
                 className="btn"
                 onClick={() => setOpenDialog(false)}
               >
                 Cancelar
               </button>
-              <button 
+              <button
                 className="btn"
                 onClick={handleSubmit}
               >
@@ -614,7 +613,7 @@ const AdminPage = () => {
           <div className="dialog">
             <div className="dialog-header">
               <h2>Confirmar Exclusão</h2>
-              <button 
+              <button
                 className="close-btn"
                 onClick={() => setOpenDeleteDialog(false)}
               >
@@ -625,13 +624,13 @@ const AdminPage = () => {
               <p>Tem certeza que deseja excluir este item?</p>
             </div>
             <div className="dialog-footer">
-              <button 
+              <button
                 className="btn"
                 onClick={() => setOpenDeleteDialog(false)}
               >
                 Cancelar
               </button>
-              <button 
+              <button
                 className="btn"
                 onClick={handleDelete}
               >
@@ -646,12 +645,12 @@ const AdminPage = () => {
         {data[categories[activeTab].name]?.map((item) => (
           <div className="card" key={item.id}>
             {item.imagem && (
-              <img 
-                src={item.imagem} 
-                alt={item.nome || item.especie} 
+              <img
+                src={item.imagem}
+                alt={item.nome || item.especie}
                 className="card-image"
                 onError={(e) => {
-                  e.target.onerror = null; 
+                  e.target.onerror = null;
                   e.target.src = "https://via.placeholder.com/300x200?text=Imagem+indisponível";
                 }}
               />
@@ -660,7 +659,7 @@ const AdminPage = () => {
               {renderCardContent(item)}
             </div>
             <div className="card-actions">
-              <button 
+              <button
                 className="btn"
                 onClick={() => handleEdit(item)}
                 aria-label="editar"
@@ -668,7 +667,7 @@ const AdminPage = () => {
                 Editar
                 <i className="fas fa-edit"></i>
               </button>
-              <button 
+              <button
                 className="btn"
                 onClick={() => {
                   setItemToDelete({ id: item.id, category: categories[activeTab].name });
