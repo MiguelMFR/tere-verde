@@ -1,4 +1,8 @@
-.container-input label {
+.container-input {
+  margin-bottom: 15px;
+}
+
+label {
   font-weight: bold;
   color: var(--text);
   display: block;
@@ -18,4 +22,40 @@
   padding: 8px;
   font-weight: 600;
   outline: none;
+}
+
+.container-input select {
+  display: grid;
+  width: 100%;
+  padding: 8px;
+  border: 1px;
+  border-radius: 5px;
+  background-color: var(--input-bg);
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.container-input textarea {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px;
+  background-color: var(--input-bg);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.checkbox-group {
+  flex-direction: row;
+  margin-inline-end: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.checkbox-group input {
+  cursor: pointer;
+  margin-inline: auto;
+  accent-color: var(--primary-color);
 }

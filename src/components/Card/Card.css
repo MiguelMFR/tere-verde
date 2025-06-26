@@ -74,23 +74,6 @@
 
 }
 
-.adm-btn .btn-edit {
-  background-color: #bbb;
-}
-
-.btn-edit:hover {
-  background-color: #bbb !important;
-}
-
-.adm-btn .btn-delete {
-  background-color: var(--error-color);
-}
-
-.btn-delete:hover {
-  background-color: var(--error-color) !important;
-}
-
-
 @media (max-width: 768px) {
   .card-image {
     height: 200px;
