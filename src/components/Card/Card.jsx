@@ -1,7 +1,7 @@
 import { getCategoryColor } from '../../utils/functions/getCategoryColor';
 import './Card.css';
 
-const Card = ({ image, title, page, categories, description, onClick }) => {
+const Card = ({ image, title, page, categories, description, onClick, item, onEdit, onDelete }) => {
 
   return (
     <div className="attraction-card">
@@ -26,7 +26,15 @@ const Card = ({ image, title, page, categories, description, onClick }) => {
           </div>
         )}
         <p>{description}</p>
-        <button onClick={onClick} className="btn">Saiba Mais</button>
+        {onClick && (
+          <button onClick={onClick} className="btn" aria-label='saiba mais'>Saiba Mais</button>
+        )}
+        {onEdit && onDelete && (
+          <div className='adm-btn'>
+            <button className='btn btn-edit' onClick={() => onEdit(item)} aria-label="editar">Editar</button>
+            <button className='btn btn-delete' onClick={() => onDelete(item)} aria-label="deletar">Deletar</button>
+          </div>
+        )}
       </div>
     </div>
   );
