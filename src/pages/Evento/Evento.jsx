@@ -5,6 +5,7 @@ import '../../pages/PaginasTematicas.css'
 import Filter from '../../components/Filter/Filter';
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
+import Modal from '../../components/Modal/Modal';
 
 const Eventos = () => {
   const eventFilters = [
@@ -18,6 +19,9 @@ const Eventos = () => {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   const [eventos, setEventos] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const activeFilterName = eventFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
 
   const fetchEventos = async () => {
     try {
@@ -51,7 +55,7 @@ const Eventos = () => {
     <div className="pagina-tematica eventos-page">
       <div className="main-content">
         {err != null ? (
-          <NoContentCard title="eventos" />
+          <NoContentCard title="eventos" subtext />
         ) : (
           <>
             <section className="container destaque-section">
@@ -63,13 +67,22 @@ const Eventos = () => {
                 />
               </div>
               <div className="card-grid">
+                {filteredItems.length === 0 && (
+                  <NoContentCard className="no-filtered-content" title={`eventos ${activeFilterName}`} />
+                )}
                 {filteredItems.map((evento) => (
                   <Card
                     key={evento.id}
-                    image={evento.imagem}
+                    page="eventos"
+                    image={evento.imagem[0]}
                     title={evento.nome}
                     description={evento.descricao}
-                    link={`/eventos/${evento.id}`}
+                    categories={[
+                      { label: evento.tipo, type: evento.tipo },
+                      { label: evento.data, type: evento.data }
+
+                    ]}
+                    onClick={() => setSelectedEvent(evento)}
                   />
                 ))}
               </div>
@@ -87,6 +100,16 @@ const Eventos = () => {
         </section>
 
       </div>
+
+      <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
+        {selectedEvent && [
+          `Descrição: ${selectedEvent.descricao}`,
+          `Tipo: ${selectedEvent.tipo}`,
+          `Data: ${selectedEvent.data}`,
+          `Local: ${selectedEvent.local}`,
+        ]}
+      </Modal>
+
     </div>
   );
 };

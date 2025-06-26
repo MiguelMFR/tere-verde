@@ -1,11 +1,13 @@
 import "./NoContentCard.css";
 
-const NoContentCard = ({ title }) => {
+const NoContentCard = ({ title, subtext, className }) => {
   return (
     <>
-      <div className="no-content-card-content">
-        <h2>Não há nenhum registro de {title} presente no momento.</h2>
-        <p>Por favor, recarregue a página e tente novamente.</p>
+      <div className={className || "no-content-card-content"}>
+        <h3>Nenhum registro de {title} no momento.</h3>
+        {subtext && (
+          <p>Por favor, recarregue a página e tente novamente.</p>
+        )}
       </div>
     </>
   );
