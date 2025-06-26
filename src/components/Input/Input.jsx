@@ -1,11 +1,12 @@
 import "./Input.css"
 
-export function InputText({ label, className, placeholder, value, onChange }) {
+export function InputText({ label, className, placeholder, value, onChange, name }) {
   return (
     <div className="container-input">
       <label>{label}</label>
       <input
         type="text"
+        name={name}
         className={className}
         placeholder={placeholder}
         value={value}
