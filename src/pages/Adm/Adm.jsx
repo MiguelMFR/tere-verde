@@ -443,7 +443,7 @@ const AdminPage = () => {
             name="descricao"
             value={formData.descricao}
             onChange={handleInputChange}
-            rows="4"
+            rows="2"
           />
         </div>
 
