@@ -4,7 +4,7 @@ import './Card.css';
 const Card = ({ image, title, page, categories, description, onClick, item, onEdit, onDelete }) => {
 
   return (
-    <div className="attraction-card">
+    <div className="card-container">
       <div className="card-image">
         <img src={image} alt={title} />
       </div>

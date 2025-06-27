@@ -49,9 +49,11 @@ label {
 
 .checkbox-group {
   flex-direction: row;
+  align-items: center;
   margin-inline-end: auto;
   display: flex;
   gap: 10px;
+  width: 100%;
 }
 
 .checkbox-group input {

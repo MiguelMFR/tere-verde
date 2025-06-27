@@ -1,3 +1,4 @@
+import "./Dialog.css"
 
 const AdminDialog = ({ isOpen, title, onClose, children, footer }) => {
   if (!isOpen) return null;
@@ -6,7 +7,6 @@ const AdminDialog = ({ isOpen, title, onClose, children, footer }) => {
       <div className="dialog">
         <div className="dialog-header">
           <h2>{title}</h2>
-          <button className="close-btn" onClick={onClose}>&times;</button>
         </div>
         <div className="dialog-body">{children}</div>
         {footer && <div className="dialog-footer">{footer}</div>}

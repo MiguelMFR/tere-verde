@@ -2,7 +2,7 @@ export function prepareFormData(category, formData) {
   const baseFields = {
     nome: formData.nome,
     descricao: formData.descricao,
-    imagem: formData.imagem,
+    imagem: [formData.imagem],
     destaque: formData.destaque
   };
 

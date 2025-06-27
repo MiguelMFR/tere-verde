@@ -5,9 +5,9 @@ const AdminFormFields = ({ category, formData, onChange }) => {
   const nameField = category === 'biodiversidade' ? 'especie' : 'nome';
 
   const dificuldadeOptions = [
-    { value: "Fácil", label: "Fácil" },
-    { value: "Média", label: "Média" },
-    { value: "Difícil", label: "Difícil" }
+    { value: "easy", label: "Fácil" },
+    { value: "medium", label: "Média" },
+    { value: "hard", label: "Difícil" }
   ];
 
   const tipoEventoOptions = [
@@ -26,7 +26,7 @@ const AdminFormFields = ({ category, formData, onChange }) => {
     { value: "pouco preocupante", label: "Pouco preocupante" },
     { value: "vulnerável", label: "Vulnerável" },
     { value: "em perigo", label: "Em perigo" },
-    { value: "criticamente em perigo", label: "Criticamente em perigo" }
+    { value: "critica", label: "Crítica" }
   ];
 
 

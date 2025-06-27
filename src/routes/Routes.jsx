@@ -9,16 +9,14 @@ import Footer from "../components/Footer/Footer";
 import Adm from "../pages/Adm/Adm";
 import Login from "../pages/Login/Login";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
-import SysAdm from "../pages/SysAdm/SysAdm";
 
 const AppRoutes = () => {
   const location = useLocation();
   const hideNavbarAndFooter = location.pathname === "/adm";
-  const notAdm = location.pathname === "/sysadm";
 
   return (
     <>
-      {!hideNavbarAndFooter && !notAdm && <Navbar />}
+      {!hideNavbarAndFooter && <Navbar />}
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -28,9 +26,8 @@ const AppRoutes = () => {
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/login" element={<Login />} />
         <Route path="/adm" element={<Adm />} />
-        <Route path="/sysadm" element={<SysAdm/>}/>
       </Routes>
-      {!hideNavbarAndFooter && !notAdm && <Footer />}
+      {!hideNavbarAndFooter && <Footer />}
     </>
   );
 };
