@@ -57,7 +57,7 @@ const Cachoeiras = () => {
   const filteredItems =
     activeFilter === "all"
       ? cachoeiras
-      : cachoeiras.filter((item) => item.dificuldadeAcesso === activeFilter);
+      : cachoeiras.filter((item) => item.dificuldade === activeFilter);
 
   const handleDificuldadeLabel = () => {
     var dificuldade = getCategoryLabel("cachoeira", selectedCachoeira.dificuldade);

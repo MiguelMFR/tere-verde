@@ -73,6 +73,7 @@ const SysAdm = () => {
 
   const handleSubmit = async () => {
     const currentCategory = categories[activeTab].name;
+    console.log('FormData antes da validação:', formData); 
     const errors = validateFormData(currentCategory, formData);
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
@@ -82,6 +83,7 @@ const SysAdm = () => {
 
     if (editingId) {
       try {
+        console.log(currentCategory, editingId, dataToSend)
         await AdminService.updateItem(currentCategory, editingId, dataToSend);
       } catch (err) {
       }
