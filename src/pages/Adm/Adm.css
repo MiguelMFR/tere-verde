@@ -32,6 +32,43 @@
   display: grid;
 }
 
+.form-img {
+  display: flex;
+  align-items: center;
+}
+
+.form-img input {
+  margin: 20px 0 0 5px;
+}
+
+.img-preview {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: var(--button-border-light);
+  box-shadow: var(--box-shadow);
+}
+
+.btn-remove-img {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--error-color);
+  font-size: 1em;
+  margin: 5px 0 0px 10px;
+}
+
+.btn-add-img {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  font-size: 1em;
+  font-weight: 600;
+  margin: -10px 0 25px 0px;
+}
+
 @media (max-width: 768px) {
   .cards-grid {
     grid-template-columns: 1fr;

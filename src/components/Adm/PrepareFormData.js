@@ -2,7 +2,7 @@ export function prepareFormData(category, formData) {
   const baseFields = {
     nome: formData.nome,
     descricao: formData.descricao,
-    imagem: [formData.imagem],
+    imagem: formData.imagem,
     destaque: formData.destaque
   };
 
@@ -19,9 +19,9 @@ export function prepareFormData(category, formData) {
       return {
         ...baseFields,
         localizacao: formData.localizacao,
-        dificuldadeAcesso: formData.dificuldade,
-        alturaQueda: formData.altitude,
-        possuiPiscina: formData.destaque
+        dificuldadeAcesso: formData.dificuldadeAcesso,
+        alturaQueda: formData.alturaQueda,
+        possuiPiscina: formData.possuiPiscina
       };
     case 'eventos':
       return {
@@ -35,10 +35,9 @@ export function prepareFormData(category, formData) {
     case 'biodiversidade':
       return {
         ...baseFields,
-        especie: formData.especie,
         tipo: formData.tipo,
         statusConservacao: formData.statusConservacao,
-        habitat: formData.localizacao
+        habitat: formData.habitat
       };
     default:
       return baseFields;

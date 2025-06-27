@@ -6,7 +6,8 @@ label {
   font-weight: bold;
   color: var(--text);
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  width: 100%;
 }
 
 .container-input input {
@@ -64,4 +65,5 @@ label {
   cursor: pointer;
   margin-inline: auto;
   accent-color: var(--primary-color);
+  align-self: self-start;
 }

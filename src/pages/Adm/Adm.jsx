@@ -22,19 +22,22 @@ const categories = [
 const initialFormData = {
   nome: '',
   dificuldade: 'Média',
+  dificuldadeAcesso: "Média",
   duracao: '',
   descricao: '',
   imagem: [""],
   localizacao: '',
   data: '',
-  local: '',
-  especie: '',
+  habitat: '',
   tipo: 'ave',
   statusConservacao: 'pouco preocupante',
   dataFim: '',
+  preco: 0,
   distancia: '',
   altitude: '',
-  destaque: false
+  alturaQueda: "",
+  destaque: false,
+  possuiPiscina: false
 };
 
 const SysAdm = () => {
@@ -74,13 +77,18 @@ const SysAdm = () => {
       setErrors(errors);
       return;
     }
-
     const dataToSend = prepareFormData(currentCategory, formData);
 
     if (editingId) {
-      await AdminService.updateItem(currentCategory, editingId, dataToSend);
+      try {
+        await AdminService.updateItem(currentCategory, editingId, dataToSend);
+      } catch (err) {
+      }
     } else {
-      await AdminService.createItem(currentCategory, dataToSend);
+      try {
+        await AdminService.createItem(currentCategory, dataToSend);
+      } catch (err) {
+      }
     }
     resetForm();
     fetchAllData();
@@ -128,6 +136,7 @@ const SysAdm = () => {
           <FormFields
             category={categories[activeTab].name}
             formData={formData}
+            setFormData={setFormData}
             onChange={handleInputChange}
             errors={errors}
           />

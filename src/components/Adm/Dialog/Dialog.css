@@ -39,6 +39,7 @@
 
 .dialog-body {
   padding: 20px;
+  padding-bottom: 0;
 }
 
 .dialog-body p {
@@ -46,7 +47,7 @@
 }
 
 .dialog-footer {
-  padding: 15px 20px;
+  padding: 0 15px 20px;
   display: flex;
   justify-content: flex-end;
   gap: 10px;
@@ -57,6 +58,10 @@
     font-size: 1.5rem;
   }
 
+  .dialog-body {
+    margin-bottom: -10px;
+  }
+
   .dialog-body p {
     font-size: 1rem;
   }
@@ -65,6 +70,7 @@
 
 @media (max-width: 400px) {
   .dialog-footer {
+    padding-top: 5px;
     justify-content: center;
   }
 }
