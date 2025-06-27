@@ -56,10 +56,11 @@
 }
 
 .error-message {
+  font-weight: 600;
   color: var(--error-color);
   font-size: 0.8rem;
-  margin-top: -0.5vh;
-  margin-bottom: 0.5vh;
+  margin-top: -2vh;
+  margin-bottom: 0.7vh;
   text-align: left;
 }
 

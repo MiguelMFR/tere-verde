@@ -1,8 +1,13 @@
-.container-input label {
+.container-input {
+  margin-bottom: 15px;
+}
+
+label {
   font-weight: bold;
   color: var(--text);
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  width: 100%;
 }
 
 .container-input input {
@@ -18,4 +23,47 @@
   padding: 8px;
   font-weight: 600;
   outline: none;
+}
+
+.container-input select {
+  display: grid;
+  width: 100%;
+  padding: 8px;
+  border: 1px;
+  border-radius: 5px;
+  background-color: var(--input-bg);
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.container-input textarea {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px;
+  background-color: var(--input-bg);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: center;
+  margin-inline-end: auto;
+  display: flex;
+  gap: 0.5em;
+  white-space: nowrap;
+  width: 100%;
+  margin: 0em 0 1em 0;
+  width: 14px;
+  height: 14px;
+}
+
+.checkbox-group input {
+  cursor: pointer;
+  margin-inline: auto;
+  accent-color: var(--primary-color);
+  align-self: self-start;
 }

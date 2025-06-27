@@ -57,7 +57,7 @@ const Cachoeiras = () => {
   const filteredItems =
     activeFilter === "all"
       ? cachoeiras
-      : cachoeiras.filter((item) => item.dificuldade === activeFilter);
+      : cachoeiras.filter((item) => item.dificuldadeAcesso === activeFilter);
 
   const handleDificuldadeLabel = () => {
     var dificuldade = getCategoryLabel("cachoeira", selectedCachoeira.dificuldade);
@@ -95,7 +95,7 @@ const Cachoeiras = () => {
                     image={cachoeira.imagem[0]}
                     title={cachoeira.nome}
                     categories={[
-                      { label: getCategoryLabel("cachoeira", cachoeira.dificuldade), type: cachoeira.dificuldade }
+                      { label: getCategoryLabel("cachoeira", cachoeira.dificuldadeAcesso), type: cachoeira.dificuldadeAcesso }
                     ]}
                     description={cachoeira.descricao}
                     onClick={() => setSelectedCachoeira(cachoeira)}
