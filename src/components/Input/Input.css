@@ -52,8 +52,12 @@ label {
   align-items: center;
   margin-inline-end: auto;
   display: flex;
-  gap: 10px;
+  gap: 0.5em;
+  white-space: nowrap;
   width: 100%;
+  margin: 0em 0 1em 0;
+  width: 14px;
+  height: 14px;
 }
 
 .checkbox-group input {

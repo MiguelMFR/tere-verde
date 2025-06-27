@@ -166,7 +166,6 @@
 
 @media (max-width: 620px) {
   .modal-content {
-    min-width: 351px;
     min-height: 516px;
   }
 
