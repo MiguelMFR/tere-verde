@@ -102,8 +102,8 @@ const Home = () => {
     },
     {
       image: eventos[0]?.imagem[0],
-      title: "Eventos de Ecoturismo",
-      description:"Participe de nossos eventos que promovem o contato consciente com a natureza.",
+      title: "Eventos",
+      description:"Participe de nossos eventos da cidade para aproveitar com a família",
       reverse: true,
       link: "/eventos"
     }
