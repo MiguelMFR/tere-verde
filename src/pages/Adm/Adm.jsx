@@ -9,6 +9,8 @@ import FormFields from '../../components/Adm/FormFields/FormFields';
 import Card from '../../components/Card/Card';
 import { prepareFormData } from '../../components/Adm/PrepareFormData';
 import SubmitCard from '../../components/Adm/SubmitCard/SubmitCard';
+import { toast } from 'react-hot-toast';
+import { validateFormData } from '../../components/Adm/ValidateFormData';
 
 const categories = [
   { name: 'trilhas', label: 'Trilhas' },
@@ -43,6 +45,7 @@ const SysAdm = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [itemToDelete, setItemToDelete] = useState({ id: null, category: null });
+  const [errors, setErrors] = useState({});
 
   const fetchAllData = useCallback(async () => {
     setData(await AdminService.fetchAllData(categories));
@@ -59,12 +62,28 @@ const SysAdm = () => {
 
   const handleSubmit = async () => {
     const currentCategory = categories[activeTab].name;
+    const errors = validateFormData(currentCategory, formData);
+    if (Object.keys(errors).length > 0){ 
+      setErrors(errors);
+      return;
+    }
+
     const dataToSend = prepareFormData(currentCategory, formData);
 
     if (editingId) {
-      await AdminService.updateItem(currentCategory, editingId, dataToSend);
+      try {
+        await AdminService.updateItem(currentCategory, editingId, dataToSend);
+        toast.success("Item adicionado com sucesso!")
+      } catch (err) {
+        toast.error("Erro ao criar item.")
+      }
     } else {
-      await AdminService.createItem(currentCategory, dataToSend);
+      try {
+        await AdminService.createItem(currentCategory, dataToSend);
+        toast.success("Item adicionado com sucesso!")
+      } catch (err) {
+        toast.error("Erro ao criar item")
+      }
     }
     resetForm();
     fetchAllData();
@@ -72,15 +91,25 @@ const SysAdm = () => {
   };
 
   const handleEdit = async (item) => {
-    setFormData({ ...initialFormData, ...item });
-    setEditingId(item.id);
-    setOpenDialog(true);
+    try {
+      setFormData({ ...initialFormData, ...item });
+      setEditingId(item.id);
+      setOpenDialog(true);
+      toast.success("Item alterado com sucesso!")
+    } catch (err) {
+      toast.error("Não foi possivel editar item.")
+    }
   };
 
   const handleDelete = async () => {
-    await AdminService.deleteItem(itemToDelete.category, itemToDelete.id);
-    fetchAllData();
-    setOpenDeleteDialog(false);
+    try {
+      await AdminService.deleteItem(itemToDelete.category, itemToDelete.id);
+      fetchAllData();
+      setOpenDeleteDialog(false);
+      toast.success("Item deletado com successo!")
+    } catch (err) {
+      toast.error("Não foi possivel deletar item.")
+    }
   };
 
   const resetForm = () => {
@@ -96,7 +125,7 @@ const SysAdm = () => {
         currentCategory={categories[activeTab].label}
       />
       <section className="admin-container">
-        <h1>Painel de istração</h1>
+        <h1>Painel de Administração</h1>
         <Tabs activeTab={activeTab} onTabChange={handleTabChange} categories={categories} />
         <Dialog
           isOpen={openDialog}
@@ -113,6 +142,7 @@ const SysAdm = () => {
             category={categories[activeTab].name}
             formData={formData}
             onChange={handleInputChange}
+            errors={errors}
           />
         </Dialog>
         <Dialog

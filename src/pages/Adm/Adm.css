@@ -25,7 +25,7 @@
 }
 
 @media (max-width: 768px) {
-  .cards-container {
+  .cards-grid {
     grid-template-columns: 1fr;
   }
 }
