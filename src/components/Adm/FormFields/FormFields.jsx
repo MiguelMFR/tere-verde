@@ -1,6 +1,6 @@
 import { InputCheckbox, InputDate, InputNumber, InputSelect, InputText, InputTextarea } from '../../Input/Input';
 
-const AdminFormFields = ({ category, formData, onChange, errors}) => {
+const AdminFormFields = ({ category, formData, onChange, errors }) => {
   const nameLabel = category === 'biodiversidade' ? 'Espécie' : 'Nome';
   const nameField = category === 'biodiversidade' ? 'especie' : 'nome';
 
@@ -65,7 +65,7 @@ const AdminFormFields = ({ category, formData, onChange, errors}) => {
           <InputText label="Altura da Queda (m)" name="altitude" value={formData.altitude} onChange={onChange} />
           {errors && errors.altitude && <span className='error-message'>{errors.altitude}</span>}
 
-          <InputCheckbox label="Possui Piscina Natural" name="destaque" checked={formData.destaque} onChange={onChange} />
+          <InputCheckbox label="Possui Piscina Natural" name="possuiPiscina" checked={formData.possuiPiscina} onChange={onChange} />
         </>
       )}
 
