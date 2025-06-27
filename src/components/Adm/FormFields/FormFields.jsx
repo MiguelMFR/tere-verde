@@ -3,7 +3,7 @@ import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) => {
-  const nameValue = category === "biodiversidade" ? "nome" : "nome";
+  const nameValue = category === "biodiversidade" ? "Espécie" : "nome";
   const nameLabel = category === 'biodiversidade' ? 'Espécie' : 'Nome';
 
   const dificuldadeOptions = [
@@ -104,8 +104,8 @@ const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) 
       )}
       {category === 'biodiversidade' && (
         <>
-          <InputSelect label="Tipo" name="tipo" value={formData.tipo || ''} onChange={onChange} options={tipoBiodiversidadeOptions} />
-          {errors && errors.tipo && <span className='error-message'>{errors.tipo}</span>}
+          <InputSelect label="Classificacão" name="classificacao" value={formData.classificacao || ''} onChange={onChange} options={tipoBiodiversidadeOptions} />
+          {errors && errors.classificacao && <span className='error-message'>{errors.classificacao}</span>}
 
           <InputSelect label="Status de Conservação" name="statusConservacao" value={formData.statusConservacao || ''} onChange={onChange} options={statusConservacaoOptions} />
           {errors && errors.statusConservacao && <span className='error-message'>{errors.statusConservacao}</span>}

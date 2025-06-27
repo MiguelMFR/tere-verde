@@ -3,11 +3,15 @@ import { InputCPF, InputSenha } from "../../components/Input/Input";
 import { cpf as cpfValidator } from "cpf-cnpj-validator";
 import "./Login.css"
 import logo from "../../assets/images/logo-tere-verde.png"
+import { useNavigate } from "react-router-dom";
+import { noAuto } from "@fortawesome/fontawesome-svg-core";
 
 const Login = () => {
   const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
   const [formErrors, setFormErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const handleCpfChange = (e) => {
     const cpfFormatado = cpfValidator.format(e.target.value);
@@ -37,6 +41,9 @@ const Login = () => {
     // TODO: Adicionar a chamada pra API
     // ex.:
     // loginUser({ cpf: cleanCpfData, senha: senha });
+    
+    // Navigate to /adm page when validation passes
+    navigate("/adm");
   };
 
   return (

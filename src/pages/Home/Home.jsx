@@ -6,8 +6,7 @@ import Map from "../../components/Map/Map";
 import Api from "../../services/Api";
 import './Home.css';
 import NoContentCard from "../../components/NoContentCard/NoContentCard";
-import { Link, useNavigate } from "react-router-dom";
-import { link } from "fontawesome";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [trilhas, setTrilhas] = useState([]);
@@ -39,30 +38,30 @@ const Home = () => {
       if (response.data) setCachoeiras(response.data);
     } catch (error) {
       console.error("Erro ao carregar cachoeiras:", error);
-    } finally{
+    } finally {
       setLoading(false);
     }
   };
 
   const fetchBio = async () => {
-    try{
+    try {
       const response = await Api.get("/biodiversidade");
       if (response.data) setBio(response.data);
       console.log("BIO: ", response)
-    } catch (err) { 
+    } catch (err) {
       console.error("Erro ao carregar biodiversidades: ", err);
-    } finally{
+    } finally {
       setLoading(false);
     }
   };
 
-  const fetchEventos = async () =>{
-    try{
+  const fetchEventos = async () => {
+    try {
       const response = await Api.get("/eventos");
       if (response.data) setEventos(response.data);
-    }catch(err){
+    } catch (err) {
       console.error("Erro ao carregar eventos: ", err);
-    }finally{
+    } finally {
       setLoading(false);
     }
   };
@@ -103,7 +102,7 @@ const Home = () => {
     {
       image: eventos[0]?.imagem[0],
       title: "Eventos de Ecoturismo",
-      description:"Participe de nossos eventos que promovem o contato consciente com a natureza.",
+      description: "Participe de nossos eventos que promovem o contato consciente com a natureza.",
       reverse: true,
       link: "/eventos"
     }
@@ -133,7 +132,7 @@ const Home = () => {
               </div>
             </section>
             {features.map((feature, i) => (
-              <FeatureSection key={i} onClick={()=> handleLink(feature.link)} {...feature}/>
+              <FeatureSection key={i} onClick={() => handleLink(feature.link)} {...feature} />
             ))}
           </div>
         </>

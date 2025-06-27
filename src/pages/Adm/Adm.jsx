@@ -21,23 +21,30 @@ const categories = [
 
 const initialFormData = {
   nome: '',
-  dificuldade: 'Média',
-  dificuldadeAcesso: "Média",
-  duracao: '',
   descricao: '',
-  imagem: [""],
-  localizacao: '',
-  data: '',
-  habitat: '',
-  tipo: 'ave',
-  statusConservacao: 'pouco preocupante',
-  dataFim: '',
-  preco: 0,
+
+  dificuldade: 'Média',
+  duracao: '',
   distancia: '',
   altitude: '',
+
+  localizacao: '',
+  dificuldadeAcesso: "Média",
   alturaQueda: "",
+  possuiPiscina: false,
+
+  data: '',
+  dataFim: "",
+  local: "",
+  preco: 0,
+  tipo: '',
+
+  classificacao: "",
+  statusConservacao: 'pouco preocupante',
+  habitat: '',
+
+  imagem: [""],
   destaque: false,
-  possuiPiscina: false
 };
 
 const SysAdm = () => {
