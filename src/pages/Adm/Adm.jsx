@@ -9,8 +9,8 @@ import FormFields from '../../components/Adm/FormFields/FormFields';
 import Card from '../../components/Card/Card';
 import { prepareFormData } from '../../components/Adm/PrepareFormData';
 import SubmitCard from '../../components/Adm/SubmitCard/SubmitCard';
-import { toast } from 'react-hot-toast';
 import { validateFormData } from '../../components/Adm/ValidateFormData';
+import NoContentCard from "../../components/NoContentCard/NoContentCard";
 
 const categories = [
   { name: 'trilhas', label: 'Trilhas' },
@@ -45,10 +45,17 @@ const SysAdm = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [itemToDelete, setItemToDelete] = useState({ id: null, category: null });
+  const [apiConected, setApiConected] = useState(true);
   const [errors, setErrors] = useState({});
 
   const fetchAllData = useCallback(async () => {
-    setData(await AdminService.fetchAllData(categories));
+    const result = await AdminService.fetchAllData(categories);
+    if (result === null) {
+      setApiConected(false);
+    } else {
+      setData(result)
+      setApiConected(true)
+    }
   }, []);
 
   useEffect(() => { fetchAllData(); }, [fetchAllData]);
@@ -63,7 +70,7 @@ const SysAdm = () => {
   const handleSubmit = async () => {
     const currentCategory = categories[activeTab].name;
     const errors = validateFormData(currentCategory, formData);
-    if (Object.keys(errors).length > 0){ 
+    if (Object.keys(errors).length > 0) {
       setErrors(errors);
       return;
     }
@@ -71,19 +78,9 @@ const SysAdm = () => {
     const dataToSend = prepareFormData(currentCategory, formData);
 
     if (editingId) {
-      try {
-        await AdminService.updateItem(currentCategory, editingId, dataToSend);
-        toast.success("Item adicionado com sucesso!")
-      } catch (err) {
-        toast.error("Erro ao criar item.")
-      }
+      await AdminService.updateItem(currentCategory, editingId, dataToSend);
     } else {
-      try {
-        await AdminService.createItem(currentCategory, dataToSend);
-        toast.success("Item adicionado com sucesso!")
-      } catch (err) {
-        toast.error("Erro ao criar item")
-      }
+      await AdminService.createItem(currentCategory, dataToSend);
     }
     resetForm();
     fetchAllData();
@@ -91,25 +88,15 @@ const SysAdm = () => {
   };
 
   const handleEdit = async (item) => {
-    try {
-      setFormData({ ...initialFormData, ...item });
-      setEditingId(item.id);
-      setOpenDialog(true);
-      toast.success("Item alterado com sucesso!")
-    } catch (err) {
-      toast.error("Não foi possivel editar item.")
-    }
+    setFormData({ ...initialFormData, ...item });
+    setEditingId(item.id);
+    setOpenDialog(true);
   };
 
   const handleDelete = async () => {
-    try {
-      await AdminService.deleteItem(itemToDelete.category, itemToDelete.id);
-      fetchAllData();
-      setOpenDeleteDialog(false);
-      toast.success("Item deletado com successo!")
-    } catch (err) {
-      toast.error("Não foi possivel deletar item.")
-    }
+    await AdminService.deleteItem(itemToDelete.category, itemToDelete.id);
+    fetchAllData();
+    setOpenDeleteDialog(false);
   };
 
   const resetForm = () => {
@@ -159,30 +146,40 @@ const SysAdm = () => {
           <p>Tem certeza que deseja excluir este item?</p>
         </Dialog>
         <section className="cards-grid">
-          <SubmitCard
-            onClick={() => {
-              resetForm();
-              setOpenDialog(true);
-            }}
-            category={categories[activeTab].label}
-          />
-          {data[categories[activeTab].name]?.map(item => (
-            <Card
-              key={item.id}
-              image={item.imagem[0]}
-              title={item.nome}
-              description={item.descricao}
-              categories={[
-                { label: item.dificuldade, type: item.dificuldade },
-              ]}
-              item={item}
-              onEdit={handleEdit}
-              onDelete={() => {
-                setItemToDelete({ id: item.id, category: categories[activeTab].name });
-                setOpenDeleteDialog(true);
-              }}
+          {!apiConected ? (
+            <NoContentCard
+              className="no-filtered-content no-conection"
+              title="conexão com o servidor"
+              subtext
             />
-          ))}
+          ) : (
+            <>
+              <SubmitCard
+                onClick={() => {
+                  resetForm();
+                  setOpenDialog(true);
+                }}
+                category={categories[activeTab].label}
+              />
+              {data[categories[activeTab].name]?.map(item => (
+                <Card
+                  key={item.id}
+                  image={item.imagem[0]}
+                  title={item.nome}
+                  description={item.descricao}
+                  categories={[
+                    { label: item.dificuldade, type: item.dificuldade },
+                  ]}
+                  item={item}
+                  onEdit={handleEdit}
+                  onDelete={() => {
+                    setItemToDelete({ id: item.id, category: categories[activeTab].name });
+                    setOpenDeleteDialog(true);
+                  }}
+                />
+              ))}
+            </>
+          )}
         </section>
       </section>
     </>

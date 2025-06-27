@@ -20,6 +20,14 @@
   box-sizing: border-box;
 }
 
+.no-conection {
+  color: var(--error-color);
+}
+
+.no-conection p {
+  color: var(--card-text-dark);
+}
+
 .form-fields {
   display: grid;
 }
