@@ -76,7 +76,7 @@ const Biodiversidade = () => {
                     key={biodiversidade.id}
                     page="bio"
                     image={biodiversidade.imagem[0]}
-                    title={biodiversidade.nome}
+                    title={biodiversidade.especie}
                     categories={[
                       { label: biodiversidade.tipo, type: biodiversidade.tipo }
                     ]}

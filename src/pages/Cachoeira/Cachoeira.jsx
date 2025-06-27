@@ -12,9 +12,9 @@ import { getCategoryLabel } from "../../utils/functions/getCategoryLabel";
 const Cachoeiras = () => {
   const waterfallFilters = [
     { value: "all", label: "Todas" },
-    { value: "fácil", label: "Acesso Fácil" },
-    { value: "médio", label: "Caminhada Média" },
-    { value: "difícil", label: "Aventureiras" },
+    { value: "easy", label: "Acesso Fácil" },
+    { value: "medium", label: "Caminhada Média" },
+    { value: "hard", label: "Aventureiras" },
   ];
 
   const [cachoeiras, setCachoeiras] = useState([]);
@@ -23,7 +23,7 @@ const Cachoeiras = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedCachoeira, setSelectedCachoeira] = useState(null);
 
-  const activeFilterName = waterfallFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
+  const activeFilterName = waterfallFilters.find(f => f.value === activeFilter)?.label?.toLocaleLowerCase();
 
   const fetchCachoeiras = async () => {
     try {
@@ -61,7 +61,7 @@ const Cachoeiras = () => {
 
   const handleDificuldadeLabel = () => {
     var dificuldade = getCategoryLabel("cachoeira", selectedCachoeira.dificuldade);
-    return dificuldade.toLocaleLowerCase();
+    return dificuldade?.toLocaleLowerCase();
   }
 
   //TODO: add card dedicado
@@ -124,7 +124,7 @@ const Cachoeiras = () => {
       <Modal type={selectedCachoeira} isOpen={selectedCachoeira !== null} onClose={() => setSelectedCachoeira(null)}>
         {selectedCachoeira && [
           `Tipo: ${handleDificuldadeLabel()}`,
-          `Segurança: ${selectedCachoeira.seguranca.join(', ').toLocaleLowerCase()}`,
+          `Segurança: ${selectedCachoeira.seguranca?.join(', ').toLocaleLowerCase()}`,
           `Altura da queda: ${selectedCachoeira.alturaQueda}`,
           `Possui piscina: ${handleBoolean(selectedCachoeira.possuiPiscina)}`
         ]}
