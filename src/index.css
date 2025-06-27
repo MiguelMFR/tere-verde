@@ -108,6 +108,13 @@
     overflow-x: hidden;
   }
 
+  .notifications {
+    background-color: var(--background);
+    color: var(--text);
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+  }
+
   h1,
   h2,
   h3,
