@@ -19,15 +19,20 @@ Esta seção fornece instruções detalhadas para configurar e executar a aplica
 
 1. Crie uma pasta chamada `api` onde desejar no seu computador.
 
-2. Abra o terminal na pasta `api` e execute o comando:
+2. Crie um arquivo chamado `db.json` dentro da pasta `api` e adicione a seguinte estrutura: [db.json](./API/db.json)
+
+3. Abra o terminal na pasta `api` e execute o comando para instalar as dependências da API:
+
+```cmd 
+npm install -g json-server
+```
+
+4. Agora, xecute o comando:
 
 ```cmd
 json-server --watch db.json --port 3001
 ```
 
-3. Crie um arquivo chamado `db.json` dentro da pasta `api` e adicione a seguinte estrutura (exemplo):
-
-[db.json](db.json)
 
 ---
 
@@ -49,11 +54,11 @@ npm start
 
 ## 🗺️ Estrutura do Banco de Dados (`db.json`)
 
-- **Trilhas:** Nome, dificuldade, duração, distância, altitude, descrição, imagem, entre outros.
+- **Trilhas:** Nome, dificuldade, duração, distância, altitude, descrição, imagem.
 
-- **Cachoeiras:** Nome, dificuldade de acesso, altura, possui piscina, descrição, imagem, etc.
+- **Cachoeiras:** Nome, dificuldade de acesso, altura, possui piscina natural, descrição, imagem, etc.
 
-- **Biodiversidade:** Espécies da fauna e flora local, incluindo nome, tipo (ave, mamífero, planta, etc.), descrição, imagem, entre outros.
+- **Biodiversidade:** Espécies da fauna e flora local, incluindo nome, tipo (ave, mamífero, flora), descrição, imagem, entre outros.
 
 - **Eventos:** Nome do evento, data inicial, data final, local, tipo, preço, descrição, etc.
 
