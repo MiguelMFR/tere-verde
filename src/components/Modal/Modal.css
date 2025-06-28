@@ -65,6 +65,7 @@
 
 .modal-info-key {
   font-weight: bold;
+  text-transform: capitalize;
   color: var(--text);
   margin-right: 0.5rem;
 }

@@ -159,7 +159,7 @@ const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) 
         className="btn-add-img"
         aria-label="Adicionar imagem"
       >
-        <FontAwesomeIcon icon={faPlus} /> Adicionar imagem
+        Adicionar imagem
       </button>
       {errors && errors.imagem && <span className='error-message'>{errors.imagem}</span>}
 
