@@ -8,6 +8,7 @@ import Api from "../../services/Api";
 import "./Cachoeira.css";
 import Modal from "../../components/Modal/Modal.jsx";
 import { getCategoryLabel } from "../../utils/functions/getCategoryLabel";
+import LoadingCard from "../../components/LoadingCard/LoadingCard.jsx";
 
 const Cachoeiras = () => {
   const waterfallFilters = [
@@ -19,7 +20,7 @@ const Cachoeiras = () => {
 
   const [cachoeiras, setCachoeiras] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [err, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedCachoeira, setSelectedCachoeira] = useState(null);
 
@@ -64,15 +65,12 @@ const Cachoeiras = () => {
     return dificuldade?.toLocaleLowerCase();
   }
 
-  //TODO: add card dedicado
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
-
   return (
     <div className="pagina-tematica cachoeiras-page">
       <div className="main-content">
-        {error != null ? (
+        {loading ? ( 
+          <LoadingCard/>
+        ) : err ? ( 
           <NoContentCard title="cachoeiras" subtext />
         ) : (
           <>

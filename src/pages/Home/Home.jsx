@@ -8,6 +8,7 @@ import './Home.css';
 import NoContentCard from "../../components/NoContentCard/NoContentCard";
 import { Link, useNavigate } from "react-router-dom";
 import { link } from "fontawesome";
+import LoadingCard from "../../components/LoadingCard/LoadingCard";
 
 const Home = () => {
   const [trilhas, setTrilhas] = useState([]);
@@ -109,22 +110,22 @@ const Home = () => {
     }
   ]
 
-  if (loading) {
-    return <div>Carregando...</div>
-  };
   return (
     <div className="home-page">
       <HeroBanner
         title="Descubra as Belezas Naturais de Teresópolis"
         subtitle="Explore o Circuito Terê Verde e viva experiências inesquecíveis"
         backgroundImage={background}
+        targetId="container-id"
       />
-      {err != null ? (
+      {loading ? (
+        <LoadingCard />
+      ) : err ? (
         <NoContentCard title="atrações" subtext />
       ) : (
         <>
           <div className="main-content">
-            <section className="attractions-section container">
+            <section id="container-id" className="attractions-section container">
               <h2>Principais Atrações</h2>
               <div className="attractions-grid">
                 {attractions.map((attraction, index) => (

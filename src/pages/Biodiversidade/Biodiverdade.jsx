@@ -6,6 +6,7 @@ import '../../pages/PaginasTematicas.css'
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
 import Modal from '../../components/Modal/Modal.jsx';
+import LoadingCard from '../../components/LoadingCard/LoadingCard.jsx';
 
 const Biodiversidade = () => {
   const bioFilters = [
@@ -47,14 +48,12 @@ const Biodiversidade = () => {
     ? biodiversidade
     : biodiversidade.filter(item => item.tipo === activeFilter);
 
-  if (loading) {
-    return <div>Carregando...</div>
-  }
-
   return (
     <div className="pagina-tematica biodiversidade-page">
       <div className="main-content">
-        {err != null ? (
+        {loading ? ( 
+          <LoadingCard/>
+        ) : err ? ( 
           <NoContentCard title="biodiversidade" subtext />
         ) : (
           <>

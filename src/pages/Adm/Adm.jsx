@@ -83,7 +83,6 @@ const SysAdm = () => {
 
     if (editingId) {
       try {
-        console.log(currentCategory, editingId, dataToSend)
         await AdminService.updateItem(currentCategory, editingId, dataToSend);
       } catch (err) {
       }
