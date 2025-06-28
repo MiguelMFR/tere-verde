@@ -37,9 +37,9 @@ const initialFormData = {
   dataFim: "",
   local: "",
   preco: 0,
-  tipo: '',
+  tipo: 'Cultural',
 
-  classificacao: "",
+  classificacao: "Ave",
   statusConservacao: 'pouco preocupante',
   habitat: '',
 
@@ -82,7 +82,6 @@ const SysAdm = () => {
     const errors = validateFormData(currentCategory, formData);
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
-      return;
     }
     const dataToSend = prepareFormData(currentCategory, formData);
 

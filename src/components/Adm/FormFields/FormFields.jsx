@@ -3,14 +3,20 @@ import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) => {
-  const nameValue = category === "biodiversidade" ? "Espécie" : "nome";
-  const nameLabel = category === 'biodiversidade' ? 'Espécie' : 'Nome';
+  const nameValue = category === "biodiversidade" ? "nome" : "nome";
+  const nameLabel = category === 'biodiversidade' ? 'Especie' : 'nome';
 
   const dificuldadeOptions = [
     { value: "easy", label: "Fácil" },
     { value: "medium", label: "Média" },
     { value: "hard", label: "Difícil" }
   ];
+
+  const dificuldadeAcessoOptions = [
+    { value: "easu", label: "Acesso fácil" },
+    { value: "medium", label: "Caminhada média" },
+    { value: "hard", label: "Aventureiras" }
+  ]
 
   const tipoEventoOptions = [
     { value: "cultural", label: "Cultural" },
@@ -77,7 +83,7 @@ const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) 
           <InputText label="Localização" name="localizacao" value={formData.localizacao || ''} onChange={onChange} />
           {errors && errors.localizacao && <span className='error-message'>{errors.localizacao}</span>}
 
-          <InputSelect label="Dificuldade de Acesso" name="dificuldadeAcesso" value={formData.dificuldadeAcesso || ''} onChange={onChange} options={dificuldadeOptions} />
+          <InputSelect label="Dificuldade de Acesso" name="dificuldadeAcesso" value={formData.dificuldadeAcesso || ''} onChange={onChange} options={dificuldadeAcessoOptions} />
           {errors && errors.dificuldadeAcesso && <span className='error-message'>{errors.dificuldadeAcesso}</span>}
 
           <InputText label="Altura da Queda (m)" name="alturaQueda" value={formData.alturaQueda || ''} onChange={onChange} />

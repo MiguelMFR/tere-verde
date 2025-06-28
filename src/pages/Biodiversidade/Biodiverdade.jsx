@@ -78,7 +78,7 @@ const Biodiversidade = () => {
                     image={biodiversidade.imagem[0]}
                     title={biodiversidade.nome}
                     categories={[
-                      { label: biodiversidade.tipo, type: biodiversidade.tipo }
+                      { label: biodiversidade.classificacao, type: biodiversidade.classificacao }
                     ]}
                     description={biodiversidade.descricao}
                     onClick={() => setSelectedBiodiversidade(biodiversidade)}
