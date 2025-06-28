@@ -35,7 +35,8 @@ export function prepareFormData(category, formData) {
     case 'biodiversidade':
       return {
         ...baseFields,
-        tipo: formData.tipo,
+        especie: formData.especie,
+        classificacao: formData.classificacao,
         statusConservacao: formData.statusConservacao,
         habitat: formData.habitat
       };

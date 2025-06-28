@@ -1,16 +1,22 @@
 import { InputCheckbox, InputDate, InputNumber, InputSelect, InputText, InputTextarea } from '../../Input/Input';
-import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) => {
-  const nameValue = category === "biodiversidade" ? "nome" : "nome";
-  const nameLabel = category === 'biodiversidade' ? 'Espécie' : 'Nome';
+  const nameValue = "nome";
+  const nameLabel = 'Nome';
 
   const dificuldadeOptions = [
     { value: "easy", label: "Fácil" },
     { value: "medium", label: "Média" },
     { value: "hard", label: "Difícil" }
   ];
+
+  const dificuldadeAcessoOptions = [
+    { value: "easu", label: "Acesso fácil" },
+    { value: "medium", label: "Caminhada média" },
+    { value: "hard", label: "Aventureiras" }
+  ]
 
   const tipoEventoOptions = [
     { value: "cultural", label: "Cultural" },
@@ -77,7 +83,7 @@ const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) 
           <InputText label="Localização" name="localizacao" value={formData.localizacao || ''} onChange={onChange} />
           {errors && errors.localizacao && <span className='error-message'>{errors.localizacao}</span>}
 
-          <InputSelect label="Dificuldade de Acesso" name="dificuldadeAcesso" value={formData.dificuldadeAcesso || ''} onChange={onChange} options={dificuldadeOptions} />
+          <InputSelect label="Dificuldade de Acesso" name="dificuldadeAcesso" value={formData.dificuldadeAcesso || ''} onChange={onChange} options={dificuldadeAcessoOptions} />
           {errors && errors.dificuldadeAcesso && <span className='error-message'>{errors.dificuldadeAcesso}</span>}
 
           <InputText label="Altura da Queda (m)" name="alturaQueda" value={formData.alturaQueda || ''} onChange={onChange} />
@@ -104,8 +110,11 @@ const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) 
       )}
       {category === 'biodiversidade' && (
         <>
-          <InputSelect label="Tipo" name="tipo" value={formData.tipo || ''} onChange={onChange} options={tipoBiodiversidadeOptions} />
-          {errors && errors.tipo && <span className='error-message'>{errors.tipo}</span>}
+          <InputText label="Espécie" name="especie" value={formData.especie} onChange={onChange} />
+          {errors && errors.especie && <span className='error-message'>{errors.especie}</span>}
+
+          <InputSelect label="Classificacão" name="classificacao" value={formData.classificacao || ''} onChange={onChange} options={tipoBiodiversidadeOptions} />
+          {errors && errors.classificacao && <span className='error-message'>{errors.classificacao}</span>}
 
           <InputSelect label="Status de Conservação" name="statusConservacao" value={formData.statusConservacao || ''} onChange={onChange} options={statusConservacaoOptions} />
           {errors && errors.statusConservacao && <span className='error-message'>{errors.statusConservacao}</span>}
@@ -153,7 +162,7 @@ const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) 
         className="btn-add-img"
         aria-label="Adicionar imagem"
       >
-        <FontAwesomeIcon icon={faPlus} /> Adicionar imagem
+        Adicionar imagem
       </button>
       {errors && errors.imagem && <span className='error-message'>{errors.imagem}</span>}
 

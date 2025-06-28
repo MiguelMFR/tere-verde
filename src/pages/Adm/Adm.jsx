@@ -21,23 +21,31 @@ const categories = [
 
 const initialFormData = {
   nome: '',
-  dificuldade: 'Média',
-  dificuldadeAcesso: "Média",
-  duracao: '',
   descricao: '',
-  imagem: [""],
-  localizacao: '',
-  data: '',
-  habitat: '',
-  tipo: 'ave',
-  statusConservacao: 'pouco preocupante',
-  dataFim: '',
-  preco: 0,
+
+  dificuldade: 'Média',
+  duracao: '',
   distancia: '',
   altitude: '',
+
+  localizacao: '',
+  dificuldadeAcesso: "Média",
   alturaQueda: "",
+  possuiPiscina: false,
+
+  data: '',
+  dataFim: "",
+  local: "",
+  preco: 0,
+  tipo: 'Cultural',
+
+  especie: "",
+  classificacao: "Ave",
+  statusConservacao: 'pouco preocupante',
+  habitat: '',
+
+  imagem: [""],
   destaque: false,
-  possuiPiscina: false
 };
 
 const SysAdm = () => {
@@ -177,9 +185,6 @@ const SysAdm = () => {
                   image={item.imagem[0]}
                   title={item.nome}
                   description={item.descricao}
-                  categories={[
-                    { label: item.dificuldade, type: item.dificuldade },
-                  ]}
                   item={item}
                   onEdit={handleEdit}
                   onDelete={() => {

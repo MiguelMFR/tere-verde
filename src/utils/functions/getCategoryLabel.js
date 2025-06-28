@@ -4,6 +4,10 @@ export function getCategoryLabel(page, categorie) {
       return trilhaLabel(categorie);
     case "cachoeira":
       return cachoeiraLabel(categorie);
+    case "bio":
+      return bioLabel(categorie);
+    case "eventos":
+      return eventoLabel(categorie);
     default:
       return null;
   }
@@ -33,5 +37,32 @@ function cachoeiraLabel(categorie) {
       return "Aventureira";
     default:
       return null;
+  }
+}
+
+function bioLabel(categorie) {
+  switch (categorie) {
+    case "ave":
+      return "Ave"
+    case "flora":
+      return "FLora"
+    case "mamifero":
+      return "Mamífero"
+    default:
+      return null;
+  }
+}
+
+function eventoLabel(categorie) {
+  switch (categorie) {
+    case "cultural":
+      return "Cultural"
+    case "ecologico":
+      return "Ecológico"
+    case "esportivo":
+      return "Esportivo"
+    default:
+      return null;
+
   }
 }

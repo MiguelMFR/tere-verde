@@ -7,6 +7,7 @@ import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
 import Modal from '../../components/Modal/Modal';
 import LoadingCard from '../../components/LoadingCard/LoadingCard.jsx';
+import { getCategoryLabel } from '../../utils/functions/getCategoryLabel';
 
 const Eventos = () => {
   const eventFilters = [
@@ -77,7 +78,7 @@ const Eventos = () => {
                     title={evento.nome}
                     description={evento.descricao}
                     categories={[
-                      { label: evento.tipo, type: evento.tipo },
+                      { label: getCategoryLabel("eventos", evento.tipo), type: evento.tipo },
                       { label: evento.data, type: evento.data }
                     ]}
                     onClick={() => setSelectedEvent(evento)}
@@ -102,8 +103,9 @@ const Eventos = () => {
       <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
         {selectedEvent && [
           `Descrição: ${selectedEvent.descricao}`,
+          `Valor de entrada: ${selectedEvent.preco}`,
           `Tipo: ${selectedEvent.tipo}`,
-          `Data: ${selectedEvent.data}`,
+          `Data: ${selectedEvent.data} até ${selectedEvent.dataFim}`,
           `Local: ${selectedEvent.local}`,
         ]}
       </Modal>

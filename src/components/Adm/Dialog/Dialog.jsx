@@ -1,6 +1,6 @@
 import "./Dialog.css"
 
-const AdminDialog = ({ isOpen, title, onClose, children, footer }) => {
+const AdminDialog = ({ isOpen, title, children, footer }) => {
   if (!isOpen) return null;
 
   const handleOverlayClick = (e) => {

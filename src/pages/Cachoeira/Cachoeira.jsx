@@ -61,8 +61,12 @@ const Cachoeiras = () => {
       : cachoeiras.filter((item) => item.dificuldade === activeFilter);
 
   const handleDificuldadeLabel = () => {
-    var dificuldade = getCategoryLabel("cachoeira", selectedCachoeira.dificuldade);
-    return dificuldade?.toLocaleLowerCase();
+    var dificuldadeAcesso = getCategoryLabel("cachoeira", selectedCachoeira.dificuldadeAcesso);
+    return dificuldadeAcesso.toLocaleLowerCase();
+  }
+
+  if (loading) {
+    return <div>Carregando...</div>;
   }
 
   return (
@@ -121,10 +125,10 @@ const Cachoeiras = () => {
 
       <Modal type={selectedCachoeira} isOpen={selectedCachoeira !== null} onClose={() => setSelectedCachoeira(null)}>
         {selectedCachoeira && [
-          `Tipo: ${handleDificuldadeLabel()}`,
-          `Segurança: ${selectedCachoeira.seguranca?.join(', ').toLocaleLowerCase()}`,
+          `Acesso: ${handleDificuldadeLabel()}`,
+          `Localizacão: ${selectedCachoeira.localizacao}`,
           `Altura da queda: ${selectedCachoeira.alturaQueda}`,
-          `Possui piscina: ${handleBoolean(selectedCachoeira.possuiPiscina)}`
+          `Possui piscina natural: ${handleBoolean(selectedCachoeira.possuiPiscina)}`
         ]}
       </Modal>
     </div>
