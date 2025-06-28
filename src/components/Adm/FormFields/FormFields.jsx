@@ -3,8 +3,8 @@ import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) => {
-  const nameValue = category === "biodiversidade" ? "nome" : "nome";
-  const nameLabel = category === 'biodiversidade' ? 'Especie' : 'nome';
+  const nameValue = "nome";
+  const nameLabel = category === 'biodiversidade' ? 'Espécie' : 'Nome';
 
   const dificuldadeOptions = [
     { value: "easy", label: "Fácil" },

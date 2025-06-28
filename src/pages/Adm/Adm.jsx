@@ -82,6 +82,7 @@ const SysAdm = () => {
     const errors = validateFormData(currentCategory, formData);
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
+      return;
     }
     const dataToSend = prepareFormData(currentCategory, formData);
 

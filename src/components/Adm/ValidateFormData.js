@@ -16,8 +16,8 @@ export function validateFormData(category, formData) {
       break;
     case 'cachoeiras':
       if (!formData.localizacao) errors.localizacao = "Localização é obrigatória";
-      if (!formData.dificuldade) errors.dificuldade = "Dificuldade de acesso é obrigatória";
-      if (!formData.altitude) errors.altitude = "Altura da queda é obrigatória";
+      if (!formData.dificuldadeAcesso) errors.dificuldadeAcesso = "Dificuldade de acesso é obrigatória";
+      if (!formData.alturaQueda) errors.alturaQueda = "Altura da queda é obrigatória";
       break;
     case 'eventos':
       if (!formData.data) errors.data = "Data início é obrigatória";
@@ -25,10 +25,10 @@ export function validateFormData(category, formData) {
       if (!formData.tipo) errors.tipo = "Tipo é obrigatório";
       break;
     case 'biodiversidade':
-      if (!formData.especie) errors.especie = "Espécie é obrigatória";
-      if (!formData.tipo) errors.tipo = "Tipo é obrigatório";
+      if (!formData.nome) errors.nome = "Espécie é obrigatória";
+      if (!formData.categoria) errors.categoria = "Tipo é obrigatório";
       if (!formData.statusConservacao) errors.statusConservacao = "Status de conservação é obrigatório";
-      if (!formData.localizacao) errors.localizacao = "Habitat é obrigatório";
+      if (!formData.habitat) errors.habitat = "Habitat é obrigatório";
       break;
     default:
       break;
