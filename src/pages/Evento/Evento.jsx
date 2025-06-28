@@ -105,8 +105,9 @@ const Eventos = () => {
       <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
         {selectedEvent && [
           `Descrição: ${selectedEvent.descricao}`,
+          `Valor de entrada: ${selectedEvent.preco}`,
           `Tipo: ${selectedEvent.tipo}`,
-          `Data: ${selectedEvent.data}`,
+          `Data: ${selectedEvent.data} até ${selectedEvent.dataFim}`,
           `Local: ${selectedEvent.local}`,
         ]}
       </Modal>

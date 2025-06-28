@@ -124,8 +124,9 @@ const Cachoeiras = () => {
       <Modal type={selectedCachoeira} isOpen={selectedCachoeira !== null} onClose={() => setSelectedCachoeira(null)}>
         {selectedCachoeira && [
           `Acesso: ${handleDificuldadeLabel()}`,
+          `Localizacão: ${selectedCachoeira.localizacao}`,
           `Altura da queda: ${selectedCachoeira.alturaQueda}`,
-          `Possui piscina: ${handleBoolean(selectedCachoeira.possuiPiscina)}`
+          `Possui piscina natural: ${handleBoolean(selectedCachoeira.possuiPiscina)}`
         ]}
       </Modal>
     </div>

@@ -103,7 +103,7 @@ const Biodiversidade = () => {
       <Modal type={selectedBiodiversidade} isOpen={selectedBiodiversidade !== null} onClose={() => setSelectedBiodiversidade(null)}>
         {selectedBiodiversidade && [
           `Espécie: ${selectedBiodiversidade.especie}`,
-          `classificacão: ${selectedBiodiversidade.classificacao}`,
+          `Classificacão: ${selectedBiodiversidade.classificacao}`,
           `Estado de Conservação: ${selectedBiodiversidade.statusConservacao}`,
           `Habitat: ${selectedBiodiversidade.habitat}`
         ]}
