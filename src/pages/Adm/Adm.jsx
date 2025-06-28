@@ -39,6 +39,7 @@ const initialFormData = {
   preco: 0,
   tipo: 'Cultural',
 
+  especie: "",
   classificacao: "Ave",
   statusConservacao: 'pouco preocupante',
   habitat: '',

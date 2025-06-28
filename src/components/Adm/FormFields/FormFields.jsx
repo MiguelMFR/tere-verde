@@ -1,10 +1,10 @@
 import { InputCheckbox, InputDate, InputNumber, InputSelect, InputText, InputTextarea } from '../../Input/Input';
-import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) => {
   const nameValue = "nome";
-  const nameLabel = category === 'biodiversidade' ? 'Espécie' : 'Nome';
+  const nameLabel = 'Nome';
 
   const dificuldadeOptions = [
     { value: "easy", label: "Fácil" },
@@ -110,6 +110,9 @@ const AdminFormFields = ({ category, formData, onChange, errors, setFormData }) 
       )}
       {category === 'biodiversidade' && (
         <>
+          <InputText label="Espécie" name="especie" value={formData.especie} onChange={onChange} />
+          {errors && errors.especie && <span className='error-message'>{errors.especie}</span>}
+
           <InputSelect label="Classificacão" name="classificacao" value={formData.classificacao || ''} onChange={onChange} options={tipoBiodiversidadeOptions} />
           {errors && errors.classificacao && <span className='error-message'>{errors.classificacao}</span>}
 

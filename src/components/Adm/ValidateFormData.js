@@ -25,7 +25,7 @@ export function validateFormData(category, formData) {
       if (!formData.tipo) errors.tipo = "Tipo é obrigatório";
       break;
     case 'biodiversidade':
-      if (!formData.nome) errors.nome = "Espécie é obrigatória";
+      if (!formData.especie) errors.especie = "Espécie é obrigatória";
       if (!formData.classificacao) errors.classificacao = "classificacão é obrigatório";
       if (!formData.statusConservacao) errors.statusConservacao = "Status de conservação é obrigatório";
       if (!formData.habitat) errors.habitat = "Habitat é obrigatório";
