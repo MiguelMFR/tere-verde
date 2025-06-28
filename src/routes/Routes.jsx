@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Adm from "../pages/Adm/Adm";
 import Login from "../pages/Login/Login";
+import NotFound from "../pages/NotFound/NotFound";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ const AppRoutes = () => {
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/login" element={<Login />} />
         <Route path="/adm" element={<Adm />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {!hideNavbarAndFooter && <Footer />}
     </>
