@@ -1,6 +1,8 @@
+import "./Tabs.css"
+
 const AdminTabs = ({ activeTab, onTabChange, categories }) => {
   return (
-    <div className="tabs">
+    <div className="tabs-container">
       {categories.map((category, index) => (
         <div
           key={category.name}

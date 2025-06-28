@@ -12,9 +12,9 @@ import { getCategoryLabel } from "../../utils/functions/getCategoryLabel";
 const Cachoeiras = () => {
   const waterfallFilters = [
     { value: "all", label: "Todas" },
-    { value: "fácil", label: "Acesso Fácil" },
-    { value: "médio", label: "Caminhada Média" },
-    { value: "difícil", label: "Aventureiras" },
+    { value: "easy", label: "Acesso Fácil" },
+    { value: "medium", label: "Caminhada Média" },
+    { value: "hard", label: "Aventureiras" },
   ];
 
   const [cachoeiras, setCachoeiras] = useState([]);
@@ -57,11 +57,11 @@ const Cachoeiras = () => {
   const filteredItems =
     activeFilter === "all"
       ? cachoeiras
-      : cachoeiras.filter((item) => item.dificuldade === activeFilter);
+      : cachoeiras.filter((item) => item.dificuldadeAcesso === activeFilter);
 
   const handleDificuldadeLabel = () => {
-    var dificuldade = getCategoryLabel("cachoeira", selectedCachoeira.dificuldade);
-    return dificuldade.toLocaleLowerCase();
+    var dificuldadeAcesso = getCategoryLabel("cachoeira", selectedCachoeira.dificuldadeAcesso);
+    return dificuldadeAcesso.toLocaleLowerCase();
   }
 
   //TODO: add card dedicado
@@ -95,7 +95,7 @@ const Cachoeiras = () => {
                     image={cachoeira.imagem[0]}
                     title={cachoeira.nome}
                     categories={[
-                      { label: getCategoryLabel("cachoeira", cachoeira.dificuldade), type: cachoeira.dificuldade }
+                      { label: getCategoryLabel("cachoeira", cachoeira.dificuldadeAcesso), type: cachoeira.dificuldadeAcesso }
                     ]}
                     description={cachoeira.descricao}
                     onClick={() => setSelectedCachoeira(cachoeira)}
@@ -123,10 +123,10 @@ const Cachoeiras = () => {
 
       <Modal type={selectedCachoeira} isOpen={selectedCachoeira !== null} onClose={() => setSelectedCachoeira(null)}>
         {selectedCachoeira && [
-          `Tipo: ${handleDificuldadeLabel()}`,
-          `Segurança: ${selectedCachoeira.seguranca.join(', ').toLocaleLowerCase()}`,
+          `Acesso: ${handleDificuldadeLabel()}`,
+          `Localizacão: ${selectedCachoeira.localizacao}`,
           `Altura da queda: ${selectedCachoeira.alturaQueda}`,
-          `Possui piscina: ${handleBoolean(selectedCachoeira.possuiPiscina)}`
+          `Possui piscina natural: ${handleBoolean(selectedCachoeira.possuiPiscina)}`
         ]}
       </Modal>
     </div>

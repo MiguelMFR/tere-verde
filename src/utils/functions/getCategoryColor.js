@@ -31,7 +31,7 @@ function handleBio(categories) {
       return "#1878E7";
     case "flora":
       return "#27ae60";
-    case "mamífero":
+    case "mamifero":
       return "#e74c4c";
     default:
       return "#bbb";

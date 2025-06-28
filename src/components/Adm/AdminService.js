@@ -1,3 +1,4 @@
+import { toast } from 'react-hot-toast';
 import api from '../../services/Api';
 
 class AdminService {
@@ -15,36 +16,41 @@ class AdminService {
       return newData;
     } catch (error) {
       console.error("Erro ao carregar dados:", error);
-      throw error;
+      return null;
     }
   }
 
   static async createItem(category, data) {
     try {
       const response = await api.post(`/${category}`, data);
+      toast.success("Item criado com sucesso!")
       return response.data;
     } catch (error) {
       console.error("Erro ao criar item:", error);
-      throw error;
+      toast.error("Não foi possivel criar item.")
+      return null
     }
   }
 
   static async updateItem(category, id, data) {
     try {
       const response = await api.put(`/${category}/${id}`, data);
+      toast.success("Item atualizado com sucesso!")
       return response.data;
     } catch (error) {
       console.error("Erro ao atualizar item:", error);
-      throw error;
+      toast.error("Não foi possivel atualizar item.")
+      return null;
     }
   }
 
   static async deleteItem(category, id) {
     try {
       await api.delete(`/${category}/${id}`);
+      toast.success("Item deletado com sucesso!")
     } catch (error) {
       console.error("Erro ao deletar item:", error);
-      throw error;
+      toast.error("Não foi possivel deletar item.")
     }
   }
 }

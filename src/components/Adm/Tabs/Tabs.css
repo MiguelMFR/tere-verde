@@ -1,0 +1,29 @@
+.tabs-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0rem 2rem 0rem;
+}
+
+.tab {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid var(--button-border);
+  background-color: var(--background);
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.tab.active {
+  background-color: var(--button-background);
+  border-color: var(--button-background);
+  color: var(--text-light);
+}

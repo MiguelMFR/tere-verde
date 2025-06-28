@@ -3,11 +3,14 @@ import { InputCPF, InputSenha } from "../../components/Input/Input";
 import { cpf as cpfValidator } from "cpf-cnpj-validator";
 import "./Login.css"
 import logo from "../../assets/images/logo-tere-verde.png"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
   const [formErrors, setFormErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const handleCpfChange = (e) => {
     const cpfFormatado = cpfValidator.format(e.target.value);
@@ -37,6 +40,8 @@ const Login = () => {
     // TODO: Adicionar a chamada pra API
     // ex.:
     // loginUser({ cpf: cleanCpfData, senha: senha });
+
+    navigate("/adm");
   };
 
   return (
@@ -64,7 +69,7 @@ const Login = () => {
           />
           {formErrors.senha && <span className="error-message">{formErrors.senha}</span>}
 
-          <p>Problemas ao logar?</p>
+          <p title="Entre em contato com a nossa equipe de contas">Problemas ao logar?</p>
           <button type="submit" className="btn btn-submit">
             Entrar
           </button>

@@ -6,6 +6,7 @@ import '../../pages/PaginasTematicas.css'
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
 import Modal from '../../components/Modal/Modal.jsx';
+import { getCategoryLabel } from '../../utils/functions/getCategoryLabel';
 
 const Biodiversidade = () => {
   const bioFilters = [
@@ -78,7 +79,7 @@ const Biodiversidade = () => {
                     image={biodiversidade.imagem[0]}
                     title={biodiversidade.nome}
                     categories={[
-                      { label: biodiversidade.tipo, type: biodiversidade.tipo }
+                      { label: getCategoryLabel("bio", biodiversidade.classificacao), type: biodiversidade.classificacao }
                     ]}
                     description={biodiversidade.descricao}
                     onClick={() => setSelectedBiodiversidade(biodiversidade)}
@@ -101,7 +102,9 @@ const Biodiversidade = () => {
 
       <Modal type={selectedBiodiversidade} isOpen={selectedBiodiversidade !== null} onClose={() => setSelectedBiodiversidade(null)}>
         {selectedBiodiversidade && [
-          `Tipo: ${selectedBiodiversidade.tipo}`,
+          `Espécie: ${selectedBiodiversidade.especie}`,
+          `Classificacão: ${selectedBiodiversidade.classificacao}`,
+          `Estado de Conservação: ${selectedBiodiversidade.statusConservacao}`,
           `Habitat: ${selectedBiodiversidade.habitat}`
         ]}
       </Modal>

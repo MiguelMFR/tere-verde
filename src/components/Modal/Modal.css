@@ -21,7 +21,7 @@
   position: relative;
   box-shadow: var(--box-shadow);
   overflow-y: auto;
-  min-height: 330px;
+  max-width: 700px;
   min-width: 878px;
 }
 
@@ -52,6 +52,7 @@
 }
 
 .modal-text-content h4 {
+  color: var(--card-text-dark);
   text-align: left;
   margin-bottom: 1rem;
 }
@@ -166,7 +167,6 @@
 
 @media (max-width: 620px) {
   .modal-content {
-    min-width: 351px;
     min-height: 516px;
   }
 

@@ -1,0 +1,41 @@
+.plus-button {
+  border: none;
+  background: none;
+  flex-direction: column;
+  display: flex;
+  padding: 25vh 0vh 25vh 0vh;
+  cursor: pointer;
+}
+
+.plus-icon {
+  font-size: 10vh;
+  color: #bbb;
+}
+
+.submit-card:hover {
+  background-color: var(--primary-color);
+
+  .plus-icon {
+    color: var(--text-light);
+  }
+}
+
+@media(max-width: 690px) {
+  .plus-button {
+    padding: 15vh 0vh 15vh 0vh;
+  }
+
+  .plus-icon {
+    font-size: 7.5vh;
+  }
+}
+
+@media(max-width: 384px) {
+  .plus-button {
+    padding: 5vh 0vh 5vh 0vh;
+  }
+
+  .plus-icon {
+    font-size: 5vh;
+  }
+}
