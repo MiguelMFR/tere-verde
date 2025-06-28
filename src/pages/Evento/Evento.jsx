@@ -53,7 +53,7 @@ const Eventos = () => {
     <div className="pagina-tematica eventos-page">
       <div className="main-content">
         {loading ? (
-          <LoadingCard/>
+          <LoadingCard />
         ) : err ? (
           <NoContentCard title="eventos" subtext={err} />
         ) : (
@@ -86,7 +86,7 @@ const Eventos = () => {
                 ))}
               </div>
             </section>
-            
+
             <section className="info-section">
               <h3>Como Participar</h3>
               <ul>
@@ -102,7 +102,6 @@ const Eventos = () => {
 
       <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
         {selectedEvent && [
-          `Descrição: ${selectedEvent.descricao}`,
           `Valor de entrada: ${selectedEvent.preco}`,
           `Tipo: ${selectedEvent.tipo}`,
           `Data: ${selectedEvent.data} até ${selectedEvent.dataFim}`,

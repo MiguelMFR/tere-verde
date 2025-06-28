@@ -58,7 +58,7 @@ const Cachoeiras = () => {
   const filteredItems =
     activeFilter === "all"
       ? cachoeiras
-      : cachoeiras.filter((item) => item.dificuldade === activeFilter);
+      : cachoeiras.filter((item) => item.dificuldadeAcesso === activeFilter);
 
   const handleDificuldadeLabel = () => {
     var dificuldadeAcesso = getCategoryLabel("cachoeira", selectedCachoeira.dificuldadeAcesso);
@@ -72,9 +72,9 @@ const Cachoeiras = () => {
   return (
     <div className="pagina-tematica cachoeiras-page">
       <div className="main-content">
-        {loading ? ( 
-          <LoadingCard/>
-        ) : err ? ( 
+        {loading ? (
+          <LoadingCard />
+        ) : err ? (
           <NoContentCard title="cachoeiras" subtext />
         ) : (
           <>

@@ -6,10 +6,8 @@ import Map from "../../components/Map/Map";
 import Api from "../../services/Api";
 import './Home.css';
 import NoContentCard from "../../components/NoContentCard/NoContentCard";
-import { Link, useNavigate } from "react-router-dom";
-import { link } from "fontawesome";
-import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import { useNavigate } from "react-router-dom";
+import LoadingCard from "../../components/LoadingCard/LoadingCard";
 
 const Home = () => {
   const [trilhas, setTrilhas] = useState([]);
@@ -104,7 +102,7 @@ const Home = () => {
     {
       image: eventos[0]?.imagem[0],
       title: "Eventos",
-      description:"Participe de nossos eventos da cidade para aproveitar com a família",
+      description: "Participe de nossos eventos da cidade para aproveitar com a família",
       reverse: true,
       link: "/eventos"
     }

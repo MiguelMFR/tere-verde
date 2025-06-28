@@ -1,6 +1,6 @@
 import "./Dialog.css"
 
-const AdminDialog = ({ isOpen, title, children, footer }) => {
+const AdminDialog = ({ isOpen, onClose, title, children, footer }) => {
   if (!isOpen) return null;
 
   const handleOverlayClick = (e) => {
@@ -14,9 +14,6 @@ const AdminDialog = ({ isOpen, title, children, footer }) => {
       <div className="dialog">
         <div className="dialog-header">
           <h2>{title}</h2>
-          <button className="dialog-close-button" onClick={onClose}>
-            &times;
-          </button>
         </div>
         <div className="dialog-body">{children}</div>
         {footer && <div className="dialog-footer">{footer}</div>}

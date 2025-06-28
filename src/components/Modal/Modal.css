@@ -107,7 +107,7 @@
 .modal-zoom-img {
   max-width: 90vw;
   max-height: 90vh;
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
   cursor: default;
   object-fit: contain;

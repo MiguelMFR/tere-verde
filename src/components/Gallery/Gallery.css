@@ -127,6 +127,8 @@
 .gallery-zoom-img {
   max-width: 90vw;
   max-height: 90vh;
+  height: max-content !important;
+  width: max-content !important;
   border-radius: 20px;
   box-shadow: var(--box-shadow);
   cursor: default;

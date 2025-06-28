@@ -12,9 +12,9 @@ import { getCategoryLabel } from '../../utils/functions/getCategoryLabel';
 const Biodiversidade = () => {
   const bioFilters = [
     { value: 'all', label: 'Todas' },
-    { value: 'Ave', label: 'Aves' },
-    { value: 'Flora', label: 'Flora' },
-    { value: 'Mamífero', label: 'Mamíferos' }
+    { value: 'ave', label: 'Aves' },
+    { value: 'flora', label: 'Flora' },
+    { value: 'mamifero', label: 'Mamíferos' }
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
@@ -47,14 +47,14 @@ const Biodiversidade = () => {
 
   const filteredItems = activeFilter === 'all'
     ? biodiversidade
-    : biodiversidade.filter(item => item.tipo === activeFilter);
+    : biodiversidade.filter(item => item.classificacao === activeFilter);
 
   return (
     <div className="pagina-tematica biodiversidade-page">
       <div className="main-content">
-        {loading ? ( 
-          <LoadingCard/>
-        ) : err ? ( 
+        {loading ? (
+          <LoadingCard />
+        ) : err ? (
           <NoContentCard title="biodiversidade" subtext />
         ) : (
           <>
@@ -76,7 +76,7 @@ const Biodiversidade = () => {
                     key={biodiversidade.id}
                     page="bio"
                     image={biodiversidade.imagem[0]}
-                    title={biodiversidade.especie}
+                    title={biodiversidade.nome}
                     categories={[
                       { label: getCategoryLabel("bio", biodiversidade.classificacao), type: biodiversidade.classificacao }
                     ]}
