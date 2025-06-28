@@ -47,7 +47,6 @@ const Home = () => {
     try {
       const response = await Api.get("/biodiversidade");
       if (response.data) setBio(response.data);
-      console.log("BIO: ", response)
     } catch (err) {
       console.error("Erro ao carregar biodiversidades: ", err);
     } finally {
@@ -94,7 +93,7 @@ const Home = () => {
 
   const features = [
     {
-      image: bio[0]?.imagem[1],
+      image: bio[0]?.imagem[0],
       title: "Biodiversidade Única",
       description: "Teresópolis abriga uma rica diversidade de flora e fauna em suas unidades de conservação.",
       link: "/biodiversidade"
