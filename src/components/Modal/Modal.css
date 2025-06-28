@@ -21,7 +21,6 @@
   position: relative;
   box-shadow: var(--box-shadow);
   overflow-y: auto;
-  min-height: 330px;
   max-width: 700px;
   min-width: 878px;
 }
