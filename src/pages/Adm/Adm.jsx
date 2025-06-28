@@ -183,9 +183,6 @@ const SysAdm = () => {
                   image={item.imagem[0]}
                   title={item.nome}
                   description={item.descricao}
-                  categories={[
-                    { label: item.dificuldade, type: item.dificuldade },
-                  ]}
                   item={item}
                   onEdit={handleEdit}
                   onDelete={() => {

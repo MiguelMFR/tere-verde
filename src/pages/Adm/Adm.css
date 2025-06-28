@@ -63,10 +63,15 @@
   cursor: pointer;
   border: none;
   background: none;
-  color: var(--primary-color);
+  color: var(--button-background);
   font-size: 1em;
-  font-weight: 600;
+  font-weight: bold;
   margin: -10px 0 25px 0px;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-add-img:hover {
+  color: var(--button-hover);
 }
 
 @media (max-width: 768px) {
