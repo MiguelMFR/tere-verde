@@ -75,11 +75,13 @@ const SysAdm = () => {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
+
     setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
   };
 
   const handleSubmit = async () => {
     const currentCategory = categories[activeTab].name;
+    console.log('FormData antes da validação:', formData); 
     const errors = validateFormData(currentCategory, formData);
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
@@ -102,7 +104,6 @@ const SysAdm = () => {
     fetchAllData();
     setOpenDialog(false);
   };
-
   const handleEdit = async (item) => {
     setFormData({ ...initialFormData, ...item });
     setEditingId(item.id);

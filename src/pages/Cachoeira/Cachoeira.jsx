@@ -8,6 +8,7 @@ import Api from "../../services/Api";
 import "./Cachoeira.css";
 import Modal from "../../components/Modal/Modal.jsx";
 import { getCategoryLabel } from "../../utils/functions/getCategoryLabel";
+import LoadingCard from "../../components/LoadingCard/LoadingCard.jsx";
 
 const Cachoeiras = () => {
   const waterfallFilters = [
@@ -19,11 +20,11 @@ const Cachoeiras = () => {
 
   const [cachoeiras, setCachoeiras] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [err, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedCachoeira, setSelectedCachoeira] = useState(null);
 
-  const activeFilterName = waterfallFilters.find(f => f.value === activeFilter)?.label.toLocaleLowerCase();
+  const activeFilterName = waterfallFilters.find(f => f.value === activeFilter)?.label?.toLocaleLowerCase();
 
   const fetchCachoeiras = async () => {
     try {
@@ -57,14 +58,13 @@ const Cachoeiras = () => {
   const filteredItems =
     activeFilter === "all"
       ? cachoeiras
-      : cachoeiras.filter((item) => item.dificuldadeAcesso === activeFilter);
+      : cachoeiras.filter((item) => item.dificuldade === activeFilter);
 
   const handleDificuldadeLabel = () => {
     var dificuldadeAcesso = getCategoryLabel("cachoeira", selectedCachoeira.dificuldadeAcesso);
     return dificuldadeAcesso.toLocaleLowerCase();
   }
 
-  //TODO: add card dedicado
   if (loading) {
     return <div>Carregando...</div>;
   }
@@ -72,7 +72,9 @@ const Cachoeiras = () => {
   return (
     <div className="pagina-tematica cachoeiras-page">
       <div className="main-content">
-        {error != null ? (
+        {loading ? ( 
+          <LoadingCard/>
+        ) : err ? ( 
           <NoContentCard title="cachoeiras" subtext />
         ) : (
           <>

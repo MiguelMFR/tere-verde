@@ -6,6 +6,7 @@ import Filter from '../../components/Filter/Filter';
 import Api from '../../services/Api';
 import NoContentCard from "../../components/NoContentCard/NoContentCard.jsx"
 import Modal from '../../components/Modal/Modal';
+import LoadingCard from '../../components/LoadingCard/LoadingCard.jsx';
 import { getCategoryLabel } from '../../utils/functions/getCategoryLabel';
 
 const Eventos = () => {
@@ -48,15 +49,13 @@ const Eventos = () => {
     ? eventos
     : eventos.filter(item => item.tipo === activeFilter);
 
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
-
   return (
     <div className="pagina-tematica eventos-page">
       <div className="main-content">
-        {err != null ? (
-          <NoContentCard title="eventos" subtext />
+        {loading ? (
+          <LoadingCard/>
+        ) : err ? (
+          <NoContentCard title="eventos" subtext={err} />
         ) : (
           <>
             <section className="container destaque-section">
@@ -81,25 +80,24 @@ const Eventos = () => {
                     categories={[
                       { label: getCategoryLabel("eventos", evento.tipo), type: evento.tipo },
                       { label: evento.data, type: evento.data }
-
                     ]}
                     onClick={() => setSelectedEvent(evento)}
                   />
                 ))}
               </div>
             </section>
+            
+            <section className="info-section">
+              <h3>Como Participar</h3>
+              <ul>
+                <li>Eventos gratuitos: apenas chegar</li>
+                <li>Eventos pagos: inscrições no site</li>
+                <li>Leve documentos para credenciamento</li>
+                <li>Chegue com pelo menos 30min de antecedência</li>
+              </ul>
+            </section>
           </>
         )}
-        <section className="info-section">
-          <h3>Como Participar</h3>
-          <ul>
-            <li>Eventos gratuitos: apenas chegar</li>
-            <li>Eventos pagos: inscrições no site</li>
-            <li>Leve documentos para credenciamento</li>
-            <li>Chegue com pelo menos 30min de antecedência</li>
-          </ul>
-        </section>
-
       </div>
 
       <Modal type={selectedEvent} isOpen={selectedEvent !== null} onClose={() => setSelectedEvent(null)}>
@@ -111,7 +109,6 @@ const Eventos = () => {
           `Local: ${selectedEvent.local}`,
         ]}
       </Modal>
-
     </div>
   );
 };

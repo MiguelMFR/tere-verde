@@ -6,6 +6,9 @@ import Map from "../../components/Map/Map";
 import Api from "../../services/Api";
 import './Home.css';
 import NoContentCard from "../../components/NoContentCard/NoContentCard";
+import { Link, useNavigate } from "react-router-dom";
+import { link } from "fontawesome";
+import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -100,29 +103,29 @@ const Home = () => {
     },
     {
       image: eventos[0]?.imagem[0],
-      title: "Eventos de Ecoturismo",
-      description: "Participe de nossos eventos que promovem o contato consciente com a natureza.",
+      title: "Eventos",
+      description:"Participe de nossos eventos da cidade para aproveitar com a família",
       reverse: true,
       link: "/eventos"
     }
   ]
 
-  if (loading) {
-    return <div>Carregando...</div>
-  };
   return (
     <div className="home-page">
       <HeroBanner
         title="Descubra as Belezas Naturais de Teresópolis"
         subtitle="Explore o Circuito Terê Verde e viva experiências inesquecíveis"
         backgroundImage={background}
+        targetId="container-id"
       />
-      {err != null ? (
+      {loading ? (
+        <LoadingCard />
+      ) : err ? (
         <NoContentCard title="atrações" subtext />
       ) : (
         <>
           <div className="main-content">
-            <section className="attractions-section container">
+            <section id="container-id" className="attractions-section container">
               <h2>Principais Atrações</h2>
               <div className="attractions-grid">
                 {attractions.map((attraction, index) => (

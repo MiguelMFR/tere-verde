@@ -8,6 +8,7 @@ import NoContentCard from '../../components/NoContentCard/NoContentCard.jsx';
 import Modal from '../../components/Modal/Modal.jsx';
 import Map from '../../components/Map/Map';
 import { getCategoryLabel } from '../../utils/functions/getCategoryLabel';
+import LoadingCard from '../../components/LoadingCard/LoadingCard.jsx';
 
 
 const Trilhas = () => {
@@ -19,7 +20,7 @@ const Trilhas = () => {
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
-  const [loading, setLoading] = useState("true");
+  const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   const [trilhas, setTrilhas] = useState([]);
   const [selectedTrilha, setSelectedTrilha] = useState(null);
@@ -56,15 +57,12 @@ const Trilhas = () => {
     return dificuldade.toLocaleLowerCase();
   }
 
-  //TODO: fazer card dedicado para o carregamento
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
-
   return (
     <div className="pagina-tematica trilhas-page">
       <div className="main-content">
-        {err ? (
+        {loading ? ( 
+          <LoadingCard/>
+        ) : err ? ( 
           <NoContentCard title="trilhas" subtext />
         ) : (
           <>

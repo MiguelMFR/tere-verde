@@ -13,7 +13,9 @@ export function getCategoryColor(page, categories) {
 };
 
 function handleTrilha(categories) {
-  switch (categories.type.toLowerCase()) {
+  const type = categories?.type?.toLowerCase?.();
+
+  switch (type) {
     case "easy":
       return "#27ae60";
     case "medium":
@@ -26,7 +28,9 @@ function handleTrilha(categories) {
 };
 
 function handleBio(categories) {
-  switch (categories.type.toLowerCase()) {
+  const type = categories?.type?.toLowerCase?.();
+
+  switch (type) {
     case "ave":
       return "#1878E7";
     case "flora":
@@ -39,7 +43,9 @@ function handleBio(categories) {
 };
 
 function handleEventos(categories) {
-  switch (categories.type.toLowerCase()) {
+  const type = categories?.type?.toLowerCase?.();
+
+  switch (type) {
     case "cultural":
       return "#e74c4c";
     case "ecologico":
