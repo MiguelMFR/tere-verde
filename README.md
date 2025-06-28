@@ -78,6 +78,13 @@ npm start
 
 ---
 
+## 📄 Requisitos
+
+protótipo: https://docs.google.com/document/d/1gjCweHioh7SrGMJeIUYr3FZjOIrDhjK8NnkQZKD2zl0/edit?usp=sharing
+link: https://docs.google.com/spreadsheets/d/1L0VfFNUSiv5XeJG-MPO1jtjKt6lzQ0woPM_P2PC0wd0/edit?usp=sharing
+
+---
+
 ## 📄 Licença
 
 Este projeto está licenciado sob a Licença MIT.
